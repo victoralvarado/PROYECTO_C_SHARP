@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.dgvCategoria = new System.Windows.Forms.DataGridView();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNombreCate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTitulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,22 +44,12 @@
             this.dgvCategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
             this.ColNombreCate});
-            this.dgvCategoria.Location = new System.Drawing.Point(12, 137);
+            this.dgvCategoria.Location = new System.Drawing.Point(12, 196);
             this.dgvCategoria.Name = "dgvCategoria";
             this.dgvCategoria.ReadOnly = true;
             this.dgvCategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCategoria.Size = new System.Drawing.Size(508, 134);
+            this.dgvCategoria.Size = new System.Drawing.Size(634, 151);
             this.dgvCategoria.TabIndex = 0;
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("HP Simplified", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(228, 66);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(92, 22);
-            this.lblTitulo.TabIndex = 1;
-            this.lblTitulo.Text = "CATEGORIAS";
             // 
             // colId
             // 
@@ -73,11 +63,21 @@
             this.ColNombreCate.Name = "ColNombreCate";
             this.ColNombreCate.ReadOnly = true;
             // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(266, 29);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(125, 20);
+            this.lblTitulo.TabIndex = 1;
+            this.lblTitulo.Text = "CATEGORIAS";
+            // 
             // frmCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 307);
+            this.ClientSize = new System.Drawing.Size(658, 359);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.dgvCategoria);
             this.Name = "frmCategoria";
