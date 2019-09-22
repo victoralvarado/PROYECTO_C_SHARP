@@ -28,7 +28,6 @@ namespace CapaEnlaceDatos
 
         public void Registrar(string nombreCategoria)
         {
-            //PROCEDIMNIENTO
 
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "RegistrarCategoria";

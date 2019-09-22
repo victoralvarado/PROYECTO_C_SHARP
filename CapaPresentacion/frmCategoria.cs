@@ -16,7 +16,7 @@ namespace CapaPresentacion
 {
     public partial class frmCategoria : Form
     {
-        private ClsCategoria C = new ClsCategoria();
+        private Categoria C = new Categoria();
         public frmCategoria()
         {
             InitializeComponent();
