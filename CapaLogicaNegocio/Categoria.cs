@@ -6,7 +6,12 @@ using System.Text;
 using System.Data;
 
 using CapaEnlaceDatos;
-
+/*
+ * @Nombre de Clase: Categoria.
+ * @Version: 1.0.
+ * @Copyright: Sistema de registro y control de herramientas para bodega de la empresa VAAD.
+ * @Author Victor, Adrian, Andrea, Diego
+ */
 namespace CapaLogicaNegocio
 {
     public class Categoria
@@ -31,10 +36,10 @@ namespace CapaLogicaNegocio
             categoria.Modificar(Convert.ToInt32(idCategoria), nombreCategoria);
         }
 
-        public void EliminarCategoria(string id)
+        public void EliminarCategoria(string idCategoria)
         {
 
-            categoria.Eliminar(Convert.ToInt32(id));
+            categoria.Eliminar(Convert.ToInt32(idCategoria));
         }
     }
 }

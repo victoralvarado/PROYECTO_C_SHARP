@@ -7,11 +7,11 @@ using System.Drawing;
 using System.Windows.Forms;
 using CapaLogicaNegocio;
 /*
- * @Nombre de Clase: Categoria.
- * @Version: 1.0.
- * @CopyRight: SISTEMA DE REGISTRO Y CONTROL DE HERRAMIENTAS PARA BODEGA DE LA EMPRESA VAAD.
- * @Author: Victor, Adrian, Andrea y Diego.
- */
+* @Nombre de Clase: frmCategoria.
+* @Version: 1.0.
+* @Copyright: Sistema de registro y control de herramientas para bodega de la empresa VAAD.
+* @Author Victor, Adrian, Andrea, Diego
+*/
 namespace CapaPresentacion
 {
     public partial class frmCategoria : Form

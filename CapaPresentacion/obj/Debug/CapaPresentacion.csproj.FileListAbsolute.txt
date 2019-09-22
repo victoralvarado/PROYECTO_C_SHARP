@@ -50,3 +50,4 @@ C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPrese
 C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
 C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.frmUsuario.resources
