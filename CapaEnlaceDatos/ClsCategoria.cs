@@ -34,8 +34,8 @@ namespace CapaEnlaceDatos
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@nombreCategoria", nombreCategoria);
             comando.ExecuteNonQuery();
-
             comando.Parameters.Clear();
+            conexion.CerrarConexion();
 
         }
 
@@ -47,10 +47,9 @@ namespace CapaEnlaceDatos
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@nombreCategoria", nombreCategoria);
             comando.Parameters.AddWithValue("@idCategoria", idCategoria);
-
             comando.ExecuteNonQuery();
-
             comando.Parameters.Clear();
+            conexion.CerrarConexion();
         }
 
         public void Eliminar(int idCategoria)
@@ -58,12 +57,10 @@ namespace CapaEnlaceDatos
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "EliminarCategoria";
             comando.CommandType = CommandType.StoredProcedure;
-
             comando.Parameters.AddWithValue("@idCategoria", idCategoria);
-
             comando.ExecuteNonQuery();
-
             comando.Parameters.Clear();
+            conexion.CerrarConexion();
         }
     }
 }
