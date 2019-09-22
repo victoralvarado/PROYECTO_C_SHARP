@@ -26,7 +26,7 @@ namespace CapaLogicaNegocio
             categoria.Registrar(nombreCategoria);
         }
 
-        public void ModificarCategoria(int idCategoria, string nombreCategoria)
+        public void ModificarCategoria(string idCategoria, string nombreCategoria)
         {
             categoria.Modificar(Convert.ToInt32(idCategoria), nombreCategoria);
         }

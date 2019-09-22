@@ -10,3 +10,9 @@ C:\Users\victor alvarado\Documents\SISTEMA-C-\CapaEnlaceDatos\obj\Debug\CapaEnla
 C:\Users\victor alvarado\Documents\SISTEMA-C-\CapaEnlaceDatos\obj\Debug\CapaEnlaceDatos.csproj.CoreCompileInputs.cache
 C:\Users\victor alvarado\Documents\SISTEMA-C-\CapaEnlaceDatos\obj\Debug\CapaEnlaceDatos.dll
 C:\Users\victor alvarado\Documents\SISTEMA-C-\CapaEnlaceDatos\obj\Debug\CapaEnlaceDatos.pdb
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaEnlaceDatos\bin\Debug\CapaEnlaceDatos.dll
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaEnlaceDatos\bin\Debug\CapaEnlaceDatos.pdb
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaEnlaceDatos\obj\Debug\CapaEnlaceDatos.csprojAssemblyReference.cache
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaEnlaceDatos\obj\Debug\CapaEnlaceDatos.csproj.CoreCompileInputs.cache
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaEnlaceDatos\obj\Debug\CapaEnlaceDatos.dll
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaEnlaceDatos\obj\Debug\CapaEnlaceDatos.pdb
