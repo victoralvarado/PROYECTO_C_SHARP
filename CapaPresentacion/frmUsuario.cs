@@ -25,10 +25,14 @@ namespace CapaPresentacion
 
         public void CargarTipoUsuario()
         {
-            cmbTipo.Items.Add("- Seleccionar -");
-            cmbTipo.Items.Add("Administrador");
-            cmbTipo.Items.Add("Editor");
-            cmbTipo.SelectedIndex = 0;
+            
+            
+                cmbTipo.Items.Add("- Seleccionar -");
+                cmbTipo.Items.Add("Administrador");
+                cmbTipo.Items.Add("Editor");
+                cmbTipo.SelectedIndex = 0;
+            
+            
         }
         private void ListarUsuarios()
         {
@@ -95,6 +99,14 @@ namespace CapaPresentacion
                 
                 cmbTipo.Text = dgvUsuario.CurrentRow.Cells["TIPO"].Value.ToString();
                 idUsuario = dgvUsuario.CurrentRow.Cells["ID USUARIO"].Value.ToString();
+                if (idUsuario.Equals("1"))
+                {
+                    cmbTipo.Enabled = false;
+                }
+                else
+                {
+                    cmbTipo.Enabled = true;
+                }
             }
             else
                 MessageBox.Show("seleccione una fila por favor");
@@ -105,12 +117,38 @@ namespace CapaPresentacion
             if (dgvUsuario.SelectedRows.Count > 0)
             {
                 idUsuario = dgvUsuario.CurrentRow.Cells["ID USUARIO"].Value.ToString();
-                U.EliminarUsuario(idUsuario);
-                MessageBox.Show("Eliminado correctamente");
-                ListarUsuarios();
+                if (idUsuario.Equals("1"))
+                {
+                    MessageBox.Show("El administrador principal no puede ser eliminado");
+                }
+                else
+                {
+                    
+                    U.EliminarUsuario(idUsuario);
+                    MessageBox.Show("Eliminado correctamente");
+                    ListarUsuarios();
+                }
+                
             }
             else
                 MessageBox.Show("seleccione una fila por favor");
+        }
+
+        private void DgvUsuario_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.dgvUsuario.Columns[e.ColumnIndex].Name== "TIPO")
+            {
+                if (Convert.ToString(e.Value)=="Administrador")
+                {
+                    e.CellStyle.ForeColor = Color.White;
+                    e.CellStyle.BackColor = Color.OrangeRed;
+                }
+                else
+                {
+                    e.CellStyle.ForeColor = Color.White;
+                    e.CellStyle.BackColor = Color.ForestGreen;
+                }
+            }
         }
     }
 }

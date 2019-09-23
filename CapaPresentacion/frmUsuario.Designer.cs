@@ -115,6 +115,7 @@
             this.dgvUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuario.Size = new System.Drawing.Size(534, 133);
             this.dgvUsuario.TabIndex = 9;
+            this.dgvUsuario.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvUsuario_CellFormatting);
             // 
             // btGuardar
             // 
