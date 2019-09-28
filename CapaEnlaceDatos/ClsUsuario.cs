@@ -1,16 +1,18 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 /*
- * @Nombre de Clase: ClsUsuario.
- * @Version: 1.0.
- * @Copyright: Sistema de registro y control de herramientas para bodega de la empresa VAAD.
- * @Author Victor, Adrian, Andrea & Diego.
- */
+* @Nombre de Clase: ClsUsuario.
+* @Version: 1.0.
+* @Copyright: Sistema de registro y control de herramientas para bodega de la empresa VAAD.
+* @Author Victor, Adrian, Andrea & Diego.
+*/
 namespace CapaEnlaceDatos
 {
     public class ClsUsuario
@@ -19,7 +21,7 @@ namespace CapaEnlaceDatos
 
         SqlDataReader leer;
         DataTable tabla = new DataTable();
-        DataTable combo = new DataTable();
+        ComboBox combo = new ComboBox();
         SqlCommand comando = new SqlCommand();
 
         public DataTable Listar()
@@ -74,19 +76,6 @@ namespace CapaEnlaceDatos
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
             conexion.CerrarConexion();
-        }
-
-        public DataTable ListarTipoU()
-        {
-
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "ListarTipoUsuario";
-            comando.CommandType = CommandType.StoredProcedure;
-            leer = comando.ExecuteReader();
-            combo.Load(leer);
-            conexion.CerrarConexion();
-            return combo;
-
         }
     }
 }

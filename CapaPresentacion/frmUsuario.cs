@@ -25,14 +25,10 @@ namespace CapaPresentacion
 
         public void CargarTipoUsuario()
         {
-            
-            
                 cmbTipo.Items.Add("- Seleccionar -");
                 cmbTipo.Items.Add("Administrador");
-                cmbTipo.Items.Add("Editor");
+                cmbTipo.Items.Add("Bodeguero");
                 cmbTipo.SelectedIndex = 0;
-            
-            
         }
         private void ListarUsuarios()
         {
@@ -44,7 +40,8 @@ namespace CapaPresentacion
         {
             CargarTipoUsuario();
             ListarUsuarios();
-           dgvUsuario.Columns["password"].Visible = false;
+            dgvUsuario.Columns["password"].Visible = false;
+            dgvUsuario.Columns["idUsuario"].Visible = false;
         }
 
         private void BtGuardar_Click(object sender, EventArgs e)
@@ -97,8 +94,8 @@ namespace CapaPresentacion
                 txtUserName.Text = dgvUsuario.CurrentRow.Cells["NOMBRE DE USUARIO"].Value.ToString();
                 txtPassword.Text = dgvUsuario.CurrentRow.Cells["password"].Value.ToString();
                 
-                cmbTipo.Text = dgvUsuario.CurrentRow.Cells["TIPO"].Value.ToString();
-                idUsuario = dgvUsuario.CurrentRow.Cells["ID USUARIO"].Value.ToString();
+                cmbTipo.Text = dgvUsuario.CurrentRow.Cells["TIPO DE USUARIO"].Value.ToString();
+                idUsuario = dgvUsuario.CurrentRow.Cells["idUsuario"].Value.ToString();
                 if (idUsuario.Equals("1"))
                 {
                     cmbTipo.Enabled = false;
@@ -116,7 +113,7 @@ namespace CapaPresentacion
         {
             if (dgvUsuario.SelectedRows.Count > 0)
             {
-                idUsuario = dgvUsuario.CurrentRow.Cells["ID USUARIO"].Value.ToString();
+                idUsuario = dgvUsuario.CurrentRow.Cells["idUsuario"].Value.ToString();
                 if (idUsuario.Equals("1"))
                 {
                     MessageBox.Show("El administrador principal no puede ser eliminado");
@@ -136,7 +133,7 @@ namespace CapaPresentacion
 
         private void DgvUsuario_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (this.dgvUsuario.Columns[e.ColumnIndex].Name== "TIPO")
+            if (this.dgvUsuario.Columns[e.ColumnIndex].Name== "TIPO DE USUARIO")
             {
                 if (Convert.ToString(e.Value)=="Administrador")
                 {

@@ -33,6 +33,7 @@ namespace CapaPresentacion
         private void FrmCategoria_Load(object sender, EventArgs e)
         {
             ListarCategorias();
+            dgvCategoria.Columns["ID CATEGORIA"].Visible = false;
         }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
@@ -79,8 +80,8 @@ namespace CapaPresentacion
             if (dgvCategoria.SelectedRows.Count > 0)
             {
                 Modificar = true;
-                txtCategoria.Text = dgvCategoria.CurrentRow.Cells["nombreCategoria"].Value.ToString();
-                idCategoria = dgvCategoria.CurrentRow.Cells["idCategoria"].Value.ToString();
+                txtCategoria.Text = dgvCategoria.CurrentRow.Cells["CATEGORIA"].Value.ToString();
+                idCategoria = dgvCategoria.CurrentRow.Cells["ID CATEGORIA"].Value.ToString();
             }
             else
                 MessageBox.Show("seleccione una fila por favor");

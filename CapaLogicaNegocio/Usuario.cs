@@ -19,12 +19,7 @@ namespace CapaLogicaNegocio
             tabla = usuario.Listar();
             return tabla;
         }
-        public DataTable ListarTipo()
-        {
-            DataTable combo = new DataTable();
-            combo = usuario.ListarTipoU();
-            return combo;
-        }
+        
         public void RegistrarUsuario(string userName, string password, string tipoUsuario)
         {
 

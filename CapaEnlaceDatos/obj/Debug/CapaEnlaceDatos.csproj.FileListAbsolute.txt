@@ -16,3 +16,11 @@ C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaEnlaceDatos\obj\Debug\CapaEnlace
 C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaEnlaceDatos\obj\Debug\CapaEnlaceDatos.csproj.CoreCompileInputs.cache
 C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaEnlaceDatos\obj\Debug\CapaEnlaceDatos.dll
 C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaEnlaceDatos\obj\Debug\CapaEnlaceDatos.pdb
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaEnlaceDatos\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaEnlaceDatos\bin\Debug\Google.Protobuf.dll
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaEnlaceDatos\bin\Debug\MySql.Data.dll
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaEnlaceDatos\bin\Debug\Renci.SshNet.dll
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaEnlaceDatos\bin\Debug\Google.Protobuf.xml
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaEnlaceDatos\bin\Debug\MySql.Data.xml
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaEnlaceDatos\bin\Debug\Renci.SshNet.xml
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaEnlaceDatos\obj\Debug\CapaEnlaceDatos.csproj.CopyComplete
