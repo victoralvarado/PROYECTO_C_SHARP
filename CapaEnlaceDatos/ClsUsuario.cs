@@ -49,6 +49,20 @@ namespace CapaEnlaceDatos
 
         }
 
+        public DataTable Filtrar(string buscar)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "  SELECT idUsuario AS 'ID USUARIO', UserName AS " +
+                "'NOMBRE DE USUARIO',password, tipoUsuario AS 'TIPO DE USUARIO' " +
+                "FROM Bodega.usuario WHERE userName LIKE '%" + buscar + "%' OR  tipoUsuario " +
+                "LIKE '%" + buscar + "%' OR idUsuario LIKE '%" + buscar + "%'";
+            comando.CommandType = CommandType.Text;
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+            conexion.CerrarConexion();
+            return tabla;
+        }
+
         public void Registrar(string userName, string password, string tipoUsuario)
         {
 

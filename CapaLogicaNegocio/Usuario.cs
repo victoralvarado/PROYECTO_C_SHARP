@@ -28,6 +28,12 @@ namespace CapaLogicaNegocio
             return tabla;
         }
 
+        public DataTable FiltrarUsuario(string buscar)
+        {
+            DataTable tabla = new DataTable();
+            tabla = usuario.Filtrar(buscar);
+            return tabla;
+        }
         public void RegistrarUsuario(string userName, string password, string tipoUsuario)
         {
 

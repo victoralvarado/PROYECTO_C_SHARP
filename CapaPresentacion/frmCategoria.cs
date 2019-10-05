@@ -99,32 +99,5 @@ namespace CapaPresentacion
             else
                 MessageBox.Show("seleccione una fila por favor");
         }
-
-        private void TxtFiltro_TextChanged(object sender, EventArgs e)
-        {
-            if (txtFiltro.Text != "")
-            {
-                dgvCategoria.CurrentCell = null;
-                foreach (DataGridViewRow d in dgvCategoria.Rows)
-                {
-                    d.Visible = false;
-                }
-                foreach (DataGridViewRow d in dgvCategoria.Rows)
-                {
-                    foreach (DataGridViewCell da in d.Cells)
-                    {
-                        if ((da.Value.ToString().ToUpper()).IndexOf(txtFiltro.Text.ToUpper()) == 0)
-                        {
-                            d.Visible = true;
-                            break;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                ListarCategorias();
-            }
-        }
     }
 }

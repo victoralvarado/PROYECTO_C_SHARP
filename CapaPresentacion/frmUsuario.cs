@@ -15,7 +15,11 @@ namespace CapaPresentacion
     {
         private Usuario U = new Usuario();
         private string idUsuario = null;
-        private bool Modificar = false;
+        ErrorProvider ep = new ErrorProvider();
+        bool Editando = false;
+        bool Agregando = false;
+        bool ValidarF = false;
+        bool Seleccionado = false;
 
         public frmUsuario()
         {
@@ -33,108 +37,247 @@ namespace CapaPresentacion
         {
             Usuario LU = new Usuario();
             dgvUsuario.DataSource = LU.ListarUsuario();
+            dgvUsuario.Columns["password"].Visible = false;
+        }
+        public void DesactivarControles()
+        {
+            txtUserName.Enabled = false;
+            txtPassword.Enabled = false;
+            cmbTipo.Enabled = false;
+        }
+
+        public void ActivarControles()
+        {
+            txtUserName.Enabled = true;
+            txtPassword.Enabled = true;
+        }
+
+        public void Botones()
+        {
+            if (dgvUsuario.RowCount > 0)
+            {
+                btnAgregar.Enabled = true;
+                btnAgregar.Cursor = Cursors.Hand;
+
+                btnEditar.Enabled = true;
+                btnEditar.Cursor = Cursors.Hand;
+
+                btnEliminar.Enabled = true;
+                btnEliminar.Cursor = Cursors.Hand;
+
+                btnCancelar.Enabled = false;
+                btnCancelar.Cursor = Cursors.No;
+
+                btnGuardar.Enabled = false;
+                btnGuardar.Cursor = Cursors.No;
+            }
+            else
+            {
+                btnAgregar.Enabled = true;
+                btnAgregar.Cursor = Cursors.Hand;
+
+                btnEditar.Enabled = false;
+                btnEditar.Cursor = Cursors.No;
+
+                btnEliminar.Enabled = false;
+                btnEliminar.Cursor = Cursors.No;
+
+                btnCancelar.Enabled = false;
+                btnCancelar.Cursor = Cursors.No;
+
+                btnGuardar.Enabled = false;
+                btnGuardar.Cursor = Cursors.No;
+            }
+        }
+
+        public void ActivarBotones()
+        {
+            btnAgregar.Enabled = false;
+            btnAgregar.Cursor = Cursors.No;
+
+            btnEditar.Enabled = false;
+            btnEditar.Cursor = Cursors.No;
+
+            btnEliminar.Enabled = false;
+            btnEliminar.Cursor = Cursors.No;
+
+            btnCancelar.Enabled = true;
+            btnCancelar.Cursor = Cursors.Hand;
+
+            btnGuardar.Enabled = true;
+            btnGuardar.Cursor = Cursors.Hand;
+        }
+
+        public void LimpiarControles()
+        {
+            txtUserName.Clear();
+            txtPassword.Clear();
+            cmbTipo.SelectedIndex = 0;
+            DesactivarControles();
         }
 
         private void FrmUsuario_Load(object sender, EventArgs e)
         {
             CargarTipoUsuario();
             ListarUsuarios();
-            dgvUsuario.Columns["password"].Visible = false;
-            dgvUsuario.Columns["idUsuario"].Visible = false;
+            DesactivarControles();
+            Botones();
+            
         }
 
-        private void BtGuardar_Click(object sender, EventArgs e)
-        {
-            if (Modificar == false)
-            {
-                try
-                {
-                    U.RegistrarUsuario(txtUserName.Text,txtPassword.Text,cmbTipo.Text);
-                    MessageBox.Show("se registro correctamente");
-                    ListarUsuarios();
-                    LimpiarFormulario();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("no se pudo registrar los datos por: " + ex);
-                }
-            }
-            //EDITAR
-            if (Modificar == true)
-            {
 
-                try
-                {
-                    U.ModificarUsuario(idUsuario,txtUserName.Text,txtPassword.Text, cmbTipo.Text);
-                    MessageBox.Show("se modifico correctamente");
-                    ListarUsuarios();
-                    LimpiarFormulario();
-                    Modificar = false;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("no se pudo modificar los datos por: " + ex);
-                }
-            }
-        }
-
-        public void LimpiarFormulario()
+        private void DgvUsuario_Click(object sender, EventArgs e)
         {
-            txtUserName.Clear();
-            txtPassword.Clear();
-            cmbTipo.SelectedIndex = 0;
-        }
-
-        private void BtnModificar_Click(object sender, EventArgs e)
-        {
-            if (dgvUsuario.SelectedRows.Count > 0)
+            if (dgvUsuario.RowCount > 0)
             {
-                Modificar = true;
-                txtUserName.Text = dgvUsuario.CurrentRow.Cells["NOMBRE DE USUARIO"].Value.ToString();
-                txtPassword.Text = dgvUsuario.CurrentRow.Cells["password"].Value.ToString();
+                idUsuario = dgvUsuario.Rows[dgvUsuario.CurrentRow.Index].Cells["ID USUARIO"].Value.ToString();
+                txtUserName.Text = dgvUsuario.Rows[dgvUsuario.CurrentRow.Index].Cells["NOMBRE DE USUARIO"].Value.ToString();
+                txtPassword.Text = dgvUsuario.Rows[dgvUsuario.CurrentRow.Index].Cells["password"].Value.ToString();
+                cmbTipo.Text = dgvUsuario.Rows[dgvUsuario.CurrentRow.Index].Cells["TIPO DE USUARIO"].Value.ToString();
                 
-                cmbTipo.Text = dgvUsuario.CurrentRow.Cells["TIPO DE USUARIO"].Value.ToString();
-                idUsuario = dgvUsuario.CurrentRow.Cells["idUsuario"].Value.ToString();
-                if (idUsuario.Equals("1"))
-                {
-                    cmbTipo.Enabled = false;
-                }
-                else
-                {
-                    cmbTipo.Enabled = true;
-                }
             }
-            else
-                MessageBox.Show("seleccione una fila por favor");
         }
 
-        private void BtnElimnar_Click(object sender, EventArgs e)
+        private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            if (dgvUsuario.SelectedRows.Count > 0)
+            dgvUsuario.Enabled = false;
+            LimpiarControles();
+            ActivarControles();
+            cmbTipo.Enabled = true;
+            ActivarBotones();
+            Editando = false;
+            Agregando = true;
+            txtUserName.Focus();
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            if (dgvUsuario.RowCount > 0)
             {
-                idUsuario = dgvUsuario.CurrentRow.Cells["idUsuario"].Value.ToString();
-                if (idUsuario.Equals("1"))
+                Seleccionado = false;
+                if (txtUserName.Text.Length > 0)
                 {
-                    MessageBox.Show("El administrador principal no puede ser eliminado");
+                    Seleccionado = true;
                 }
-                else
+
+                if (Seleccionado == true)
                 {
+                    if (idUsuario == "1")
+                    {
+                        cmbTipo.Enabled = false;
+                        dgvUsuario.Enabled = false;
+                        ActivarBotones();
+                        ActivarControles();
+                        Editando = true;
+                        Agregando = false;
+                    }
+                    else
+                    {
+                        cmbTipo.Enabled = false;
+                        dgvUsuario.Enabled = false;
+                        ActivarBotones();
+                        ActivarControles();
+                        Editando = true;
+                        Agregando = false;
+                        cmbTipo.Enabled = true;
+                    }
                     
-                    U.EliminarUsuario(idUsuario);
-                    MessageBox.Show("Eliminado correctamente");
-                    ListarUsuarios();
                 }
-                
+                else
+                {
+                    MessageBox.Show("Debe dar clic sobre la fila a editar", "Seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
-                MessageBox.Show("seleccione una fila por favor");
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea cancelar la operación ?", "Validacion", MessageBoxButtons.YesNo,
+ MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                LimpiarControles();
+                ep.Clear();
+                Agregando = false;
+                Editando = false;
+                Botones();
+                dgvUsuario.Enabled = true;
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvUsuario.RowCount > 0)
+            {
+                idUsuario = dgvUsuario.CurrentRow.Cells["ID USUARIO"].Value.ToString();
+                if (idUsuario == "1")
+                {
+                    MessageBox.Show("El administrador principal no puede ser eliminado","Eliminar",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                }
+                else
+                {
+
+                    if (MessageBox.Show("Desea eliminar?", "Validación",
+                               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        U.EliminarUsuario(idUsuario);
+                        Botones();
+                        ListarUsuarios();
+                        MessageBox.Show("Registro eliminado correctamente", "Validación",
+                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimpiarControles();
+                    }
+                }
+            }
+        }
+
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            ValidarF = true;
+            ep.Clear();
+            if (txtUserName.Text.Trim().Length == 0)
+            {
+                ep.SetError(txtUserName, "Campo requerido!");
+                ValidarF = false;
+            }
+            if (txtPassword.Text.Trim().Length == 0)
+            {
+                ep.SetError(txtPassword, "Campo requerido!");
+                ValidarF = false;
+            }
+            if (cmbTipo.SelectedIndex == 0)
+            {
+                ep.SetError(cmbTipo, "Seleccione tipo de usuario!");
+                ValidarF = false;
+            }
+            if (ValidarF == true)
+            {
+                if (Agregando == true && Editando == false)
+                {
+
+                    U.RegistrarUsuario(txtUserName.Text, txtPassword.Text, cmbTipo.Text);
+                    MessageBox.Show("Datos agregados correctamente", "Agregando", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Botones();
+                    ListarUsuarios();
+                    LimpiarControles();
+                    dgvUsuario.Enabled = true;
+                }
+                else
+                {
+                    U.ModificarUsuario(idUsuario, txtUserName.Text, txtPassword.Text, cmbTipo.Text);
+                    MessageBox.Show("Datos modificados correctamente", "Modificando", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Botones();
+                    ListarUsuarios();
+                    LimpiarControles();
+                    dgvUsuario.Enabled = true;
+                }
+            }
         }
 
         private void DgvUsuario_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (this.dgvUsuario.Columns[e.ColumnIndex].Name== "TIPO DE USUARIO")
+            if (this.dgvUsuario.Columns[e.ColumnIndex].Name == "TIPO DE USUARIO")
             {
-                if (Convert.ToString(e.Value)=="Administrador")
+                if (Convert.ToString(e.Value) == "Administrador")
                 {
                     e.CellStyle.ForeColor = Color.White;
                     e.CellStyle.BackColor = Color.OrangeRed;
@@ -145,6 +288,13 @@ namespace CapaPresentacion
                     e.CellStyle.BackColor = Color.ForestGreen;
                 }
             }
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            Usuario LU = new Usuario();
+            dgvUsuario.DataSource = LU.FiltrarUsuario(txtBuscar.Text);
+            dgvUsuario.Columns["password"].Visible = false;
         }
     }
 }

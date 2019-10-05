@@ -39,7 +39,8 @@ namespace CapaPresentacion
             cmbUso.Items.Add("SELECCIONAR");
             cmbUso.Items.Add("SI");
             cmbUso.Items.Add("NO");
-            cmbUso.SelectedIndex = 0;
+            cmbUso.SelectedIndex = 2;
+            cmbUso.Enabled = false;
         }
 
         public void LlenarEstado()
@@ -50,33 +51,18 @@ namespace CapaPresentacion
             cmbEstado.Items.Add("DEFECTUOSA");
             cmbEstado.SelectedIndex = 0;
         }
-        public class Item
-        {
-            public string Name { get; set; }
-            public string Value { get; set; }
-
-            public Item(string name, string value)
-            {
-                Name = name;
-                Value = value;
-            }
-            public override string ToString()
-            {
-                return Name;
-            }
-        }
 
         public void LlenarCampo()
         {
-            List<Item> lista = new List<Item>();
+            List<Items> lista = new List<Items>();
 
-            lista.Add(new Item("SELECCIONAR", ""));
-            lista.Add(new Item("ID HERRAMIENTA", "idHerramienta"));
-            lista.Add(new Item("HERRAMIENTA", "nombreHerramienta"));
-            lista.Add(new Item("ID CATEGORIA", "idCategoria"));
-            lista.Add(new Item("USO", "uso"));
-            lista.Add(new Item("ESTADO", "estado"));
-            lista.Add(new Item("CATEGORIA", "nombreCategoria"));
+            lista.Add(new Items("SELECCIONAR", ""));
+            lista.Add(new Items("ID HERRAMIENTA", "idHerramienta"));
+            lista.Add(new Items("HERRAMIENTA", "nombreHerramienta"));
+            lista.Add(new Items("ID CATEGORIA", "idCategoria"));
+            lista.Add(new Items("USO", "uso"));
+            lista.Add(new Items("ESTADO", "estado"));
+            lista.Add(new Items("CATEGORIA", "nombreCategoria"));
 
             cmbCampo.DisplayMember = "Name";
             cmbCampo.ValueMember = "Value";
@@ -84,7 +70,7 @@ namespace CapaPresentacion
             cmbCampo.SelectedIndex = 0;
         }
 
-        private void ListarHerramientas()
+        public void ListarHerramientas()
         {
             Herramienta LH = new Herramienta();
             dgvHerramienta.DataSource = LH.ListarHerramienta();
@@ -103,7 +89,7 @@ namespace CapaPresentacion
             txtNombre.Enabled = true;
             cmbCategoria.Enabled = true;
             cmbEstado.Enabled = true;
-            cmbUso.Enabled = true;
+            cmbUso.Enabled = false;
         }
 
         public void Botones()
@@ -167,7 +153,7 @@ namespace CapaPresentacion
             txtNombre.Clear();
             cmbCategoria.SelectedIndex = 0;
             cmbEstado.SelectedIndex = 0;
-            cmbUso.SelectedIndex = 0;
+            cmbUso.SelectedIndex = 2;
             DesactivarControles();
         }
 
@@ -244,23 +230,26 @@ namespace CapaPresentacion
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
-            Seleccionado = false;
-            if (txtNombre.Text.Length > 0)
+            if (dgvHerramienta.RowCount > 0)
             {
-                Seleccionado = true;
-            }
+                Seleccionado = false;
+                if (txtNombre.Text.Length > 0)
+                {
+                    Seleccionado = true;
+                }
 
-            if (Seleccionado == true)
-            {
-                dgvHerramienta.Enabled = false;
-                ActivarBotones();
-                ActivarControles();
-                Editando = true;
-                Agregando = false;
-            }
-            else
-            {
-                MessageBox.Show("Debe dar clic sobre la fila a editar", "Seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Seleccionado == true)
+                {
+                    dgvHerramienta.Enabled = false;
+                    ActivarBotones();
+                    ActivarControles();
+                    Editando = true;
+                    Agregando = false;
+                }
+                else
+                {
+                    MessageBox.Show("Debe dar clic sobre la fila a editar", "Seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
@@ -268,16 +257,24 @@ namespace CapaPresentacion
         {
             if (dgvHerramienta.RowCount > 0)
             {
-                if (MessageBox.Show("Desea eliminar?", "Validación",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["USO"].Value.ToString() == "SI")
                 {
-                    idHerramienta = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["ID HERRAMIENTA"].Value.ToString();
-                    H.EliminarHerramienta(idHerramienta);
-                    Botones();
-                    ListarHerramientas();
-                    MessageBox.Show("Registro eliminado correctamente", "Validación",
-                       MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No puede editar ni eliminar herramientas en uso", "Herramientas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     LimpiarControles();
+                }
+                else
+                {
+                    if (MessageBox.Show("Desea eliminar?", "Validación",
+                                   MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        idHerramienta = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["ID HERRAMIENTA"].Value.ToString();
+                        H.EliminarHerramienta(idHerramienta);
+                        Botones();
+                        ListarHerramientas();
+                        MessageBox.Show("Registro eliminado correctamente", "Validación",
+                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimpiarControles();
+                    }
                 }
             }
         }
@@ -300,11 +297,19 @@ namespace CapaPresentacion
         {
             if (dgvHerramienta.RowCount > 0)
             {
-                idHerramienta = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["ID HERRAMIENTA"].Value.ToString();
-                txtNombre.Text = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["NOMBRE HERRAMIENTA"].Value.ToString();
-                cmbCategoria.Text = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["CATEGORIA"].Value.ToString();
-                cmbEstado.Text = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["ESTADO"].Value.ToString();
-                cmbUso.Text = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["USO"].Value.ToString();
+                if (dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["USO"].Value.ToString() == "SI")
+                {
+                    MessageBox.Show("No puede editar ni eliminar herramientas en uso","Herramientas",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    LimpiarControles();
+                }
+                else
+                {
+                    idHerramienta = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["ID HERRAMIENTA"].Value.ToString();
+                    txtNombre.Text = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["NOMBRE HERRAMIENTA"].Value.ToString();
+                    cmbCategoria.Text = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["CATEGORIA"].Value.ToString();
+                    cmbEstado.Text = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["ESTADO"].Value.ToString();
+                    cmbUso.Text = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["USO"].Value.ToString();
+                }
             }
         }
 
