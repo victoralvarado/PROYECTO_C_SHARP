@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CapaLogicaNegocio
 {
@@ -25,7 +26,14 @@ namespace CapaLogicaNegocio
             return tabla;
         }
 
-        public void RegistrarHerramienta(string nombreHerramienta, string idCategoria, string uso, string estado)
+        public DataTable FiltrarHerramienta(string campo, string buscar)
+        {
+            DataTable tabla = new DataTable();
+            tabla = herramienta.Filtrar(campo, buscar);
+            return tabla;
+        }
+
+            public void RegistrarHerramienta(string nombreHerramienta, string idCategoria, string uso, string estado)
         {
             herramienta.Registrar(nombreHerramienta, Convert.ToInt32(idCategoria),uso,estado);
         }

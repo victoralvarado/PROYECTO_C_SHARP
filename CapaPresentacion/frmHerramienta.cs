@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace CapaPresentacion
 {
@@ -48,6 +49,39 @@ namespace CapaPresentacion
             cmbEstado.Items.Add("NORMAL");
             cmbEstado.Items.Add("DEFECTUOSA");
             cmbEstado.SelectedIndex = 0;
+        }
+        public class Item
+        {
+            public string Name { get; set; }
+            public string Value { get; set; }
+
+            public Item(string name, string value)
+            {
+                Name = name;
+                Value = value;
+            }
+            public override string ToString()
+            {
+                return Name;
+            }
+        }
+
+        public void LlenarCampo()
+        {
+            List<Item> lista = new List<Item>();
+
+            lista.Add(new Item("SELECCIONAR", ""));
+            lista.Add(new Item("ID HERRAMIENTA", "idHerramienta"));
+            lista.Add(new Item("HERRAMIENTA", "nombreHerramienta"));
+            lista.Add(new Item("ID CATEGORIA", "idCategoria"));
+            lista.Add(new Item("USO", "uso"));
+            lista.Add(new Item("ESTADO", "estado"));
+            lista.Add(new Item("CATEGORIA", "nombreCategoria"));
+
+            cmbCampo.DisplayMember = "Name";
+            cmbCampo.ValueMember = "Value";
+            cmbCampo.DataSource = lista;
+            cmbCampo.SelectedIndex = 0;
         }
 
         private void ListarHerramientas()
@@ -143,6 +177,7 @@ namespace CapaPresentacion
             LlenarUso();
             LlenarEstado();
             ListarHerramientas();
+            LlenarCampo();
             DesactivarControles();
             Botones();
         }
@@ -261,7 +296,7 @@ namespace CapaPresentacion
             }
         }
 
-        private void DgvHerramienta_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvHerramienta_Click(object sender, EventArgs e)
         {
             if (dgvHerramienta.RowCount > 0)
             {
@@ -270,6 +305,55 @@ namespace CapaPresentacion
                 cmbCategoria.Text = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["CATEGORIA"].Value.ToString();
                 cmbEstado.Text = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["ESTADO"].Value.ToString();
                 cmbUso.Text = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["USO"].Value.ToString();
+            }
+        }
+
+        private void DgvHerramienta_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.dgvHerramienta.Columns[e.ColumnIndex].Name == "ESTADO")
+            {
+                if (Convert.ToString(e.Value) == "NUEVA")
+                {
+                    e.CellStyle.ForeColor = Color.Black;
+                    e.CellStyle.BackColor = Color.SkyBlue;
+                }
+                if (Convert.ToString(e.Value) == "NORMAL")
+                {
+                    e.CellStyle.ForeColor = Color.Black;
+                    e.CellStyle.BackColor = Color.White;
+                }
+                if (Convert.ToString(e.Value) == "DEFECTUOSA")
+                {
+                    e.CellStyle.ForeColor = Color.White;
+                    e.CellStyle.BackColor = Color.Red;
+                }
+            }
+            if (this.dgvHerramienta.Columns[e.ColumnIndex].Name == "USO")
+            {
+                if (Convert.ToString(e.Value) == "NO")
+                {
+                    e.CellStyle.ForeColor = Color.White;
+                    e.CellStyle.BackColor = Color.Green;
+                }
+                if (Convert.ToString(e.Value) == "SI")
+                {
+                    e.CellStyle.ForeColor = Color.White;
+                    e.CellStyle.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (cmbCampo.SelectedIndex==0)
+            {
+                MessageBox.Show("Primero seleccione un campo","Campo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+            else
+            {
+                Herramienta LH = new Herramienta();
+                string value = Convert.ToString(cmbCampo.SelectedValue);
+                dgvHerramienta.DataSource = LH.FiltrarHerramienta(value, txtBuscar.Text);
             }
         }
     }
