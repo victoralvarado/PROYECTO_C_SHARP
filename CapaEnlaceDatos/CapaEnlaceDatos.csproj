@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="ClsConexion.cs" />
     <Compile Include="ClsCategoria.cs" />
+    <Compile Include="ClsHerramienta.cs" />
     <Compile Include="ClsUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

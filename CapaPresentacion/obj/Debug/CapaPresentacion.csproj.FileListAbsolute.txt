@@ -44,10 +44,15 @@ C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPrese
 C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.frmDetallePrestamo.resources
 C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.frmLogin.resources
 C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.frmPrincipal.resources
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.frmUsuario.resources
 C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.Properties.Resources.resources
 C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.cache
 C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CoreCompileInputs.cache
 C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
 C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
-C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.frmUsuario.resources
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.frmHerramienta.resources
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\bin\Debug\DevComponents.DotNetBar2.dll
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\bin\Debug\DevComponents.Instrumentation.dll
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\bin\Debug\DevComponents.TreeGX.dll

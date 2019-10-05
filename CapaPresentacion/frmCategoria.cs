@@ -91,7 +91,7 @@ namespace CapaPresentacion
         {
             if (dgvCategoria.SelectedRows.Count > 0)
             {
-                idCategoria = dgvCategoria.CurrentRow.Cells["idCategoria"].Value.ToString();
+                idCategoria = dgvCategoria.CurrentRow.Cells["ID CATEGORIA"].Value.ToString();
                 C.EliminarCategoria(idCategoria);
                 MessageBox.Show("Eliminado correctamente");
                 ListarCategorias();

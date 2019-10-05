@@ -36,6 +36,18 @@ namespace CapaEnlaceDatos
             return tabla;
 
         }
+        public DataTable ListarTU()
+        {
+
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "ListarTipoUsuario";
+            comando.CommandType = CommandType.StoredProcedure;
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+            conexion.CerrarConexion();
+            return tabla;
+
+        }
 
         public void Registrar(string userName, string password, string tipoUsuario)
         {

@@ -25,10 +25,9 @@ namespace CapaPresentacion
 
         public void CargarTipoUsuario()
         {
-                cmbTipo.Items.Add("- Seleccionar -");
-                cmbTipo.Items.Add("Administrador");
-                cmbTipo.Items.Add("Bodeguero");
-                cmbTipo.SelectedIndex = 0;
+            cmbTipo.DataSource = U.ListarTUsuario();
+            cmbTipo.DisplayMember = "tipoUsuario";
+            cmbTipo.SelectedIndex = 0;
         }
         private void ListarUsuarios()
         {
