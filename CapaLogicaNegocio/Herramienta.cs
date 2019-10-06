@@ -29,7 +29,7 @@ namespace CapaLogicaNegocio
         public DataTable FiltrarHerramienta(string campo, string buscar)
         {
             DataTable tabla = new DataTable();
-            tabla = herramienta.Filtrar(campo, buscar);
+            tabla = herramienta.Filtrar(campo, buscar.Replace("'", ""));
             return tabla;
         }
 

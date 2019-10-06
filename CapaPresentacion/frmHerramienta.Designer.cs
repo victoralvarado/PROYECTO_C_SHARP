@@ -46,7 +46,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.cmbUso = new System.Windows.Forms.ComboBox();
@@ -58,6 +57,7 @@
             this.btnGuardar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -253,10 +253,10 @@
             this.tableLayoutPanel6.Controls.Add(this.label3, 4, 1);
             this.tableLayoutPanel6.Controls.Add(this.label4, 1, 3);
             this.tableLayoutPanel6.Controls.Add(this.label5, 4, 3);
-            this.tableLayoutPanel6.Controls.Add(this.txtNombre, 1, 2);
             this.tableLayoutPanel6.Controls.Add(this.cmbCategoria, 1, 4);
             this.tableLayoutPanel6.Controls.Add(this.cmbEstado, 4, 4);
             this.tableLayoutPanel6.Controls.Add(this.cmbUso, 4, 2);
+            this.tableLayoutPanel6.Controls.Add(this.txtNombre, 1, 2);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -321,15 +321,6 @@
             this.label5.TabIndex = 3;
             this.label5.Text = "Estado";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(175, 39);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(212, 29);
-            this.txtNombre.TabIndex = 4;
             // 
             // cmbCategoria
             // 
@@ -610,6 +601,15 @@
             this.lblTitulo.Text = "HERRAMIENTAS";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txtNombre
+            // 
+            this.txtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(175, 39);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(212, 26);
+            this.txtNombre.TabIndex = 9;
+            // 
             // frmHerramienta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -661,7 +661,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.ComboBox cmbCategoria;
         private System.Windows.Forms.ComboBox cmbEstado;
         private System.Windows.Forms.ComboBox cmbUso;
@@ -671,5 +670,6 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label lblCampo;
         private System.Windows.Forms.ComboBox cmbCampo;
+        private System.Windows.Forms.TextBox txtNombre;
     }
 }

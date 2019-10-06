@@ -79,6 +79,8 @@ namespace CapaPresentacion
                 pnlFormularios.Tag = formulario;
                 formulario.Show();
                 formulario.BringToFront();
+                formulario.AutoScaleMode = AutoScaleMode.Font;
+                formulario.StartPosition = FormStartPosition.CenterScreen;
                 formulario.FormClosed += new FormClosedEventHandler(CloseForms);
             }
             //si el formulario/instancia existe

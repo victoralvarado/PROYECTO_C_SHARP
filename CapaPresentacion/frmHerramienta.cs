@@ -220,7 +220,7 @@ namespace CapaPresentacion
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            dgvHerramienta  .Enabled = false;
+            dgvHerramienta.Enabled = false;
             LimpiarControles();
             ActivarControles();
             ActivarBotones();
@@ -241,8 +241,8 @@ namespace CapaPresentacion
                 if (Seleccionado == true)
                 {
                     dgvHerramienta.Enabled = false;
-                    ActivarBotones();
                     ActivarControles();
+                    ActivarBotones();
                     Editando = true;
                     Agregando = false;
                 }
@@ -271,8 +271,7 @@ namespace CapaPresentacion
                         H.EliminarHerramienta(idHerramienta);
                         Botones();
                         ListarHerramientas();
-                        MessageBox.Show("Registro eliminado correctamente", "Validación",
-                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Registro eliminado correctamente", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LimpiarControles();
                     }
                 }
@@ -281,8 +280,7 @@ namespace CapaPresentacion
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Desea cancelar la operación ?", "Validacion", MessageBoxButtons.YesNo,
- MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("¿Desea cancelar la operación ?", "Validacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 LimpiarControles();
                 ep.Clear();
@@ -299,7 +297,7 @@ namespace CapaPresentacion
             {
                 if (dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["USO"].Value.ToString() == "SI")
                 {
-                    MessageBox.Show("No puede editar ni eliminar herramientas en uso","Herramientas",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    MessageBox.Show("No puede editar ni eliminar herramientas en uso", "Herramientas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     LimpiarControles();
                 }
                 else
@@ -350,15 +348,23 @@ namespace CapaPresentacion
 
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
-            if (cmbCampo.SelectedIndex==0)
+            if (cmbCampo.SelectedIndex == 0)
             {
-                MessageBox.Show("Primero seleccione un campo","Campo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Primero seleccione un campo", "Campo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                Herramienta LH = new Herramienta();
-                string value = Convert.ToString(cmbCampo.SelectedValue);
-                dgvHerramienta.DataSource = LH.FiltrarHerramienta(value, txtBuscar.Text);
+                try
+                {
+                    Herramienta LH = new Herramienta();
+                    string buscar = txtBuscar.Text;
+                    string value = Convert.ToString(cmbCampo.SelectedValue);
+                    dgvHerramienta.DataSource = LH.FiltrarHerramienta(value, buscar);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ocurrio un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

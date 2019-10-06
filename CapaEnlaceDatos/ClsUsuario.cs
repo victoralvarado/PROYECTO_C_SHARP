@@ -26,82 +26,122 @@ namespace CapaEnlaceDatos
 
         public DataTable Listar()
         {
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "ListarUsuario";
+                comando.CommandType = CommandType.StoredProcedure;
+                leer = comando.ExecuteReader();
+                tabla.Load(leer);
+                conexion.CerrarConexion();
+            }
+            catch (Exception)
+            {
 
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "ListarUsuario";
-            comando.CommandType = CommandType.StoredProcedure;
-            leer = comando.ExecuteReader();
-            tabla.Load(leer);
-            conexion.CerrarConexion();
+                MessageBox.Show("Ocurrio un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return tabla;
 
         }
         public DataTable ListarTU()
         {
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "ListarTipoUsuario";
+                comando.CommandType = CommandType.StoredProcedure;
+                leer = comando.ExecuteReader();
+                tabla.Load(leer);
+                conexion.CerrarConexion();
+            }
+            catch (Exception)
+            {
 
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "ListarTipoUsuario";
-            comando.CommandType = CommandType.StoredProcedure;
-            leer = comando.ExecuteReader();
-            tabla.Load(leer);
-            conexion.CerrarConexion();
+                MessageBox.Show("Ocurrio un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return tabla;
 
         }
 
         public DataTable Filtrar(string buscar)
         {
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "  SELECT idUsuario AS 'ID USUARIO', UserName AS " +
-                "'NOMBRE DE USUARIO',password, tipoUsuario AS 'TIPO DE USUARIO' " +
-                "FROM Bodega.usuario WHERE userName LIKE '%" + buscar + "%' OR  tipoUsuario " +
-                "LIKE '%" + buscar + "%' OR idUsuario LIKE '%" + buscar + "%'";
-            comando.CommandType = CommandType.Text;
-            leer = comando.ExecuteReader();
-            tabla.Load(leer);
-            conexion.CerrarConexion();
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "SELECT idUsuario AS 'ID USUARIO', UserName AS " +
+                    "'NOMBRE DE USUARIO',password, tipoUsuario AS 'TIPO DE USUARIO' " +
+                    "FROM Bodega.usuario WHERE userName LIKE '%" + buscar + "%' OR  tipoUsuario " +
+                    "LIKE '%" + buscar + "%' OR idUsuario LIKE '%" + buscar + "%'";
+                comando.CommandType = CommandType.Text;
+                leer = comando.ExecuteReader();
+                tabla.Load(leer);
+                conexion.CerrarConexion();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocurrio un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return tabla;
         }
 
         public void Registrar(string userName, string password, string tipoUsuario)
         {
-
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "RegistrarUsuario";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@userName", userName);
-            comando.Parameters.AddWithValue("@password", password);
-            comando.Parameters.AddWithValue("@tipoUsuario", tipoUsuario);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
-            conexion.CerrarConexion();
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "RegistrarUsuario";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@userName", userName);
+                comando.Parameters.AddWithValue("@password", password);
+                comando.Parameters.AddWithValue("@tipoUsuario", tipoUsuario);
+                comando.ExecuteNonQuery();
+                comando.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocurrio un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
         public void Modificar(int idUsuario, string userName, string password, string tipoUsuario)
         {
-
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "ModificarUsuario";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@userName", userName);
-            comando.Parameters.AddWithValue("@password", password);
-            comando.Parameters.AddWithValue("@tipoUsuario", tipoUsuario);
-            comando.Parameters.AddWithValue("@idUsuario", idUsuario);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
-            conexion.CerrarConexion();
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "ModificarUsuario";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@userName", userName);
+                comando.Parameters.AddWithValue("@password", password);
+                comando.Parameters.AddWithValue("@tipoUsuario", tipoUsuario);
+                comando.Parameters.AddWithValue("@idUsuario", idUsuario);
+                comando.ExecuteNonQuery();
+                comando.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocurrio un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public void Eliminar(int idUsuario)
         {
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "EliminarUsuario";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@idUsuario", idUsuario);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
-            conexion.CerrarConexion();
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "EliminarUsuario";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@idUsuario", idUsuario);
+                comando.ExecuteNonQuery();
+                comando.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocurrio un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -49,7 +49,7 @@ namespace CapaEnlaceDatos
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "select h.idHerramienta AS 'ID HERRAMIENTA', h.nombreHerramienta AS 'NOMBRE HERRAMIENTA', h.idCategoria AS 'ID CATEGORIA', " +
                 "h.uso AS 'USO', h.estado AS 'ESTADO', c.nombreCategoria AS 'CATEGORIA' from Bodega.herramienta h inner join Bodega.categoria c on h.idCategoria = c.idCategoria " +
-                "WHERE "+campo+" LIKE '%"+buscar+"%'";
+                "WHERE "+campo+" LIKE '%"+buscar+"%' ";
             comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
             tabla.Load(leer);

@@ -122,7 +122,6 @@ namespace CapaPresentacion
             ListarUsuarios();
             DesactivarControles();
             Botones();
-            
         }
 
 
@@ -134,7 +133,6 @@ namespace CapaPresentacion
                 txtUserName.Text = dgvUsuario.Rows[dgvUsuario.CurrentRow.Index].Cells["NOMBRE DE USUARIO"].Value.ToString();
                 txtPassword.Text = dgvUsuario.Rows[dgvUsuario.CurrentRow.Index].Cells["password"].Value.ToString();
                 cmbTipo.Text = dgvUsuario.Rows[dgvUsuario.CurrentRow.Index].Cells["TIPO DE USUARIO"].Value.ToString();
-                
             }
         }
 
@@ -181,7 +179,6 @@ namespace CapaPresentacion
                         Agregando = false;
                         cmbTipo.Enabled = true;
                     }
-                    
                 }
                 else
                 {
@@ -192,8 +189,7 @@ namespace CapaPresentacion
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Desea cancelar la operación ?", "Validacion", MessageBoxButtons.YesNo,
- MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("¿Desea cancelar la operación ?", "Validacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 LimpiarControles();
                 ep.Clear();
@@ -211,19 +207,17 @@ namespace CapaPresentacion
                 idUsuario = dgvUsuario.CurrentRow.Cells["ID USUARIO"].Value.ToString();
                 if (idUsuario == "1")
                 {
-                    MessageBox.Show("El administrador principal no puede ser eliminado","Eliminar",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    MessageBox.Show("El administrador principal no puede ser eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
 
-                    if (MessageBox.Show("Desea eliminar?", "Validación",
-                               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Desea eliminar?", "Validación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         U.EliminarUsuario(idUsuario);
                         Botones();
                         ListarUsuarios();
-                        MessageBox.Show("Registro eliminado correctamente", "Validación",
-                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Registro eliminado correctamente", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LimpiarControles();
                     }
                 }
@@ -292,9 +286,17 @@ namespace CapaPresentacion
 
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
-            Usuario LU = new Usuario();
-            dgvUsuario.DataSource = LU.FiltrarUsuario(txtBuscar.Text);
-            dgvUsuario.Columns["password"].Visible = false;
+            try
+            {
+                Usuario LU = new Usuario();
+                string buscar = txtBuscar.Text;
+                dgvUsuario.DataSource = LU.FiltrarUsuario(buscar.Replace("'", ""));
+                dgvUsuario.Columns["password"].Visible = false;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocurrio un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
