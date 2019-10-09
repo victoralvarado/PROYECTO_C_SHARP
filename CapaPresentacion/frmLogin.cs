@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/*
+ * @Nombre de Clase: frmLogin.
+ * @Version: 1.0.
+ * @Copyright: ToolSoft.
+ * @Author Victor, Adrian, Andrea & Diego
+ */
 namespace CapaPresentacion
 {
     public partial class frmLogin : Form
@@ -48,7 +48,6 @@ namespace CapaPresentacion
             ToolTip t = new ToolTip();
             t.ShowAlways = true;
             t.SetToolTip(btnCerrar, "Cerrar");
-
             t.SetToolTip(btnLogIn, "Acceder");
         }
 

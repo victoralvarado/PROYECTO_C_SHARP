@@ -1,9 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/*
+ * @Nombre de Clase: Program.
+ * @Version: 1.0.
+ * @Copyright: ToolSoft.
+ * @Author Victor, Adrian, Andrea, Diego
+ */
 namespace CapaPresentacion
 {
     static class Program
@@ -16,7 +18,7 @@ namespace CapaPresentacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPrincipal());
+            Application.Run(new frmCategoria());
         }
     }
 }

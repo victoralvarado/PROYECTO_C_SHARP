@@ -1,11 +1,9 @@
-﻿using System;
-
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 /*
  * @Nombre de Clase: ClsCategoria.
  * @Version: 1.0.
- * @Copyright: Sistema de registro y control de herramientas para bodega de la empresa VAAD.
+ * @Copyright: ToolSoft.
  * @Author Victor, Adrian, Andrea & Diego
  */
 namespace CapaEnlaceDatos

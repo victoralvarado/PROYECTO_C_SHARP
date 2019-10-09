@@ -49,6 +49,7 @@
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.cmbUso = new System.Windows.Forms.ComboBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAgregar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnEditar = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -57,7 +58,6 @@
             this.btnGuardar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -355,6 +355,15 @@
             this.cmbUso.Size = new System.Drawing.Size(192, 29);
             this.cmbUso.TabIndex = 8;
             // 
+            // txtNombre
+            // 
+            this.txtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(175, 39);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(212, 26);
+            this.txtNombre.TabIndex = 9;
+            // 
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 7;
@@ -600,15 +609,6 @@
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "HERRAMIENTAS";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(175, 39);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(212, 26);
-            this.txtNombre.TabIndex = 9;
             // 
             // frmHerramienta
             // 

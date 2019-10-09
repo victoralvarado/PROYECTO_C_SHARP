@@ -1,17 +1,18 @@
 ﻿using CapaEnlaceDatos;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
+/*
+ * @Nombre de Clase: Herramienta.
+ * @Version: 1.0.
+ * @Copyright: ToolSoft.
+ * @Author Victor, Adrian, Andrea & Diego
+ */
 namespace CapaLogicaNegocio
 {
     public class Herramienta
     {
         private ClsHerramienta herramienta = new ClsHerramienta();
+
         public DataTable ListarCategoriaCombo()
         {
             DataTable datos = new DataTable();
@@ -26,6 +27,21 @@ namespace CapaLogicaNegocio
             return tabla;
         }
 
+        public DataTable ListarHerramientaCUS(string categoria)
+        {
+            DataTable tabla2 = new DataTable();
+            tabla2 = herramienta.listarCUS(categoria);
+            return tabla2;
+        }
+
+        public DataTable ListarHerramientaCUN(string categoria)
+        {
+            DataTable tabla3 = new DataTable();
+            tabla3 = herramienta.listarCUN(categoria);
+            return tabla3;
+        }
+
+
         public DataTable FiltrarHerramienta(string campo, string buscar)
         {
             DataTable tabla = new DataTable();
@@ -33,7 +49,14 @@ namespace CapaLogicaNegocio
             return tabla;
         }
 
-            public void RegistrarHerramienta(string nombreHerramienta, string idCategoria, string uso, string estado)
+        public DataTable FiltrarHerramientaTC(string buscar)
+        {
+            DataTable tabla = new DataTable();
+            tabla = herramienta.FiltrarTC(buscar.Replace("'", ""));
+            return tabla;
+        }
+
+        public void RegistrarHerramienta(string nombreHerramienta, string idCategoria, string uso, string estado)
         {
             herramienta.Registrar(nombreHerramienta, Convert.ToInt32(idCategoria),uso,estado);
         }

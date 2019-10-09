@@ -54,16 +54,17 @@ namespace CapaPresentacion
 
         public void LlenarCampo()
         {
+            //Metodo para llenar los campos para filtar(Buscar) en la tabla por un campo especifico
             List<Items> lista = new List<Items>();
-
-            lista.Add(new Items("SELECCIONAR", ""));
-            lista.Add(new Items("ID HERRAMIENTA", "idHerramienta"));
+            //                     NAME                  VALUE
+            lista.Add(new Items("SELECCIONAR",                  ""));
+            lista.Add(new Items("ID HERRAMIENTA",  "idHerramienta"));
             lista.Add(new Items("HERRAMIENTA", "nombreHerramienta"));
-            lista.Add(new Items("ID CATEGORIA", "idCategoria"));
-            lista.Add(new Items("USO", "uso"));
-            lista.Add(new Items("ESTADO", "estado"));
-            lista.Add(new Items("CATEGORIA", "nombreCategoria"));
-
+            lista.Add(new Items("ID CATEGORIA",      "idCategoria"));
+            lista.Add(new Items("USO",                       "uso"));
+            lista.Add(new Items("ESTADO",                 "estado"));
+            lista.Add(new Items("CATEGORIA",     "nombreCategoria"));
+            //Se mostrara el Name y tomara el value del combobox
             cmbCampo.DisplayMember = "Name";
             cmbCampo.ValueMember = "Value";
             cmbCampo.DataSource = lista;
@@ -257,15 +258,16 @@ namespace CapaPresentacion
         {
             if (dgvHerramienta.RowCount > 0)
             {
+                //Si la herramienta SI esta en uso no podra ser eliminada
                 if (dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["USO"].Value.ToString() == "SI")
                 {
                     MessageBox.Show("No puede editar ni eliminar herramientas en uso", "Herramientas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     LimpiarControles();
                 }
+                //Si la herramienta SNOesta en uso si podra ser eliminada
                 else
                 {
-                    if (MessageBox.Show("Desea eliminar?", "Validación",
-                                   MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Desea eliminar?", "Validación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         idHerramienta = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["ID HERRAMIENTA"].Value.ToString();
                         H.EliminarHerramienta(idHerramienta);
@@ -280,6 +282,7 @@ namespace CapaPresentacion
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
+            //Si cancela la operacion limpiara cajas de texto y bloquera botones y controles
             if (MessageBox.Show("¿Desea cancelar la operación ?", "Validacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 LimpiarControles();
@@ -295,11 +298,13 @@ namespace CapaPresentacion
         {
             if (dgvHerramienta.RowCount > 0)
             {
+                //Si la herramienta SI esta en uso no se puede seleccionar y no se mostrara en las cajas de texto
                 if (dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["USO"].Value.ToString() == "SI")
                 {
                     MessageBox.Show("No puede editar ni eliminar herramientas en uso", "Herramientas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     LimpiarControles();
                 }
+                //Si la herramienta NO esta en uso si se podra seleccionar
                 else
                 {
                     idHerramienta = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["ID HERRAMIENTA"].Value.ToString();
@@ -315,6 +320,7 @@ namespace CapaPresentacion
         {
             if (this.dgvHerramienta.Columns[e.ColumnIndex].Name == "ESTADO")
             {
+                //Cambiar color de celda dependiendo del estado de la herramienta
                 if (Convert.ToString(e.Value) == "NUEVA")
                 {
                     e.CellStyle.ForeColor = Color.Black;
@@ -350,12 +356,17 @@ namespace CapaPresentacion
         {
             if (cmbCampo.SelectedIndex == 0)
             {
-                MessageBox.Show("Primero seleccione un campo", "Campo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //buscar por todos los campos de la tabla
+                Herramienta LH = new Herramienta();
+                string buscar = txtBuscar.Text;
+                string value = Convert.ToString(cmbCampo.SelectedValue);
+                dgvHerramienta.DataSource = LH.FiltrarHerramientaTC(buscar);
             }
             else
             {
                 try
                 {
+                    //buscar por un campo especifico de la tabla
                     Herramienta LH = new Herramienta();
                     string buscar = txtBuscar.Text;
                     string value = Convert.ToString(cmbCampo.SelectedValue);

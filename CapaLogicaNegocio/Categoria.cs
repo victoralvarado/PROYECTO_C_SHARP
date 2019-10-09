@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using System.Data;
-
 using CapaEnlaceDatos;
 /*
  * @Nombre de Clase: Categoria.
  * @Version: 1.0.
- * @Copyright: Sistema de registro y control de herramientas para bodega de la empresa VAAD.
+ * @Copyright: ToolSoft.
  * @Author Victor, Adrian, Andrea, Diego
  */
 namespace CapaLogicaNegocio
@@ -20,14 +15,13 @@ namespace CapaLogicaNegocio
 
         public DataTable ListarCategoria()
         {
-
             DataTable tabla = new DataTable();
             tabla = categoria.Listar();
             return tabla;
         }
+
         public void RegistrarCategoria(string nombreCategoria)
         {
-
             categoria.Registrar(nombreCategoria);
         }
 
@@ -38,7 +32,6 @@ namespace CapaLogicaNegocio
 
         public void EliminarCategoria(string idCategoria)
         {
-
             categoria.Eliminar(Convert.ToInt32(idCategoria));
         }
     }

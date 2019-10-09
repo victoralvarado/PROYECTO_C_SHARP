@@ -1,11 +1,12 @@
 ﻿using CapaEnlaceDatos;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+/*
+ * @Nombre de Clase: Usuario.
+ * @Version: 1.0.
+ * @Copyright: ToolSoft.
+ * @Author Victor, Adrian, Andrea & Diego
+ */
 namespace CapaLogicaNegocio
 {
     public class Usuario
@@ -14,7 +15,6 @@ namespace CapaLogicaNegocio
 
         public DataTable ListarUsuario()
         {
-
             DataTable tabla = new DataTable();
             tabla = usuario.Listar();
             return tabla;
@@ -34,9 +34,9 @@ namespace CapaLogicaNegocio
             tabla = usuario.Filtrar(buscar);
             return tabla;
         }
+
         public void RegistrarUsuario(string userName, string password, string tipoUsuario)
         {
-
             usuario.Registrar(userName, password, tipoUsuario);
         }
 
@@ -47,7 +47,6 @@ namespace CapaLogicaNegocio
 
         public void EliminarUsuario(string idUsuario)
         {
-
             usuario.Eliminar(Convert.ToInt32(idUsuario));
         }
     }

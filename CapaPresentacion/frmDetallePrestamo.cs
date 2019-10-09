@@ -7,7 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/*
+ * @Nombre de Clase: frmDetallePrestamo.
+ * @Version: 1.0.
+ * @Copyright: ToolSoft.
+ * @Author Victor, Adrian, Andrea & Diego
+ */
 namespace CapaPresentacion
 {
     public partial class frmDetallePrestamo : Form

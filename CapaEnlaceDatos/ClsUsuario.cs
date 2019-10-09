@@ -1,16 +1,11 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 /*
 * @Nombre de Clase: ClsUsuario.
 * @Version: 1.0.
-* @Copyright: Sistema de registro y control de herramientas para bodega de la empresa VAAD.
+* @Copyright: ToolSoft.
 * @Author Victor, Adrian, Andrea & Diego.
 */
 namespace CapaEnlaceDatos

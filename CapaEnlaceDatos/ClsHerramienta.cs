@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 /*
 * @Nombre de Clase: ClsHerramienta.
 * @Version: 1.0.
-* @Copyright: Sistema de registro y control de herramientas para bodega de la empresa VAAD.
+* @Copyright: ToolSoft.
 * @Author Victor, Adrian, Andrea & Diego
 */
 namespace CapaEnlaceDatos
@@ -18,14 +12,17 @@ namespace CapaEnlaceDatos
     {
         private ClsConexion conexion = new ClsConexion();
         SqlDataReader leer;
+        SqlDataReader leer2;
         DataTable tabla = new DataTable();
+        DataTable tabla2 = new DataTable();
+        DataTable tabla3 = new DataTable();
         SqlCommand comando = new SqlCommand();
 
         public DataTable ComboCategoria()
         {
             DataTable datos = new DataTable();
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "ListarCategoria";
+            comando.CommandText = "ListarCategoriaCMB";
             comando.CommandType = CommandType.StoredProcedure;
             leer = comando.ExecuteReader();
             datos.Load(leer);
@@ -44,12 +41,57 @@ namespace CapaEnlaceDatos
             return tabla;
         }
 
+        public DataTable listarCUS(string categoria)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "select h.idHerramienta AS 'ID HERRAMIENTA', h.nombreHerramienta AS 'NOMBRE HERRAMIENTA', " +
+                " h.idCategoria AS 'ID CATEGORIA', h.uso AS 'USO', h.estado AS 'ESTADO', c.nombreCategoria AS 'CATEGORIA' " +
+                " from Bodega.herramienta h inner join Bodega.categoria c on h.idCategoria = c.idCategoria " +
+                " where c.nombreCategoria = '"+categoria+"' and h.uso = 'SI' ";
+            comando.CommandType = CommandType.Text;
+            leer = comando.ExecuteReader();
+            tabla2.Load(leer);
+            conexion.CerrarConexion();
+            return tabla2;
+        }
+        public DataTable listarCUN(string categoria)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "select h.idHerramienta AS 'ID HERRAMIENTA', h.nombreHerramienta AS 'NOMBRE HERRAMIENTA', " +
+                "h.idCategoria AS 'ID CATEGORIA', h.uso AS 'USO', h.estado AS 'ESTADO', c.nombreCategoria AS 'CATEGORIA' " +
+                "from Bodega.herramienta h inner join Bodega.categoria c on h.idCategoria = c.idCategoria " +
+                "where c.nombreCategoria = '" + categoria + "' and h.uso = 'NO' ";
+            comando.CommandType = CommandType.Text;
+            leer2 = comando.ExecuteReader();
+            tabla3.Load(leer2);
+            conexion.CerrarConexion();
+            return tabla3;
+        }
+
         public DataTable Filtrar(string campo, string buscar)
         {
+            //Buscar por un campo especifico de la tabla
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "select h.idHerramienta AS 'ID HERRAMIENTA', h.nombreHerramienta AS 'NOMBRE HERRAMIENTA', h.idCategoria AS 'ID CATEGORIA', " +
                 "h.uso AS 'USO', h.estado AS 'ESTADO', c.nombreCategoria AS 'CATEGORIA' from Bodega.herramienta h inner join Bodega.categoria c on h.idCategoria = c.idCategoria " +
                 "WHERE "+campo+" LIKE '%"+buscar+"%' ";
+            comando.CommandType = CommandType.Text;
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+            conexion.CerrarConexion();
+            return tabla;
+        }
+        public DataTable FiltrarTC(string buscar)
+        {
+            //Buscar por todos los campos de la tabla
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "select h.idHerramienta AS 'ID HERRAMIENTA', h.nombreHerramienta AS 'NOMBRE HERRAMIENTA', h.idCategoria " +
+                "AS 'ID CATEGORIA', h.uso AS 'USO', h.estado AS 'ESTADO', c.nombreCategoria AS 'CATEGORIA' " +
+                "from Bodega.herramienta h inner " +
+                "join Bodega.categoria c on h.idCategoria = c.idCategoria " +
+                "WHERE h.idHerramienta LIKE '%" + buscar + "%' or h.nombreHerramienta LIKE '%" + buscar + "%' or h.idCategoria " +
+                "LIKE '%" + buscar + "%' or h.uso LIKE '%" + buscar + "%' or h.estado LIKE '%" + buscar + "%' or c.nombreCategoria " +
+                "LIKE '%" + buscar + "%'";
             comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
             tabla.Load(leer);

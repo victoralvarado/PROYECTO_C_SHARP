@@ -1,14 +1,13 @@
 ﻿using CapaLogicaNegocio;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/*
+ * @Nombre de Clase: frmUsuario.
+ * @Version: 1.0.
+ * @Copyright: ToolSoft.
+ * @Author Victor, Adrian, Andrea & Diego
+ */
 namespace CapaPresentacion
 {
     public partial class frmUsuario : Form

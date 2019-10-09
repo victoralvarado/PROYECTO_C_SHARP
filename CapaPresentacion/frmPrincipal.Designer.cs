@@ -354,6 +354,7 @@
             this.btnCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCategoria.Textcolor = System.Drawing.Color.LightGray;
             this.btnCategoria.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnCategoria.Click += new System.EventHandler(this.BtnCategoria_Click);
             // 
             // btnPersonal
             // 

@@ -9,16 +9,22 @@ using CapaLogicaNegocio;
 /*
 * @Nombre de Clase: frmCategoria.
 * @Version: 1.0.
-* @Copyright: Sistema de registro y control de herramientas para bodega de la empresa VAAD.
+* @Copyright: ToolSoft.
 * @Author Victor, Adrian, Andrea, Diego
 */
 namespace CapaPresentacion
 {
     public partial class frmCategoria : Form
     {
+        private Herramienta H = new Herramienta();
+        private string categoria = null;
         private Categoria C = new Categoria();
         private string idCategoria = null;
-        private bool Modificar = false;
+        ErrorProvider ep = new ErrorProvider();
+        bool Editando = false;
+        bool Agregando = false;
+        bool ValidarF = false;
+        bool Seleccionado = false;
         public frmCategoria()
         {
             InitializeComponent();
@@ -30,74 +36,246 @@ namespace CapaPresentacion
             dgvCategoria.DataSource = LC.ListarCategoria();
         }
 
+        public void DesactivarControles()
+        {
+            txtCategoria.Enabled = false;
+        }
+
+        public void ActivarControles()
+        {
+            txtCategoria.Enabled = true;
+        }
+
+        public void Botones()
+        {
+            if (dgvCategoria.RowCount > 0)
+            {
+                btnAgregar.Enabled = true;
+                btnAgregar.Cursor = Cursors.Hand;
+
+                btnEditar.Enabled = true;
+                btnEditar.Cursor = Cursors.Hand;
+
+                btnEliminar.Enabled = true;
+                btnEliminar.Cursor = Cursors.Hand;
+
+                btnCancelar.Enabled = false;
+                btnCancelar.Cursor = Cursors.No;
+
+                btnGuardar.Enabled = false;
+                btnGuardar.Cursor = Cursors.No;
+            }
+            else
+            {
+                btnAgregar.Enabled = true;
+                btnAgregar.Cursor = Cursors.Hand;
+
+                btnEditar.Enabled = false;
+                btnEditar.Cursor = Cursors.No;
+
+                btnEliminar.Enabled = false;
+                btnEliminar.Cursor = Cursors.No;
+
+                btnCancelar.Enabled = false;
+                btnCancelar.Cursor = Cursors.No;
+
+                btnGuardar.Enabled = false;
+                btnGuardar.Cursor = Cursors.No;
+            }
+        }
+
+        public void ActivarBotones()
+        {
+            btnAgregar.Enabled = false;
+            btnAgregar.Cursor = Cursors.No;
+
+            btnEditar.Enabled = false;
+            btnEditar.Cursor = Cursors.No;
+
+            btnEliminar.Enabled = false;
+            btnEliminar.Cursor = Cursors.No;
+
+            btnCancelar.Enabled = true;
+            btnCancelar.Cursor = Cursors.Hand;
+
+            btnGuardar.Enabled = true;
+            btnGuardar.Cursor = Cursors.Hand;
+        }
+
+        public void LimpiarControles()
+        {
+            txtCategoria.Clear();
+            DesactivarControles();
+        }
+
+
+
         private void FrmCategoria_Load(object sender, EventArgs e)
         {
             ListarCategorias();
-            dgvCategoria.Columns["ID CATEGORIA"].Visible = false;
+            DesactivarControles();
+            Botones();
+            //dgvHerramientaUS.Visible = false;
+            //dgvHerramientaUN.Visible = false;
+
         }
 
-        private void BtnGuardar_Click(object sender, EventArgs e)
+        private void DgvCategoria_Click(object sender, EventArgs e)
         {
-            if (Modificar == false)
+            if (dgvCategoria.RowCount > 0)
             {
-                try
-                {
-                    C.RegistrarCategoria(txtCategoria.Text);
-                    MessageBox.Show("se registro correctamente");
-                    ListarCategorias();
-                    limpiarForm();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("no se pudo registrar los datos por: " + ex);
-                }
-            }
-            //EDITAR
-            if (Modificar == true)
-            {
-
-                try
-                {
-                    C.ModificarCategoria(idCategoria , txtCategoria.Text);
-                    MessageBox.Show("se modifico correctamente");
-                    ListarCategorias();
-                    limpiarForm();
-                    Modificar = false;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("no se pudo modificar los datos por: " + ex);
-                }
+                idCategoria = dgvCategoria.Rows[dgvCategoria.CurrentRow.Index].Cells["ID CATEGORIA"].Value.ToString();
+                txtCategoria.Text = dgvCategoria.Rows[dgvCategoria.CurrentRow.Index].Cells["CATEGORIA"].Value.ToString();
             }
         }
-        private void limpiarForm()
+
+        private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            txtCategoria.Clear();
+            dgvCategoria.Enabled = false;
+            LimpiarControles();
+            ActivarControles();
+            ActivarBotones();
+            Editando = false;
+            Agregando = true;
+            txtCategoria.Focus();
         }
 
-        private void BtnModificar_Click(object sender, EventArgs e)
+        private void BtnEditar_Click(object sender, EventArgs e)
         {
-            if (dgvCategoria.SelectedRows.Count > 0)
+            if (dgvCategoria.RowCount > 0)
             {
-                Modificar = true;
-                txtCategoria.Text = dgvCategoria.CurrentRow.Cells["CATEGORIA"].Value.ToString();
-                idCategoria = dgvCategoria.CurrentRow.Cells["ID CATEGORIA"].Value.ToString();
+                Seleccionado = false;
+                if (txtCategoria.Text.Length > 0)
+                {
+                    Seleccionado = true;
+                }
+
+                if (Seleccionado == true)
+                {
+                    dgvCategoria.Enabled = false;
+                    ActivarBotones();
+                    ActivarControles();
+                    Editando = true;
+                    Agregando = false;
+                }
+                else
+                {
+                    MessageBox.Show("Debe dar clic sobre la fila a editar", "Seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
-                MessageBox.Show("seleccione una fila por favor");
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgvCategoria.SelectedRows.Count > 0)
+            if (dgvCategoria.RowCount > 0)
             {
-                idCategoria = dgvCategoria.CurrentRow.Cells["ID CATEGORIA"].Value.ToString();
-                C.EliminarCategoria(idCategoria);
-                MessageBox.Show("Eliminado correctamente");
-                ListarCategorias();
+                categoria = dgvCategoria.CurrentRow.Cells["CATEGORIA"].Value.ToString();
+
+                string usoS = null;
+                string usoN = null;
+
+                Herramienta LH = new Herramienta();
+
+                dgvHerramientaUS.DataSource = LH.ListarHerramientaCUS(categoria);
+
+                dgvHerramientaUN.DataSource = LH.ListarHerramientaCUN(categoria);
+
+                if (dgvHerramientaUS.RowCount > 0)
+                {
+                    usoS = "SI";
+
+                }
+                else
+                {
+                    usoS = "";
+                }
+
+                if (dgvHerramientaUN.RowCount > 0)
+                {
+                    usoN = "NO";
+
+                }
+                else
+                {
+                    usoN = "";
+                }
+
+
+
+                if (usoS == "SI")
+                {
+                    MessageBox.Show("No puede eliminar la categoria '" + categoria + "', porque hay herramientas en uso que pertenecen a esa categoria, debe desocupar las herramientas que pertenecen a '" + categoria + "' para poder eliminarla", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                if (usoN == "NO" && usoS == "")
+                {
+                    if (MessageBox.Show("Todas las herramientas que pertenecen a la categoria '" + categoria + "' seran eliminadas.\nEsta seguro que desea eliminarla?", "Validación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        C.EliminarCategoria(idCategoria);
+                        Botones();
+                        ListarCategorias();
+                        MessageBox.Show("Registro eliminado correctamente", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimpiarControles();
+                    }
+                }
+
+                if (usoS == "" && usoN == "")
+                {
+                    if (MessageBox.Show("Esta seguro que desea eliminar la categoria '" + categoria + "'?", "Validación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        C.EliminarCategoria(idCategoria);
+                        Botones();
+                        ListarCategorias();
+                        MessageBox.Show("Registro eliminado correctamente", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimpiarControles();
+                    }
+                }
             }
-            else
-                MessageBox.Show("seleccione una fila por favor");
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea cancelar la operación ?", "Validacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                LimpiarControles();
+                ep.Clear();
+                Agregando = false;
+                Editando = false;
+                Botones();
+                dgvCategoria.Enabled = true;
+            }
+        }
+
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            ValidarF = true;
+            ep.Clear();
+            if (txtCategoria.Text.Trim().Length == 0)
+            {
+                ep.SetError(txtCategoria, "Campo requerido!");
+                ValidarF = false;
+            }
+            if (ValidarF == true)
+            {
+                if (Agregando == true && Editando == false)
+                {
+                    C.RegistrarCategoria(txtCategoria.Text);
+                    MessageBox.Show("Datos agregados correctamente", "Agregando", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Botones();
+                    ListarCategorias();
+                    LimpiarControles();
+                    dgvCategoria.Enabled = true;
+                }
+                else
+                {
+                    C.ModificarCategoria(idCategoria, txtCategoria.Text);
+                    MessageBox.Show("Datos modificados correctamente", "Modificando", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Botones();
+                    ListarCategorias();
+                    LimpiarControles();
+                    dgvCategoria.Enabled = true;
+                }
+            }
         }
     }
 }

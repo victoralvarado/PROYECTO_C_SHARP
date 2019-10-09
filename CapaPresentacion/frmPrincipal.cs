@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/*
+ * @Nombre de Clase: frmPrincipal.
+ * @Version: 1.0.
+ * @Copyright: ToolSoft.
+ * @Author Victor, Adrian, Andrea & Diego
+ */
 namespace CapaPresentacion
 {
     public partial class frmPrincipal : Form
@@ -39,7 +39,6 @@ namespace CapaPresentacion
                 Sidebar.Width = 270;
                 LineaSidebar.Width = 252;
                 AnimacionSidebarBack.Show(Sidebar);
-
             }
         }
 
@@ -64,11 +63,11 @@ namespace CapaPresentacion
             }
 
         }
+
         private void AbrirFormulario<MiForm>() where MiForm : Form, new()
         {
             Form formulario;
-            formulario = pnlFormularios.Controls.OfType<MiForm>().FirstOrDefault();//Busca en la colecion el formulario
-            //si el formulario/instancia no existe
+            formulario = pnlFormularios.Controls.OfType<MiForm>().FirstOrDefault();
             if (formulario == null)
             {
                 formulario = new MiForm();
@@ -83,12 +82,12 @@ namespace CapaPresentacion
                 formulario.StartPosition = FormStartPosition.CenterScreen;
                 formulario.FormClosed += new FormClosedEventHandler(CloseForms);
             }
-            //si el formulario/instancia existe
             else
             {
                 formulario.BringToFront();
             }
         }
+
         private void CloseForms(object sender, FormClosedEventArgs e)
         {
             if (Application.OpenForms["frmUsuario"] == null)
@@ -97,11 +96,11 @@ namespace CapaPresentacion
             if (Application.OpenForms["frmHerramienta"] == null)
                 btnHerramientas.Normalcolor = Color.Transparent;
             btnGestionar.Normalcolor = Color.Transparent;
-            //if (Application.OpenForms["Form2"] == null)
-            //    button2.BackColor = Color.FromArgb(4, 41, 68);
-            //if (Application.OpenForms["Form3"] == null)
-            //    button3.BackColor = Color.FromArgb(4, 41, 68);
+            if (Application.OpenForms["frmCategoria"] == null)
+                btnCategoria.Normalcolor = Color.Transparent;
+            btnGestionar.Normalcolor = Color.Transparent;
         }
+
         public void MostratBotones()
         {
             btnUsuarios.Visible = true;
@@ -134,6 +133,13 @@ namespace CapaPresentacion
         {
             AbrirFormulario<frmHerramienta>();
             btnHerramientas.Normalcolor = Color.FromArgb(49, 62, 74);
+            btnGestionar.Normalcolor = Color.FromArgb(22, 36, 49);
+        }
+
+        private void BtnCategoria_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<frmCategoria>();
+            btnCategoria.Normalcolor = Color.FromArgb(49, 62, 74);
             btnGestionar.Normalcolor = Color.FromArgb(22, 36, 49);
         }
     }
