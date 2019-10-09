@@ -115,8 +115,8 @@ namespace CapaPresentacion
             ListarCategorias();
             DesactivarControles();
             Botones();
-            //dgvHerramientaUS.Visible = false;
-            //dgvHerramientaUN.Visible = false;
+            dgvHerramientaUS.Visible = false;
+            dgvHerramientaUN.Visible = false;
 
         }
 

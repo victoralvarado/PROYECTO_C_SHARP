@@ -330,7 +330,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             this.dgvCategoria.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCategoria.Size = new System.Drawing.Size(621, 95);
+            this.dgvCategoria.Size = new System.Drawing.Size(621, 112);
             this.dgvCategoria.TabIndex = 16;
             this.dgvCategoria.Click += new System.EventHandler(this.DgvCategoria_Click);
             // 
@@ -353,7 +353,7 @@
             this.dgvHerramientaUS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHerramientaUS.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvHerramientaUS.EnableHeadersVisualStyles = false;
-            this.dgvHerramientaUS.Location = new System.Drawing.Point(19, 322);
+            this.dgvHerramientaUS.Location = new System.Drawing.Point(19, 326);
             this.dgvHerramientaUS.MultiSelect = false;
             this.dgvHerramientaUS.Name = "dgvHerramientaUS";
             this.dgvHerramientaUS.ReadOnly = true;
@@ -365,7 +365,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.dgvHerramientaUS.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvHerramientaUS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHerramientaUS.Size = new System.Drawing.Size(621, 82);
+            this.dgvHerramientaUS.Size = new System.Drawing.Size(621, 16);
             this.dgvHerramientaUS.TabIndex = 17;
             // 
             // dgvHerramientaUN
@@ -387,7 +387,7 @@
             this.dgvHerramientaUN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHerramientaUN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvHerramientaUN.EnableHeadersVisualStyles = false;
-            this.dgvHerramientaUN.Location = new System.Drawing.Point(19, 410);
+            this.dgvHerramientaUN.Location = new System.Drawing.Point(19, 328);
             this.dgvHerramientaUN.MultiSelect = false;
             this.dgvHerramientaUN.Name = "dgvHerramientaUN";
             this.dgvHerramientaUN.ReadOnly = true;
@@ -399,7 +399,7 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
             this.dgvHerramientaUN.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvHerramientaUN.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHerramientaUN.Size = new System.Drawing.Size(621, 71);
+            this.dgvHerramientaUN.Size = new System.Drawing.Size(621, 14);
             this.dgvHerramientaUN.TabIndex = 18;
             // 
             // frmCategoria
@@ -407,7 +407,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(82)))), ((int)(((byte)(118)))));
-            this.ClientSize = new System.Drawing.Size(658, 503);
+            this.ClientSize = new System.Drawing.Size(658, 341);
             this.Controls.Add(this.dgvHerramientaUN);
             this.Controls.Add(this.dgvHerramientaUS);
             this.Controls.Add(this.dgvCategoria);
