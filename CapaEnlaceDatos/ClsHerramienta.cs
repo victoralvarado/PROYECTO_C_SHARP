@@ -33,7 +33,7 @@ namespace CapaEnlaceDatos
         public DataTable Listar()
         {
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "ListarHerramienta";
+            comando.CommandText = "ListarHerramientasPPrestamo";
             comando.CommandType = CommandType.StoredProcedure;
             leer = comando.ExecuteReader();
             tabla.Load(leer);
@@ -81,7 +81,22 @@ namespace CapaEnlaceDatos
             conexion.CerrarConexion();
             return tabla;
         }
-        public DataTable FiltrarTC(string buscar)
+
+        public DataTable FiltrarTCPrestamo(string buscar)
+        {
+            //Buscar por todos los campos de la tabla
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "select h.idHerramienta AS 'ID HERRAMIENTA', h.nombreHerramienta AS 'NOMBRE HERRAMIENTA' " +
+                "from Bodega.herramienta h where h.uso = 'NO' and h.nombreHerramienta like '%"+buscar+"%' or h.uso = 'NO' and h.idHerramienta like '%"+buscar+"%' " +
+                "order by h.nombreHerramienta ";
+            comando.CommandType = CommandType.Text;
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+            conexion.CerrarConexion();
+            return tabla;
+        }
+
+         public DataTable FiltrarTC(string buscar)
         {
             //Buscar por todos los campos de la tabla
             comando.Connection = conexion.AbrirConexion();

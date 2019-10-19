@@ -27,6 +27,13 @@ namespace CapaLogicaNegocio
             return tabla;
         }
 
+        public DataTable ListarHerramientasPPrestamo()
+        {
+            DataTable tabla = new DataTable();
+            tabla = herramienta.Listar();
+            return tabla;
+        }
+
         public DataTable ListarHerramientaCUS(string categoria)
         {
             DataTable tabla2 = new DataTable();
@@ -53,6 +60,13 @@ namespace CapaLogicaNegocio
         {
             DataTable tabla = new DataTable();
             tabla = herramienta.FiltrarTC(buscar.Replace("'", ""));
+            return tabla;
+        }
+
+        public DataTable FiltrarHerramientaTCPrestamo(string buscar)
+        {
+            DataTable tabla = new DataTable();
+            tabla = herramienta.FiltrarTCPrestamo(buscar.Replace("'", ""));
             return tabla;
         }
 

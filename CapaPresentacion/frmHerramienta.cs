@@ -18,6 +18,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
         private Herramienta H = new Herramienta();
         private string idHerramienta = null;
         ErrorProvider ep = new ErrorProvider();
@@ -57,13 +58,13 @@ namespace CapaPresentacion
             //Metodo para llenar los campos para filtar(Buscar) en la tabla por un campo especifico
             List<Items> lista = new List<Items>();
             //                     NAME                  VALUE
-            lista.Add(new Items("SELECCIONAR",                  ""));
-            lista.Add(new Items("ID HERRAMIENTA",  "idHerramienta"));
-            lista.Add(new Items("HERRAMIENTA", "nombreHerramienta"));
-            lista.Add(new Items("ID CATEGORIA",      "idCategoria"));
-            lista.Add(new Items("USO",                       "uso"));
-            lista.Add(new Items("ESTADO",                 "estado"));
-            lista.Add(new Items("CATEGORIA",     "nombreCategoria"));
+            lista.Add(new Items("SELECCIONAR",                     ""));
+            lista.Add(new Items("ID HERRAMIENTA",   "h.idHerramienta"));
+            lista.Add(new Items("HERRAMIENTA", " h.nombreHerramienta"));
+            lista.Add(new Items("ID CATEGORIA",       "h.idCategoria"));
+            lista.Add(new Items("USO",                        "h.uso"));
+            lista.Add(new Items("ESTADO",                  "h.estado"));
+            lista.Add(new Items("CATEGORIA",      "c.nombreCategoria"));
             //Se mostrara el Name y tomara el value del combobox
             cmbCampo.DisplayMember = "Name";
             cmbCampo.ValueMember = "Value";
@@ -324,7 +325,7 @@ namespace CapaPresentacion
                 if (Convert.ToString(e.Value) == "NUEVA")
                 {
                     e.CellStyle.ForeColor = Color.Black;
-                    e.CellStyle.BackColor = Color.SkyBlue;
+                    e.CellStyle.BackColor = Color.FromArgb(217, 237, 247);
                 }
                 if (Convert.ToString(e.Value) == "NORMAL")
                 {
@@ -334,7 +335,7 @@ namespace CapaPresentacion
                 if (Convert.ToString(e.Value) == "DEFECTUOSA")
                 {
                     e.CellStyle.ForeColor = Color.White;
-                    e.CellStyle.BackColor = Color.Red;
+                    e.CellStyle.BackColor = Color.FromArgb(249, 53, 76);
                 }
             }
             if (this.dgvHerramienta.Columns[e.ColumnIndex].Name == "USO")
@@ -342,12 +343,12 @@ namespace CapaPresentacion
                 if (Convert.ToString(e.Value) == "NO")
                 {
                     e.CellStyle.ForeColor = Color.White;
-                    e.CellStyle.BackColor = Color.Green;
+                    e.CellStyle.BackColor = Color.FromArgb(65, 179, 20);
                 }
                 if (Convert.ToString(e.Value) == "SI")
                 {
                     e.CellStyle.ForeColor = Color.White;
-                    e.CellStyle.BackColor = Color.Red;
+                    e.CellStyle.BackColor = Color.FromArgb(228, 203, 16);
                 }
             }
         }
@@ -372,9 +373,9 @@ namespace CapaPresentacion
                     string value = Convert.ToString(cmbCampo.SelectedValue);
                     dgvHerramienta.DataSource = LH.FiltrarHerramienta(value, buscar);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Ocurrio un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ocurrio un error : "+ ex +"", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
