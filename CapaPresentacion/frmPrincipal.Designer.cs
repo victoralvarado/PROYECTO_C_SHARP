@@ -34,8 +34,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnMenu = new System.Windows.Forms.PictureBox();
             this.lblMenu = new System.Windows.Forms.Label();
+            this.pnlMenu = new System.Windows.Forms.Panel();
+            this.btnCerrarMenu = new System.Windows.Forms.PictureBox();
+            this.btnAbrirMenu = new System.Windows.Forms.PictureBox();
+            this.pnlUsuario = new System.Windows.Forms.Panel();
             this.pnlFooter = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblFooter = new System.Windows.Forms.Label();
@@ -60,9 +63,12 @@
             this.AnimacionSidebarBack = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.MoverDashboard = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.CurvaSidebar = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.tmrRefresh = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
+            this.pnlMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAbrirMenu)).BeginInit();
             this.pnlFooter.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tblpPrincipal.SuspendLayout();
@@ -86,13 +92,14 @@
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(99)))), ((int)(((byte)(139)))));
             this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.12782F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.605263F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.00376F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.15038F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.6042296F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.909366F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.18127F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.13897F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.btnMenu, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblMenu, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pnlMenu, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pnlUsuario, 4, 0);
             this.AnimacionSidebarBack.SetDecoration(this.tableLayoutPanel1, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebar.SetDecoration(this.tableLayoutPanel1, BunifuAnimatorNS.DecorationType.None);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -103,34 +110,69 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1324, 58);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // btnMenu
-            // 
-            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AnimacionSidebarBack.SetDecoration(this.btnMenu, BunifuAnimatorNS.DecorationType.None);
-            this.AnimacionSidebar.SetDecoration(this.btnMenu, BunifuAnimatorNS.DecorationType.None);
-            this.btnMenu.Image = global::CapaPresentacion.Properties.Resources.lista;
-            this.btnMenu.Location = new System.Drawing.Point(17, 3);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(43, 50);
-            this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnMenu.TabIndex = 0;
-            this.btnMenu.TabStop = false;
-            this.btnMenu.Click += new System.EventHandler(this.BtnMenu_Click);
-            // 
             // lblMenu
             // 
             this.lblMenu.AutoSize = true;
             this.AnimacionSidebarBack.SetDecoration(this.lblMenu, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebar.SetDecoration(this.lblMenu, BunifuAnimatorNS.DecorationType.None);
             this.lblMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblMenu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenu.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMenu.ForeColor = System.Drawing.Color.White;
-            this.lblMenu.Location = new System.Drawing.Point(78, 0);
+            this.lblMenu.Location = new System.Drawing.Point(76, 0);
             this.lblMenu.Name = "lblMenu";
-            this.lblMenu.Size = new System.Drawing.Size(179, 58);
-            this.lblMenu.TabIndex = 1;
-            this.lblMenu.Text = "MENU";
+            this.lblMenu.Size = new System.Drawing.Size(195, 58);
+            this.lblMenu.TabIndex = 0;
+            this.lblMenu.Text = "Menu";
             this.lblMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pnlMenu
+            // 
+            this.pnlMenu.Controls.Add(this.btnCerrarMenu);
+            this.pnlMenu.Controls.Add(this.btnAbrirMenu);
+            this.AnimacionSidebarBack.SetDecoration(this.pnlMenu, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebar.SetDecoration(this.pnlMenu, BunifuAnimatorNS.DecorationType.None);
+            this.pnlMenu.Location = new System.Drawing.Point(11, 3);
+            this.pnlMenu.Name = "pnlMenu";
+            this.pnlMenu.Size = new System.Drawing.Size(59, 52);
+            this.pnlMenu.TabIndex = 1;
+            // 
+            // btnCerrarMenu
+            // 
+            this.btnCerrarMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionSidebar.SetDecoration(this.btnCerrarMenu, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebarBack.SetDecoration(this.btnCerrarMenu, BunifuAnimatorNS.DecorationType.None);
+            this.btnCerrarMenu.Image = global::CapaPresentacion.Properties.Resources.arrowleft;
+            this.btnCerrarMenu.Location = new System.Drawing.Point(4, 0);
+            this.btnCerrarMenu.Name = "btnCerrarMenu";
+            this.btnCerrarMenu.Size = new System.Drawing.Size(51, 49);
+            this.btnCerrarMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCerrarMenu.TabIndex = 2;
+            this.btnCerrarMenu.TabStop = false;
+            this.btnCerrarMenu.Click += new System.EventHandler(this.btnCerrarMenu_Click);
+            // 
+            // btnAbrirMenu
+            // 
+            this.btnAbrirMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionSidebar.SetDecoration(this.btnAbrirMenu, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebarBack.SetDecoration(this.btnAbrirMenu, BunifuAnimatorNS.DecorationType.None);
+            this.btnAbrirMenu.Image = global::CapaPresentacion.Properties.Resources.arrowright;
+            this.btnAbrirMenu.Location = new System.Drawing.Point(4, 0);
+            this.btnAbrirMenu.Name = "btnAbrirMenu";
+            this.btnAbrirMenu.Size = new System.Drawing.Size(51, 49);
+            this.btnAbrirMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnAbrirMenu.TabIndex = 1;
+            this.btnAbrirMenu.TabStop = false;
+            this.btnAbrirMenu.Visible = false;
+            this.btnAbrirMenu.Click += new System.EventHandler(this.btnAbrirMenu_Click);
+            // 
+            // pnlUsuario
+            // 
+            this.AnimacionSidebarBack.SetDecoration(this.pnlUsuario, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebar.SetDecoration(this.pnlUsuario, BunifuAnimatorNS.DecorationType.None);
+            this.pnlUsuario.Location = new System.Drawing.Point(1061, 3);
+            this.pnlUsuario.Name = "pnlUsuario";
+            this.pnlUsuario.Size = new System.Drawing.Size(260, 52);
+            this.pnlUsuario.TabIndex = 2;
             // 
             // pnlFooter
             // 
@@ -252,13 +294,13 @@
             this.btnPrestamo.BackColor = System.Drawing.Color.Transparent;
             this.btnPrestamo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnPrestamo.BorderRadius = 0;
-            this.btnPrestamo.ButtonText = "      Prestamo";
+            this.btnPrestamo.ButtonText = "      Detalle Prestamo";
             this.btnPrestamo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AnimacionSidebar.SetDecoration(this.btnPrestamo, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebarBack.SetDecoration(this.btnPrestamo, BunifuAnimatorNS.DecorationType.None);
             this.btnPrestamo.DisabledColor = System.Drawing.Color.Gray;
             this.btnPrestamo.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnPrestamo.Iconimage = global::CapaPresentacion.Properties.Resources._011_codificacion;
+            this.btnPrestamo.Iconimage = global::CapaPresentacion.Properties.Resources.detalle;
             this.btnPrestamo.Iconimage_right = null;
             this.btnPrestamo.Iconimage_right_Selected = null;
             this.btnPrestamo.Iconimage_Selected = null;
@@ -277,10 +319,11 @@
             this.btnPrestamo.selected = false;
             this.btnPrestamo.Size = new System.Drawing.Size(252, 37);
             this.btnPrestamo.TabIndex = 20;
-            this.btnPrestamo.Text = "      Prestamo";
+            this.btnPrestamo.Text = "      Detalle Prestamo";
             this.btnPrestamo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPrestamo.Textcolor = System.Drawing.Color.LightGray;
             this.btnPrestamo.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnPrestamo.Click += new System.EventHandler(this.btnPrestamo_Click);
             // 
             // btnUsuarios
             // 
@@ -391,6 +434,7 @@
             this.btnPersonal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPersonal.Textcolor = System.Drawing.Color.LightGray;
             this.btnPersonal.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnPersonal.Click += new System.EventHandler(this.btnPersonal_Click);
             // 
             // btnHerramientas
             // 
@@ -622,6 +666,7 @@
             this.btnNuevoPre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevoPre.Textcolor = System.Drawing.Color.LightGray;
             this.btnNuevoPre.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnNuevoPre.Click += new System.EventHandler(this.btnNuevoPre_Click);
             // 
             // btnInicio
             // 
@@ -658,6 +703,7 @@
             this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInicio.Textcolor = System.Drawing.Color.LightGray;
             this.btnInicio.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
             // 
             // LineaSidebar
             // 
@@ -743,15 +789,18 @@
             this.AnimacionSidebarBack.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebar.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1080, 650);
+            this.MinimumSize = new System.Drawing.Size(1340, 691);
             this.Name = "frmPrincipal";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "TOOLSOFT";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
+            this.pnlMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAbrirMenu)).EndInit();
             this.pnlFooter.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -768,8 +817,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.PictureBox btnMenu;
-        private System.Windows.Forms.Label lblMenu;
         private System.Windows.Forms.Panel pnlFooter;
         private BunifuAnimatorNS.BunifuTransition AnimacionSidebar;
         private BunifuAnimatorNS.BunifuTransition AnimacionSidebarBack;
@@ -794,6 +841,12 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnCategoria;
         private Bunifu.Framework.UI.BunifuFlatButton btnPersonal;
         private Bunifu.Framework.UI.BunifuFlatButton btnPrestamo;
+        private System.Windows.Forms.Timer tmrRefresh;
+        private System.Windows.Forms.Label lblMenu;
+        private System.Windows.Forms.Panel pnlMenu;
+        private System.Windows.Forms.PictureBox btnAbrirMenu;
+        private System.Windows.Forms.PictureBox btnCerrarMenu;
+        private System.Windows.Forms.Panel pnlUsuario;
     }
 }
 

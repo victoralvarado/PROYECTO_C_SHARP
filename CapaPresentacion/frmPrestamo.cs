@@ -1,12 +1,6 @@
 ﻿using CapaLogicaNegocio;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CapaPresentacion
@@ -20,17 +14,25 @@ namespace CapaPresentacion
 
         private Herramienta H = new Herramienta();
         private Personal P = new Personal();
+        private DetallePrestamo DP = new DetallePrestamo();
         private string idHerramienta = null;
-        ErrorProvider ep = new ErrorProvider();
-        bool Editando = false;
-        bool Agregando = false;
-        bool ValidarF = false;
-        bool Seleccionado = false;
+        private string idPersonal = null;
+        private string prestadapor = null;
+        private string uso = null;
+        private string estado = null;
+        private ErrorProvider ep = new ErrorProvider();
+        private bool ValidarF = false;
 
         public void ListarHerramientas()
         {
             Herramienta LH = new Herramienta();
             dgvHerramienta.DataSource = LH.ListarHerramientasPPrestamo();
+        }
+
+        public void ListarDetallePrestamo()
+        {
+            DetallePrestamo LDP = new DetallePrestamo();
+            dgvDetalleprestamo.DataSource = LDP.ListarDetallePrestamo();
         }
 
         public void ListarPersonal()
@@ -43,18 +45,15 @@ namespace CapaPresentacion
         public void LimpiarControles()
         {
             txtHerramienta.Clear();
+            txtEmpleado.Clear();
+            ep.Clear();
         }
 
         private void frmPrestamo_Load(object sender, EventArgs e)
         {
-            tmrFechaHora.Enabled = true;
+            ListarDetallePrestamo();
             ListarPersonal();
             ListarHerramientas();
-        }
-
-        private void tmrFechaHora_Tick(object sender, EventArgs e)
-        {
-            txtFecha.Text = Convert.ToString(DateTime.Now);
         }
 
         private void dgvHerramienta_Click(object sender, EventArgs e)
@@ -64,7 +63,7 @@ namespace CapaPresentacion
             {
                 idHerramienta = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["ID HERRAMIENTA"].Value.ToString();
                 txtHerramienta.Text = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["NOMBRE HERRAMIENTA"].Value.ToString();
-
+                estado = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["ESTADO"].Value.ToString();
             }
         }
 
@@ -110,6 +109,62 @@ namespace CapaPresentacion
             Herramienta LH = new Herramienta();
             string buscar = txtBuscar.Text;
             dgvHerramienta.DataSource = LH.FiltrarHerramientaTCPrestamo(buscar);
+        }
+
+        private void dgvEmpleado_Click(object sender, EventArgs e)
+        {
+            if (dgvEmpleado.RowCount > 0)
+            {
+                idPersonal = dgvEmpleado.Rows[dgvEmpleado.CurrentRow.Index].Cells["ID PERSONAL"].Value.ToString();
+                txtEmpleado.Text = dgvEmpleado.Rows[dgvEmpleado.CurrentRow.Index].Cells["NOMBRES"].Value.ToString() + " " + dgvEmpleado.Rows[dgvEmpleado.CurrentRow.Index].Cells["APELLIDOS"].Value.ToString();
+            }
+        }
+
+        private void txtBuscarEmpleado_TextChanged(object sender, EventArgs e)
+        {
+            Personal LP = new Personal();
+            string buscar = txtBuscarEmpleado.Text;
+            dgvEmpleado.DataSource = LP.FiltrarPersonal(buscar);
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            ValidarF = true;
+            ep.Clear();
+            if (txtEmpleado.Text.Trim().Length==0)
+            {
+                ep.SetError(txtEmpleado, "Seleccione un Empleado de la tabla");
+                ValidarF = false;
+            }
+            if (txtHerramienta.Text.Trim().Length==0)
+            {
+                ep.SetError(txtHerramienta, "Selleccione una Herramienta de la tabla");
+                ValidarF = false;
+            }
+
+            if (ValidarF==true)
+            {
+                prestadapor = "Administrador";
+                uso = "SI";
+                DP.RegistrarDetallePrestamo(idPersonal,idHerramienta,txtFecha.Text,prestadapor);
+                DP.ModificarUso(uso,estado,idHerramienta);
+                MessageBox.Show("Datos agregados correctamente", "Agregando", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ListarDetallePrestamo();
+                ListarHerramientas();
+                LimpiarControles();
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            ep.Clear();
+            if (txtEmpleado.Text.Length > 0 || txtHerramienta.Text.Length > 0) 
+            {
+                if (MessageBox.Show("Esta seguro que desea cancelar la operacion", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
+                {
+                    LimpiarControles();
+                }
+            }
         }
     }
 }

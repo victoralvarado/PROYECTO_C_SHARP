@@ -8,12 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace CapaPresentacion
 {
     public partial class frmHerramienta : Form
     {
+        
         public frmHerramienta()
         {
             InitializeComponent();
@@ -74,6 +74,7 @@ namespace CapaPresentacion
 
         public void ListarHerramientas()
         {
+            
             Herramienta LH = new Herramienta();
             dgvHerramienta.DataSource = LH.ListarHerramienta();
         }
@@ -161,6 +162,7 @@ namespace CapaPresentacion
 
         private void FrmHerramienta_Load(object sender, EventArgs e)
         {
+            
             CargarCat();
             LlenarUso();
             LlenarEstado();
@@ -378,6 +380,11 @@ namespace CapaPresentacion
                     MessageBox.Show("Ocurrio un error : "+ ex +"", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void tmrRefresh_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

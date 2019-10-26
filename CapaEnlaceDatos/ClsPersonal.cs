@@ -53,16 +53,37 @@ namespace CapaEnlaceDatos
             }
             return tabla;
         }
+        //FALTA PROGRAMAR
+        //public DataTable Filtrar(string buscar)
+        //{
+        //    try
+        //    {
+        //        comando.Connection = conexion.AbrirConexion();
+        //        comando.CommandText = "SELECT idUsuario AS 'ID USUARIO', UserName AS " +
+        //            "'NOMBRE DE USUARIO',password, tipoUsuario AS 'TIPO DE USUARIO' " +
+        //            "FROM Bodega.usuario WHERE userName LIKE '%" + buscar + "%' OR  tipoUsuario " +
+        //            "LIKE '%" + buscar + "%' OR idUsuario LIKE '%" + buscar + "%'";
+        //        comando.CommandType = CommandType.Text;
+        //        leer = comando.ExecuteReader();
+        //        tabla.Load(leer);
+        //        conexion.CerrarConexion();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show("Ocurrio un error :" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    return tabla;
+        //}
 
-        public DataTable Filtrar(string buscar)
+        public DataTable FiltrarPP(string buscar)
         {
             try
             {
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "SELECT idUsuario AS 'ID USUARIO', UserName AS " +
-                    "'NOMBRE DE USUARIO',password, tipoUsuario AS 'TIPO DE USUARIO' " +
-                    "FROM Bodega.usuario WHERE userName LIKE '%" + buscar + "%' OR  tipoUsuario " +
-                    "LIKE '%" + buscar + "%' OR idUsuario LIKE '%" + buscar + "%'";
+                comando.CommandText = "SELECT id AS 'ID PERSONAL', nombre AS " +
+                    "'NOMBRES', apellido AS 'APELLIDOS' " +
+                    "FROM bodega.personal WHERE id LIKE '%" + buscar + "%' OR  nombre " +
+                    "LIKE '%" + buscar + "%' OR apellido LIKE '%" + buscar + "%'";
                 comando.CommandType = CommandType.Text;
                 leer = comando.ExecuteReader();
                 tabla.Load(leer);

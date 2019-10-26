@@ -22,10 +22,17 @@ namespace CapaLogicaNegocio
             return tabla;
         }
 
+        //public DataTable FiltrarPersonal(string buscar)
+        //{
+        //    DataTable tabla = new DataTable();
+        //    tabla = personal.Filtrar(buscar);
+        //    return tabla;
+        //}
+
         public DataTable FiltrarPersonal(string buscar)
         {
             DataTable tabla = new DataTable();
-            tabla = personal.Filtrar(buscar);
+            tabla = personal.FiltrarPP(buscar.Replace("'",""));
             return tabla;
         }
 

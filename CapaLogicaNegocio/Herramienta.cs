@@ -30,7 +30,7 @@ namespace CapaLogicaNegocio
         public DataTable ListarHerramientasPPrestamo()
         {
             DataTable tabla = new DataTable();
-            tabla = herramienta.Listar();
+            tabla = herramienta.ListarHP();
             return tabla;
         }
 

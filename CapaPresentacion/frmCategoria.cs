@@ -16,6 +16,8 @@ namespace CapaPresentacion
 {
     public partial class frmCategoria : Form
     {
+        
+        frmHerramienta FH = new frmHerramienta();
         private Herramienta H = new Herramienta();
         private string categoria = null;
         private Categoria C = new Categoria();
@@ -231,6 +233,7 @@ namespace CapaPresentacion
                     }
                 }
             }
+            
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
@@ -268,14 +271,15 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    C.ModificarCategoria(idCategoria, txtCategoria.Text);
                     MessageBox.Show("Datos modificados correctamente", "Modificando", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Botones();
                     ListarCategorias();
                     LimpiarControles();
                     dgvCategoria.Enabled = true;
                 }
+                
             }
+            
         }
     }
 }
