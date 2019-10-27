@@ -1,11 +1,12 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 /*
- * @Nombre de Clase: ClsCategoria.
- * @Version: 1.0.
- * @Copyright: ToolSoft.
- * @Author Victor, Adrian, Andrea & Diego
- */
+* @Nombre de Clase: ClsCategoria.
+* @Version: 1.0.
+* @Copyright: ToolSoft.
+* @Author Victor, Adrian, Andrea & Diego
+*/
 namespace CapaEnlaceDatos
 {
     public class ClsCategoria
@@ -27,6 +28,17 @@ namespace CapaEnlaceDatos
             conexion.CerrarConexion();
             return tabla;
 
+        }
+
+        public void listarTotalC(Label lbl)
+        {
+            int dat;
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "select count (id) from bodega.personal";
+            comando.CommandType = CommandType.Text;
+            dat = (int)comando.ExecuteScalar();
+            (lbl.Text) = dat.ToString();
+            conexion.CerrarConexion();
         }
 
         public void Registrar(string nombreCategoria)

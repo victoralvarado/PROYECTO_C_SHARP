@@ -1,6 +1,7 @@
 ﻿using CapaEnlaceDatos;
 using System;
 using System.Data;
+using System.Windows.Forms;
 
 namespace CapaLogicaNegocio
 {
@@ -20,6 +21,11 @@ namespace CapaLogicaNegocio
             DataTable tabla = new DataTable();
             tabla = personal.ListarPrestamoPersonal();
             return tabla;
+        }
+
+        public void ListarTotalP(Label lbl)
+        {
+            personal.listarTotalP(lbl);
         }
 
         //public DataTable FiltrarPersonal(string buscar)

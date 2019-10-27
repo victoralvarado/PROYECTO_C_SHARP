@@ -53,6 +53,18 @@ namespace CapaEnlaceDatos
             }
             return tabla;
         }
+
+        public void listarTotalP(Label lbl)
+        {
+            int dat;
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "select count (idCategoria) from bodega.categoria";
+            comando.CommandType = CommandType.Text;
+            dat = (int)comando.ExecuteScalar();
+            (lbl.Text) = dat.ToString();
+            conexion.CerrarConexion();
+        }
+
         //FALTA PROGRAMAR
         //public DataTable Filtrar(string buscar)
         //{

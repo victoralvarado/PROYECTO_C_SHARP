@@ -148,7 +148,7 @@ namespace CapaPresentacion
                 uso = "SI";
                 DP.RegistrarDetallePrestamo(idPersonal,idHerramienta,txtFecha.Text,prestadapor);
                 DP.ModificarUso(uso,estado,idHerramienta);
-                MessageBox.Show("Datos agregados correctamente", "Agregando", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Herramienta prestada correctamente", "Prestando", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ListarDetallePrestamo();
                 ListarHerramientas();
                 LimpiarControles();
@@ -165,6 +165,11 @@ namespace CapaPresentacion
                     LimpiarControles();
                 }
             }
+        }
+
+        private void tmrFechaHora_Tick(object sender, EventArgs e)
+        {
+            txtFecha.Text = DateTime.Now.ToString();
         }
     }
 }

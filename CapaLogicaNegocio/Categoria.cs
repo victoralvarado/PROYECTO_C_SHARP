@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Windows.Forms;
 using CapaEnlaceDatos;
 /*
  * @Nombre de Clase: Categoria.
@@ -18,6 +19,11 @@ namespace CapaLogicaNegocio
             DataTable tabla = new DataTable();
             tabla = categoria.Listar();
             return tabla;
+        }
+
+        public void ListarTotalC(Label lbl)
+        {
+            categoria.listarTotalC(lbl);
         }
 
         public void RegistrarCategoria(string nombreCategoria)

@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 /*
 * @Nombre de Clase: ClsHerramienta.
 * @Version: 1.0.
@@ -49,6 +50,17 @@ namespace CapaEnlaceDatos
             tabla.Load(leer);
             conexion.CerrarConexion();
             return tabla;
+        }
+
+        public void listarTotalH(Label lbl)
+        {
+            int dat;
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "select count (idHerramienta) from bodega.herramienta";
+            comando.CommandType = CommandType.Text;
+            dat = (int)comando.ExecuteScalar();
+            (lbl.Text) = dat.ToString();
+            conexion.CerrarConexion();
         }
 
         public DataTable listarCUS(string categoria)

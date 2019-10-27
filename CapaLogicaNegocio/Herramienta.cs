@@ -1,12 +1,13 @@
 ﻿using CapaEnlaceDatos;
 using System;
 using System.Data;
+using System.Windows.Forms;
 /*
- * @Nombre de Clase: Herramienta.
- * @Version: 1.0.
- * @Copyright: ToolSoft.
- * @Author Victor, Adrian, Andrea & Diego
- */
+* @Nombre de Clase: Herramienta.
+* @Version: 1.0.
+* @Copyright: ToolSoft.
+* @Author Victor, Adrian, Andrea & Diego
+*/
 namespace CapaLogicaNegocio
 {
     public class Herramienta
@@ -18,6 +19,11 @@ namespace CapaLogicaNegocio
             DataTable datos = new DataTable();
             datos = herramienta.ComboCategoria();
             return datos;
+        }
+
+        public void ListarTotalH(Label lbl)
+        {
+            herramienta.listarTotalH(lbl);
         }
 
         public DataTable ListarHerramienta()
