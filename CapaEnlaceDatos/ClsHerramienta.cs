@@ -63,6 +63,39 @@ namespace CapaEnlaceDatos
             conexion.CerrarConexion();
         }
 
+        public void listarTotalNU(Label nueva)
+        {
+            int dat;
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "select count (idHerramienta) from bodega.herramienta where estado='NUEVA'";
+            comando.CommandType = CommandType.Text;
+            dat = (int)comando.ExecuteScalar();
+            (nueva.Text) = dat.ToString();
+            conexion.CerrarConexion();
+        }
+
+        public void listarTotalNO(Label normal)
+        {
+            int dat;
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "select count (idHerramienta) from bodega.herramienta where estado='NORMAL'";
+            comando.CommandType = CommandType.Text;
+            dat = (int)comando.ExecuteScalar();
+            (normal.Text) = dat.ToString();
+            conexion.CerrarConexion();
+        }
+
+        public void listarTotalDE(Label defectuosa)
+        {
+            int dat;
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "select count (idHerramienta) from bodega.herramienta where estado='DEFECTUOSA'";
+            comando.CommandType = CommandType.Text;
+            dat = (int)comando.ExecuteScalar();
+            (defectuosa.Text) = dat.ToString();
+            conexion.CerrarConexion();
+        }
+
         public DataTable listarCUS(string categoria)
         {
             comando.Connection = conexion.AbrirConexion();

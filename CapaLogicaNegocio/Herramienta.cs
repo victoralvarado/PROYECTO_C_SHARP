@@ -26,6 +26,21 @@ namespace CapaLogicaNegocio
             herramienta.listarTotalH(lbl);
         }
 
+        public void ListarTotalNU(Label nueva)
+        {
+            herramienta.listarTotalNU(nueva);
+        }
+
+        public void ListarTotalNO(Label normal)
+        {
+            herramienta.listarTotalNO(normal);
+        }
+
+        public void ListarTotalDE(Label defectusa)
+        {
+            herramienta.listarTotalDE(defectusa);
+        }
+
         public DataTable ListarHerramienta()
         {
             DataTable tabla = new DataTable();
