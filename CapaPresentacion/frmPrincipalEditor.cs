@@ -198,5 +198,19 @@ namespace CapaPresentacion
             btnPersonal.Normalcolor = Color.FromArgb(49, 62, 74);
             btnGestionar.Normalcolor = Color.FromArgb(22, 36, 49);
         }
+
+        private void frmPrincipalEditor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(MessageBox.Show("Esta seguro que desea cerrar sesion?", "Cerrando", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                frmLogin L = new frmLogin();
+                this.Hide();
+                L.Show();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

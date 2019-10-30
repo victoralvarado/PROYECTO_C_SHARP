@@ -28,12 +28,12 @@ namespace CapaLogicaNegocio
             personal.listarTotalP(lbl);
         }
 
-        //public DataTable FiltrarPersonal(string buscar)
-        //{
-        //    DataTable tabla = new DataTable();
-        //    tabla = personal.Filtrar(buscar);
-        //    return tabla;
-        //}
+        public DataTable FiltrarPersonal2(string buscar)
+        {
+            DataTable tabla = new DataTable();
+            tabla = personal.Filtrar(buscar);
+            return tabla;
+        }
 
         public DataTable FiltrarPersonal(string buscar)
         {

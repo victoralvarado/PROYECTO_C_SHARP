@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaLogicaNegocio;
+using System;
 using System.Data;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -28,6 +29,31 @@ namespace CapaPresentacion
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+        }
+
+        Usuario U = new Usuario();
+        public void Login()
+        {
+            string tipo = "";
+           tipo = U.Login(txtUserName.Text, txtPassword.Text);
+            if (tipo=="Administrador")
+            {
+                frmPrincipal FP = new frmPrincipal();
+                FP.Show();
+                this.Hide();
+            }
+            if (tipo == "Bodeguero")
+            {
+                frmPrincipalEditor FPE = new frmPrincipalEditor();
+                FPE.Show();
+                this.Hide();
+            }
+            if (tipo=="")
+            {
+                MessageBox.Show("Usuario y/o contraseña incorrecta", "Login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
@@ -92,6 +118,11 @@ namespace CapaPresentacion
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnLogIn_Click(object sender, EventArgs e)
+        {
+            Login();
         }
     }
 }

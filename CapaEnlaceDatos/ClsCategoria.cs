@@ -67,6 +67,19 @@ namespace CapaEnlaceDatos
             conexion.CerrarConexion();
         }
 
+        public DataTable FiltrarCat(string buscar)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "Select idCategoria AS 'CÓDIGO CATEGORÍA', nombreCategoria " +
+                "AS 'CATEGORÍA' from bodega.categoria where idCategoria like '%" + buscar + "%' " +
+                "or nombreCategoria like '%" + buscar + "%'";
+            comando.CommandType = CommandType.Text;
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+            conexion.CerrarConexion();
+            return tabla;
+        }
+
         public void Eliminar(int idCategoria)
         {
             comando.Connection = conexion.AbrirConexion();

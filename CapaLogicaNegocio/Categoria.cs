@@ -21,6 +21,13 @@ namespace CapaLogicaNegocio
             return tabla;
         }
 
+        public DataTable FiltrarCat(string buscar)
+        {
+            DataTable tabla = new DataTable();
+            tabla =categoria.FiltrarCat(buscar);
+            return tabla;
+        }
+
         public void ListarTotalC(Label lbl)
         {
             categoria.listarTotalC(lbl);

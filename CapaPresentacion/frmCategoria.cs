@@ -126,8 +126,8 @@ namespace CapaPresentacion
         {
             if (dgvCategoria.RowCount > 0)
             {
-                idCategoria = dgvCategoria.Rows[dgvCategoria.CurrentRow.Index].Cells["ID CATEGORIA"].Value.ToString();
-                txtCategoria.Text = dgvCategoria.Rows[dgvCategoria.CurrentRow.Index].Cells["CATEGORIA"].Value.ToString();
+                idCategoria = dgvCategoria.Rows[dgvCategoria.CurrentRow.Index].Cells["CÓDIGO CATEGORÍA"].Value.ToString();
+                txtCategoria.Text = dgvCategoria.Rows[dgvCategoria.CurrentRow.Index].Cells["CATEGORÍA"].Value.ToString();
             }
         }
 
@@ -171,7 +171,7 @@ namespace CapaPresentacion
         {
             if (dgvCategoria.RowCount > 0)
             {
-                categoria = dgvCategoria.CurrentRow.Cells["CATEGORIA"].Value.ToString();
+                categoria = dgvCategoria.CurrentRow.Cells["CATEGORÍA"].Value.ToString();
 
                 string usoS = null;
                 string usoN = null;
@@ -206,12 +206,12 @@ namespace CapaPresentacion
 
                 if (usoS == "SI")
                 {
-                    MessageBox.Show("No puede eliminar la categoria '" + categoria + "', porque hay herramientas en uso que pertenecen a esa categoria, debe desocupar las herramientas que pertenecen a '" + categoria + "' para poder eliminarla", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No puede eliminar la categoría '" + categoria + "', porque hay herramientas en uso que pertenecen a esa categoría, desocupen las herramientas que pertenecen a '" + categoria + "' para poder eliminarla", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 if (usoN == "NO" && usoS == "")
                 {
-                    if (MessageBox.Show("Todas las herramientas que pertenecen a la categoria '" + categoria + "' seran eliminadas.\nEsta seguro que desea eliminarla?", "Validación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Todas las herramientas que pertenecen a la categoría '" + categoria + "' serán eliminadas.\n¿Está seguro que desea eliminarla?", "Validación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         C.EliminarCategoria(idCategoria);
                         Botones();
@@ -223,7 +223,7 @@ namespace CapaPresentacion
 
                 if (usoS == "" && usoN == "")
                 {
-                    if (MessageBox.Show("Esta seguro que desea eliminar la categoria '" + categoria + "'?", "Validación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("¿Está seguro que desea eliminar la categoría '" + categoria + "'?", "Validación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         C.EliminarCategoria(idCategoria);
                         Botones();
@@ -238,7 +238,7 @@ namespace CapaPresentacion
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Desea cancelar la operación ?", "Validacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("¿Desea cancelar la operación?", "Validación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 LimpiarControles();
                 ep.Clear();
@@ -255,7 +255,7 @@ namespace CapaPresentacion
             ep.Clear();
             if (txtCategoria.Text.Trim().Length == 0)
             {
-                ep.SetError(txtCategoria, "Campo requerido!");
+                ep.SetError(txtCategoria, "¡Campo requerido!");
                 ValidarF = false;
             }
             if (ValidarF == true)
@@ -271,6 +271,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
+                    C.ModificarCategoria(idCategoria, txtCategoria.Text);
                     MessageBox.Show("Datos modificados correctamente", "Modificando", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Botones();
                     ListarCategorias();
@@ -280,6 +281,13 @@ namespace CapaPresentacion
                 
             }
             
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            Categoria FC = new Categoria();
+            string buscar = txtBuscar.Text;
+            dgvCategoria.DataSource = FC.FiltrarCat(buscar);
         }
     }
 }

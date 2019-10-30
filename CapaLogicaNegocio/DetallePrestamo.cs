@@ -28,5 +28,11 @@ namespace CapaLogicaNegocio
         {
             detalleprestamo.Modificar(uso,estado, Convert.ToInt32(idHerramienta));
         }
+
+        public DataTable filtrarPrestamo(string buscar) {
+            DataTable tabla = new DataTable();
+            tabla = detalleprestamo.filtrarPrestamo(buscar.Replace("'", ""));
+            return tabla;
+        }
     }
 }

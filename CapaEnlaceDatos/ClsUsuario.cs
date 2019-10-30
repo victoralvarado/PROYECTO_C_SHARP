@@ -18,6 +18,32 @@ namespace CapaEnlaceDatos
         DataTable tabla = new DataTable();
         ComboBox combo = new ComboBox();
         SqlCommand comando = new SqlCommand();
+        
+
+        public string Login(string userName, string password)
+        {
+            string tipo = "";
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "select tipoUsuario from bodega.usuario where userName='"+userName.Replace("'", "") + "' and password='"+password.Replace("'","")+"'";
+            //comando.Parameters.AddWithValue("@userName", userName);
+            //comando.Parameters.AddWithValue("@password", password);
+            comando.CommandType = CommandType.Text;
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+            conexion.CerrarConexion();
+            if (tabla.Rows.Count==1)
+            {
+                tipo = Convert.ToString(tabla.Rows[0][0]);
+            }
+            if (tabla.Rows.Count==0)
+            {
+                tipo = "";
+            }
+           
+
+            return tipo;
+        }
+
 
         public DataTable Listar()
         {
