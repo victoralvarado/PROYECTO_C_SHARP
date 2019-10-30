@@ -90,7 +90,7 @@ namespace CapaEnlaceDatos
             try
             {
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "SELECT id AS 'ID PERSONAL', nombre AS " +
+                comando.CommandText = "SELECT id AS 'CÓDIGO PERSONAL', nombre AS " +
                     "'NOMBRES', apellido AS 'APELLIDOS' " +
                     "FROM bodega.personal WHERE id LIKE '%" + buscar + "%' OR  nombre " +
                     "LIKE '%" + buscar + "%' OR apellido LIKE '%" + buscar + "%'";

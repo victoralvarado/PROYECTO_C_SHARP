@@ -61,7 +61,7 @@ namespace CapaPresentacion
 
             if (dgvHerramienta.RowCount > 0)
             {
-                idHerramienta = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["ID HERRAMIENTA"].Value.ToString();
+                idHerramienta = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["CÓDIGO HERRAMIENTA"].Value.ToString();
                 txtHerramienta.Text = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["NOMBRE HERRAMIENTA"].Value.ToString();
                 estado = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["ESTADO"].Value.ToString();
             }
@@ -115,7 +115,7 @@ namespace CapaPresentacion
         {
             if (dgvEmpleado.RowCount > 0)
             {
-                idPersonal = dgvEmpleado.Rows[dgvEmpleado.CurrentRow.Index].Cells["ID PERSONAL"].Value.ToString();
+                idPersonal = dgvEmpleado.Rows[dgvEmpleado.CurrentRow.Index].Cells["CÓDIGO EMPLEADO"].Value.ToString();
                 txtEmpleado.Text = dgvEmpleado.Rows[dgvEmpleado.CurrentRow.Index].Cells["NOMBRES"].Value.ToString() + " " + dgvEmpleado.Rows[dgvEmpleado.CurrentRow.Index].Cells["APELLIDOS"].Value.ToString();
             }
         }
@@ -133,12 +133,12 @@ namespace CapaPresentacion
             ep.Clear();
             if (txtEmpleado.Text.Trim().Length==0)
             {
-                ep.SetError(txtEmpleado, "Seleccione un Empleado de la tabla");
+                ep.SetError(txtEmpleado, "¡Seleccione un Empleado de la tabla!");
                 ValidarF = false;
             }
             if (txtHerramienta.Text.Trim().Length==0)
             {
-                ep.SetError(txtHerramienta, "Selleccione una Herramienta de la tabla");
+                ep.SetError(txtHerramienta, "¡Selleccione una Herramienta de la tabla!");
                 ValidarF = false;
             }
 
@@ -160,7 +160,7 @@ namespace CapaPresentacion
             ep.Clear();
             if (txtEmpleado.Text.Length > 0 || txtHerramienta.Text.Length > 0) 
             {
-                if (MessageBox.Show("Esta seguro que desea cancelar la operacion", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea cancelar la operacion?", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
                 {
                     LimpiarControles();
                 }
