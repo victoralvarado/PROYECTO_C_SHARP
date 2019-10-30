@@ -58,14 +58,14 @@ namespace CapaLogicaNegocio
         public DataTable ListarHerramientaCUS(string categoria)
         {
             DataTable tabla2 = new DataTable();
-            tabla2 = herramienta.listarCUS(categoria);
+            tabla2 = herramienta.ListarCUS(categoria);
             return tabla2;
         }
 
         public DataTable ListarHerramientaCUN(string categoria)
         {
             DataTable tabla3 = new DataTable();
-            tabla3 = herramienta.listarCUN(categoria);
+            tabla3 = herramienta.ListarCUN(categoria);
             return tabla3;
         }
 

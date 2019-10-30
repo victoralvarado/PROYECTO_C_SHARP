@@ -30,8 +30,8 @@ namespace CapaPresentacion
         public void CargarCat()
         {
             cmbCategoria.DataSource = H.ListarCategoriaCombo();
-            cmbCategoria.DisplayMember = "CATEGORIA";
-            cmbCategoria.ValueMember = "ID CATEGORIA";
+            cmbCategoria.DisplayMember = "CATEGORÍA";
+            cmbCategoria.ValueMember = "CÓDIGO CATEGORÍA";
             cmbCategoria.SelectedIndex = 0;
         }
 
@@ -59,12 +59,12 @@ namespace CapaPresentacion
             List<Items> lista = new List<Items>();
             //                     NAME                  VALUE
             lista.Add(new Items("SELECCIONAR",                     ""));
-            lista.Add(new Items("ID HERRAMIENTA",   "h.idHerramienta"));
+            lista.Add(new Items("CÓDIGO HERRAMIENTA",   "h.idHerramienta"));
             lista.Add(new Items("HERRAMIENTA", " h.nombreHerramienta"));
-            lista.Add(new Items("ID CATEGORIA",       "h.idCategoria"));
+            lista.Add(new Items("CÓDIGO CATEGORÍA",       "h.idCategoria"));
             lista.Add(new Items("USO",                        "h.uso"));
             lista.Add(new Items("ESTADO",                  "h.estado"));
-            lista.Add(new Items("CATEGORIA",      "c.nombreCategoria"));
+            lista.Add(new Items("CATEGORÍA",      "c.nombreCategoria"));
             //Se mostrara el Name y tomara el value del combobox
             cmbCampo.DisplayMember = "Name";
             cmbCampo.ValueMember = "Value";
@@ -179,22 +179,22 @@ namespace CapaPresentacion
 
             if (txtNombre.Text.Trim().Length == 0)
             {
-                ep.SetError(txtNombre, "Campo requerido!");
+                ep.SetError(txtNombre, "¡Campo requerido!");
                 ValidarF = false;
             }
             if (cmbCategoria.SelectedIndex == 0)
             {
-                ep.SetError(cmbCategoria, "Seleccione una categoria!");
+                ep.SetError(cmbCategoria, "¡Seleccione una categoria!");
                 ValidarF = false;
             }
             if (cmbEstado.SelectedIndex == 0)
             {
-                ep.SetError(cmbEstado, "Seleccione estado!");
+                ep.SetError(cmbEstado, "¡Seleccione estado!");
                 ValidarF = false;
             }
             if (cmbUso.SelectedIndex == 0)
             {
-                ep.SetError(cmbUso, "Seleccione uso!");
+                ep.SetError(cmbUso, "¡Seleccione uso!");
                 ValidarF = false;
             }
             if (ValidarF == true)
@@ -261,18 +261,17 @@ namespace CapaPresentacion
         {
             if (dgvHerramienta.RowCount > 0)
             {
-                //Si la herramienta SI esta en uso no podra ser eliminada
+                //Si la herramienta SI está en uso no podra ser eliminada
                 if (dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["USO"].Value.ToString() == "SI")
                 {
                     MessageBox.Show("No puede editar ni eliminar herramientas en uso", "Herramientas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     LimpiarControles();
                 }
-                //Si la herramienta SNOesta en uso si podra ser eliminada
+                //Si la herramienta NO está en uso si podra ser eliminada
                 else
                 {
-                    if (MessageBox.Show("Desea eliminar?", "Validación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("¿Desea eliminar la herramienta?", "Validación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        idHerramienta = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["ID HERRAMIENTA"].Value.ToString();
                         H.EliminarHerramienta(idHerramienta);
                         Botones();
                         ListarHerramientas();
@@ -286,7 +285,7 @@ namespace CapaPresentacion
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             //Si cancela la operacion limpiara cajas de texto y bloquera botones y controles
-            if (MessageBox.Show("¿Desea cancelar la operación ?", "Validacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("¿Desea cancelar la operación?", "Validacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 LimpiarControles();
                 ep.Clear();
@@ -310,9 +309,9 @@ namespace CapaPresentacion
                 //Si la herramienta NO esta en uso si se podra seleccionar
                 else
                 {
-                    idHerramienta = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["ID HERRAMIENTA"].Value.ToString();
+                    idHerramienta = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["CÓDIGO HERRAMIENTA"].Value.ToString();
                     txtNombre.Text = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["NOMBRE HERRAMIENTA"].Value.ToString();
-                    cmbCategoria.Text = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["CATEGORIA"].Value.ToString();
+                    cmbCategoria.Text = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["CATEGORÍA"].Value.ToString();
                     cmbEstado.Text = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["ESTADO"].Value.ToString();
                     cmbUso.Text = dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["USO"].Value.ToString();
                 }
