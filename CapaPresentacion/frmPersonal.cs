@@ -26,7 +26,7 @@ namespace CapaPresentacion
         bool ValidarF = false;
         bool Seleccionado = false;
 
-        
+
         public void ListarPersonal()
         {
             Personal LP = new Personal();
@@ -114,8 +114,8 @@ namespace CapaPresentacion
             ListarPersonal();
             DesactivarControles();
             Botones();
-          
-            
+
+
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
@@ -129,7 +129,7 @@ namespace CapaPresentacion
         {
             if (dgvPersonal.RowCount > 0)
             {
-                idPersonal = dgvPersonal.Rows[dgvPersonal.CurrentRow.Index].Cells["ID PERSONAL"].Value.ToString();
+                idPersonal = dgvPersonal.Rows[dgvPersonal.CurrentRow.Index].Cells["CÓDIGO EMPLEADO"].Value.ToString();
                 txtNombres.Text = dgvPersonal.Rows[dgvPersonal.CurrentRow.Index].Cells["NOMBRES"].Value.ToString();
                 txtApellidos.Text = dgvPersonal.Rows[dgvPersonal.CurrentRow.Index].Cells["APELLIDOS"].Value.ToString();
                 nudEdad.Value = Convert.ToInt32(dgvPersonal.Rows[dgvPersonal.CurrentRow.Index].Cells["EDAD"].Value.ToString());
@@ -157,45 +157,64 @@ namespace CapaPresentacion
                 {
                     Seleccionado = true;
                 }
-          
-              
-
                 if (Seleccionado == true)
                 {
-                    dgvPersonal.Enabled = false;
-                    ActivarBotones();
-                    ActivarControles();
-                    Editando = true;
-                    Agregando = false;
+                    Personal LPP = new Personal();
+                    dgvDetalleprestamo.DataSource = LPP.BuscarIDEMP(idPersonal);
+                    if (dgvDetalleprestamo.RowCount > 0)
+                    {
+                        MessageBox.Show("No puede editar el empleado porque ha prestado herramientas", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        LimpiarControles();
+                    }
+                    else
+                    {
+                        dgvPersonal.Enabled = false;
+                        ActivarBotones();
+                        ActivarControles();
+                        Editando = true;
+                        Agregando = false;
+                    }
+
                 }
                 else
                 {
                     MessageBox.Show("Debe dar clic sobre la fila a editar", "Seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dgvPersonal.RowCount > 0)
             {
+                Personal LPP = new Personal();
+                idPersonal = dgvPersonal.CurrentRow.Cells["CÓDIGO EMPLEADO"].Value.ToString();
 
-                if (MessageBox.Show("Desea eliminar el registro seleccionado?", "Validacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                dgvDetalleprestamo.DataSource = LPP.BuscarIDEMP(idPersonal);
+
+
+                if (dgvDetalleprestamo.RowCount > 0)
                 {
-
-                    idPersonal = dgvPersonal.CurrentRow.Cells["ID PERSONAL"].Value.ToString();
-                    Botones();
-                    ListarPersonal();
-                    MessageBox.Show("Registro eliminado correctamente", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LimpiarControles();
+                    MessageBox.Show("No puede eliminar el empleado porque ha prestado herramientas", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            
+                else
+                {
+                    if (MessageBox.Show("¿Desea eliminar el registro seleccionado?", "Validacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        Botones();
+                        ListarPersonal();
+                        MessageBox.Show("Registro eliminado correctamente", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimpiarControles();
+                    }
+                }
+
             }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Desea cancelar la operación ?", "Validacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("¿Desea cancelar la operación?", "Validacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 LimpiarControles();
                 ep.Clear();
@@ -212,21 +231,20 @@ namespace CapaPresentacion
             ep.Clear();
             if (txtNombres.Text.Trim().Length == 0)
             {
-                ep.SetError(txtNombres, "Campo requerido!");
+                ep.SetError(txtNombres, "¡Campo requerido!");
                 ValidarF = false;
             }
-            if (txtApellidos.Text.Trim().Length == 0) 
+            if (txtApellidos.Text.Trim().Length == 0)
             {
-                ep.SetError(txtApellidos, "Campo requerido");
+                ep.SetError(txtApellidos, "¡Campo requerido!");
                 ValidarF = false;
-            
+
             }
 
-            if (nudEdad.Value == 0 || nudEdad.Value <= 18) 
+            if (nudEdad.Value < 18)
             {
-                ep.SetError(nudEdad, "Campo requerido");
+                ep.SetError(nudEdad, "¡Debe ser mayor de 17 años!");
                 ValidarF = false;
-            
             }
             if (ValidarF == true)
             {

@@ -15,6 +15,7 @@ namespace CapaEnlaceDatos
 
         SqlDataReader leer;
         DataTable tabla = new DataTable();
+        DataTable tabla1 = new DataTable();
         SqlCommand comando = new SqlCommand();
 
         public DataTable Listar()
@@ -65,12 +66,29 @@ namespace CapaEnlaceDatos
             conexion.CerrarConexion();
         }
 
+        //Buscar el COdigo del empleado que ha realizado prestamo
+        public DataTable BuscarIDEMP(string cod)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "select p.id AS 'CÓDIGO EMPLEADO',p.nombre AS 'NOMBRES',p.apellido " +
+                "AS 'APELLIDOS',d.idPrestamo AS 'CÓDIGO PRESTAMO',d.idherramienta " +
+                "AS 'CÓDIGO HERRAMIENTA',h.nombreHerramienta AS 'HERRAMIENTA',d.fechaHora " +
+                "AS 'FECHA-HORA',d.prespor AS 'ASIGNADA POR' from Bodega.personal p inner join " +
+                "Bodega.detallePrestamo d on p.id = d.idPersonal inner join Bodega.herramienta h " +
+                "on d.idHerramienta = h.idHerramienta where p.id = '" + cod + "'";
+            comando.CommandType = CommandType.Text;
+            leer = comando.ExecuteReader();
+            tabla1.Load(leer);
+            conexion.CerrarConexion();
+            return tabla1;
+        }
+
         public DataTable Filtrar(string buscar)
         {
             try
             {
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "select id as 'ID PERSONAL', nombre as 'NOMBRES', apellido as 'APELLIDOS', edad as 'EDAD'  " +
+                comando.CommandText = "select id as 'CÓDIGO PERSONAL', nombre as 'NOMBRES', apellido as 'APELLIDOS', edad as 'EDAD'  " +
                     "from Bodega.personal where id like '%" + buscar + "%' or nombre like '%" + buscar + "%' or apellido like '%" + buscar + "%' or " +
                     "edad like '%" + buscar+"%' ;";
                 comando.CommandType = CommandType.Text;

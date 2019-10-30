@@ -23,6 +23,13 @@ namespace CapaLogicaNegocio
             return tabla;
         }
 
+        public DataTable BuscarIDEMP(string cod)
+        {
+            DataTable tabla1 = new DataTable();
+            tabla1 = personal.BuscarIDEMP(cod);
+            return tabla1;
+        }
+
         public void ListarTotalP(Label lbl)
         {
             personal.listarTotalP(lbl);
