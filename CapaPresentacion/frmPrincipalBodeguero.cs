@@ -10,12 +10,19 @@ using System.Windows.Forms;
  */
 namespace CapaPresentacion
 {
-    public partial class frmPrincipalEditor : Form
+    public partial class frmPrincipalBodeguero : Form
     {
-        public frmPrincipalEditor()
+        public frmPrincipalBodeguero()
         {
             InitializeComponent();
         }
+
+        public frmPrincipalBodeguero(string userName)
+        {
+            InitializeComponent();
+            lblUserName.Text =  userName;
+        }
+
         ToolTip tt = new ToolTip();
         public void Footer()
         {
@@ -23,9 +30,45 @@ namespace CapaPresentacion
             year = DateTime.Now.ToString("yyyy");
             lblFooter.Text = "Copyright © " + year + " ToolSoft. Todos los derechos reservados";
         }
+        public void SideBar()
+        {
+
+            if (Sidebar.Width == 270)
+            {
+                Sidebar.Visible = false;
+                Sidebar.Width = 62;
+                LineaSidebar.Width = 50;
+                AnimacionSidebar.Show(Sidebar);
+                btnCerrarMenu.Visible = false;
+                btnAbrirMenu.Visible = true;
+            }
+            else
+            {
+                Sidebar.Visible = false;
+                Sidebar.Width = 270;
+                LineaSidebar.Width = 252;
+                AnimacionSidebarBack.Show(Sidebar);
+                btnAbrirMenu.Visible = false;
+                btnCerrarMenu.Visible = true;
+            }
+        }
+
+        public void sidebarContraer()
+        {
+            tt.SetToolTip(this.btnInicio, "Inicio");
+            tt.SetToolTip(this.btnNuevoPre, "Nuevo Prestamo");
+            tt.SetToolTip(this.btnReportes, "Reportes");
+            tt.SetToolTip(this.btnGestionar, "Gestionar");
+            tt.SetToolTip(this.btnHerramientas, "Gestionar Herramientas");
+            tt.SetToolTip(this.btnPersonal, "Gestionar Personal");
+            tt.SetToolTip(this.btnCategoria, "Gestionar Categorias");
+            tt.SetToolTip(this.btnPrestamo, "Gestionar Detalle Prestamo");
+        }
 
         private void FrmPrincipalEditor_Load(object sender, EventArgs e)
         {
+            tt.SetToolTip(btnLogout, "Cerrar sesión");
+            sidebarContraer();
             tt.SetToolTip(btnAbrirMenu, "Expandir Menu");
             tt.SetToolTip(btnCerrarMenu, "Contraer Menu");
             AbrirformInpanel(new frmInicio());
@@ -38,7 +81,7 @@ namespace CapaPresentacion
 
         private void BtnGestionar_Click(object sender, EventArgs e)
         {
-            if (btnUsuarios.Visible == false)
+            if (btnHerramientas.Visible == false)
             {
                 MostratBotones();
                 btnGestionar.Text = "      GESTIONAR                     ▼";
@@ -67,7 +110,6 @@ namespace CapaPresentacion
 
         public void MostratBotones()
         {
-            btnUsuarios.Visible = true;
             btnHerramientas.Visible = true;
             btnPersonal.Visible = true;
             btnCategoria.Visible = true;
@@ -77,7 +119,6 @@ namespace CapaPresentacion
 
         public void OcultarBotones()
         {
-            btnUsuarios.Visible = false;
             btnHerramientas.Visible = false;
             btnPersonal.Visible = false;
             btnCategoria.Visible = false;
@@ -91,24 +132,13 @@ namespace CapaPresentacion
             btnInicio.Normalcolor = Color.Transparent;
             btnNuevoPre.Normalcolor = Color.Transparent;
             btnReportes.Normalcolor = Color.Transparent;
-            btnHistorialDe.Normalcolor = Color.Transparent;
-            btnHPrestamo.Normalcolor = Color.Transparent;
             btnGestionar.Normalcolor = Color.Transparent;
-            btnUsuarios.Normalcolor = Color.Transparent;
             btnHerramientas.Normalcolor = Color.Transparent;
             btnPersonal.Normalcolor = Color.Transparent;
             btnCategoria.Normalcolor = Color.Transparent;
             btnPrestamo.Normalcolor = Color.Transparent;
         }
 
-        private void BtnUsuarios_Click(object sender, EventArgs e)
-        {
-            AbrirformInpanel(new frmUsuario());
-            ActivBoton();
-            btnUsuarios.Normalcolor = Color.FromArgb(49, 62, 74);
-            btnGestionar.Normalcolor = Color.FromArgb(22, 36, 49);
-            
-        }
 
         private void BtnHerramientas_Click(object sender, EventArgs e)
         {
@@ -130,7 +160,7 @@ namespace CapaPresentacion
 
         private void btnNuevoPre_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new frmPrestamo());
+            AbrirformInpanel(new frmPrestamo(lblUserName.Text, lblBodeguero.Text));
             ActivBoton();
             btnNuevoPre.Normalcolor = Color.FromArgb(22, 36, 49);
         }
@@ -139,7 +169,7 @@ namespace CapaPresentacion
         {
             AbrirformInpanel(new frmDetallePrestamo());
             ActivBoton();
-            btnHPrestamo.Normalcolor = Color.FromArgb(49, 62, 74);
+            btnPrestamo.Normalcolor = Color.FromArgb(49, 62, 74);
             btnGestionar.Normalcolor = Color.FromArgb(22, 36, 49);
         }
 
@@ -152,43 +182,12 @@ namespace CapaPresentacion
 
         private void btnCerrarMenu_Click(object sender, EventArgs e)
         {
-            if (Sidebar.Width == 270)
-            {
-                Sidebar.Visible = false;
-                Sidebar.Width = 62;
-                LineaSidebar.Width = 50;
-                AnimacionSidebar.Show(Sidebar);
-                btnCerrarMenu.Visible = false;
-                btnAbrirMenu.Visible = true;
-                
-            }
-            else
-            {
-                Sidebar.Visible = false;
-                Sidebar.Width = 270;
-                LineaSidebar.Width = 252;
-                AnimacionSidebarBack.Show(Sidebar);
-            }
+            SideBar();
         }
 
         private void btnAbrirMenu_Click(object sender, EventArgs e)
         {
-            if (Sidebar.Width == 270)
-            {
-                Sidebar.Visible = false;
-                Sidebar.Width = 62;
-                LineaSidebar.Width = 50;
-                AnimacionSidebar.Show(Sidebar);
-            }
-            else
-            {
-                Sidebar.Visible = false;
-                Sidebar.Width = 270;
-                LineaSidebar.Width = 252;
-                AnimacionSidebarBack.Show(Sidebar);
-                btnAbrirMenu.Visible = false;
-                btnCerrarMenu.Visible = true;
-            }
+            SideBar();
         }
 
         private void btnPersonal_Click(object sender, EventArgs e)
@@ -201,15 +200,16 @@ namespace CapaPresentacion
 
         private void frmPrincipalEditor_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(MessageBox.Show("Esta seguro que desea cerrar sesion?", "Cerrando", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            Application.Exit();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro que desea cerrar sesión?", "Cerrando", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 frmLogin L = new frmLogin();
                 this.Hide();
                 L.Show();
-            }
-            else
-            {
-                e.Cancel = true;
             }
         }
     }

@@ -16,6 +16,14 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        public frmPrincipal(string userName)
+        {
+            InitializeComponent();
+            lblUserName.Text =  userName;
+        }
+
+
         ToolTip tt = new ToolTip();
         public void Footer()
         {
@@ -63,9 +71,10 @@ namespace CapaPresentacion
         }
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
+            tt.SetToolTip(btnLogout, "Cerrar sesión");
             sidebarContraer();
-            tt.SetToolTip(btnAbrirMenu, "Expandir Menu");
-            tt.SetToolTip(btnCerrarMenu, "Contraer Menu");
+            tt.SetToolTip(btnAbrirMenu, "Expandir Menú");
+            tt.SetToolTip(btnCerrarMenu, "Contraer Menú");
             AbrirformInpanel(new frmInicio());
             ActivBoton();
             btnInicio.Normalcolor = Color.FromArgb(22, 36, 49);
@@ -168,7 +177,7 @@ namespace CapaPresentacion
 
         private void btnNuevoPre_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new frmPrestamo());
+            AbrirformInpanel(new frmPrestamo(lblUserName.Text, lblAdministrador.Text));
             ActivBoton();
             btnNuevoPre.Normalcolor = Color.FromArgb(22, 36, 49);
         }
@@ -208,15 +217,16 @@ namespace CapaPresentacion
 
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Esta seguro que desea cerrar sesion?", "Cerrando", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            Application.Exit();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro que desea cerrar sesión?", "Cerrando", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 frmLogin L = new frmLogin();
                 this.Hide();
                 L.Show();
-            }
-            else
-            {
-                e.Cancel = true;
             }
         }
     }

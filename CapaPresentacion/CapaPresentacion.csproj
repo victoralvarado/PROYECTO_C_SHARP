@@ -39,6 +39,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.5.3, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -111,11 +119,11 @@
     <Compile Include="frmPrestamo.Designer.cs">
       <DependentUpon>frmPrestamo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPrincipalEditor.cs">
+    <Compile Include="frmPrincipalBodeguero.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPrincipalEditor.Designer.cs">
-      <DependentUpon>frmPrincipalEditor.cs</DependentUpon>
+    <Compile Include="frmPrincipalBodeguero.Designer.cs">
+      <DependentUpon>frmPrincipalBodeguero.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -152,8 +160,8 @@
     <EmbeddedResource Include="frmPrestamo.resx">
       <DependentUpon>frmPrestamo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPrincipalEditor.resx">
-      <DependentUpon>frmPrincipalEditor.cs</DependentUpon>
+    <EmbeddedResource Include="frmPrincipalBodeguero.resx">
+      <DependentUpon>frmPrincipalBodeguero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>

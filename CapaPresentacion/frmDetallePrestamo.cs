@@ -77,9 +77,9 @@ namespace CapaPresentacion
         {
             if (dgvDetalleprestamo.RowCount > 0)
             {
-                idPrestamo = dgvDetalleprestamo.Rows[dgvDetalleprestamo.CurrentRow.Index].Cells["CODIGO PRESTAMO"].Value.ToString();
+                idPrestamo = dgvDetalleprestamo.Rows[dgvDetalleprestamo.CurrentRow.Index].Cells["CÓDIGO PRESTAMO"].Value.ToString();
                 txtHerramienta.Text= dgvDetalleprestamo.Rows[dgvDetalleprestamo.CurrentRow.Index].Cells["HERRAMIENTA"].Value.ToString();
-                idHerramienta = dgvDetalleprestamo.Rows[dgvDetalleprestamo.CurrentRow.Index].Cells["CODIGO HERRAMIENTA"].Value.ToString();
+                idHerramienta = dgvDetalleprestamo.Rows[dgvDetalleprestamo.CurrentRow.Index].Cells["CÓDIGO HERRAMIENTA"].Value.ToString();
             }
         }
 

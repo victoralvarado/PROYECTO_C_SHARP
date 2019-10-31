@@ -31,29 +31,39 @@ namespace CapaPresentacion
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
+        bool validarL = true;
         Usuario U = new Usuario();
         public void Login()
         {
-            string tipo = "";
-           tipo = U.Login(txtUserName.Text, txtPassword.Text);
-            if (tipo=="Administrador")
+            validarL = true;
+            if (txtPassword.Text == "password" || txtPassword.Text.Trim().Length == 0 || txtUserName.Text == "username" || txtUserName.Text.Trim().Length == 0)
             {
-                frmPrincipal FP = new frmPrincipal();
-                FP.Show();
-                this.Hide();
+                MessageBox.Show("Debe completar sus credenciales","Validar",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                validarL = false;
             }
-            if (tipo == "Bodeguero")
+            if (validarL == true)
             {
-                frmPrincipalEditor FPE = new frmPrincipalEditor();
-                FPE.Show();
-                this.Hide();
+                string tipo = "";
+                string userName = txtUserName.Text;
+                string password = txtPassword.Text;
+                tipo = U.Login(userName, password);
+                if (tipo == "Administrador")
+                {
+                    frmPrincipal FP = new frmPrincipal(userName);
+                    FP.Show();
+                    this.Hide();
+                }
+                if (tipo == "Bodeguero")
+                {
+                    frmPrincipalBodeguero FPE = new frmPrincipalBodeguero(userName);
+                    FPE.Show();
+                    this.Hide();
+                }
+                if (tipo == "")
+                {
+                    MessageBox.Show("Usuario y/o contraseña incorrecta", "Login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            if (tipo=="")
-            {
-                MessageBox.Show("Usuario y/o contraseña incorrecta", "Login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)

@@ -11,13 +11,18 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+        public frmPrestamo(string userName, string tipo)
+        {
+            InitializeComponent();
+            lblPresPor.Text = userName;
+            lblTipo.Text = tipo;
+        }
 
         private Herramienta H = new Herramienta();
         private Personal P = new Personal();
         private DetallePrestamo DP = new DetallePrestamo();
         private string idHerramienta = null;
         private string idPersonal = null;
-        private string prestadapor = null;
         private string uso = null;
         private string estado = null;
         private ErrorProvider ep = new ErrorProvider();
@@ -54,6 +59,11 @@ namespace CapaPresentacion
             ListarDetallePrestamo();
             ListarPersonal();
             ListarHerramientas();
+            if (lblTipo.Text == "Bodeguero")
+            {
+                dgvHerramienta.Columns["CÓDIGO HERRAMIENTA"].Visible = false;
+                dgvEmpleado.Columns["CÓDIGO EMPLEADO"].Visible = false;
+            }
         }
 
         private void dgvHerramienta_Click(object sender, EventArgs e)
@@ -144,9 +154,8 @@ namespace CapaPresentacion
 
             if (ValidarF==true)
             {
-                prestadapor = "Administrador";
                 uso = "SI";
-                DP.RegistrarDetallePrestamo(idPersonal,idHerramienta,txtFecha.Text,prestadapor);
+                DP.RegistrarDetallePrestamo(idPersonal,idHerramienta,txtFecha.Text,lblPresPor.Text);
                 DP.ModificarUso(uso,estado,idHerramienta);
                 MessageBox.Show("Herramienta prestada correctamente", "Prestando", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ListarDetallePrestamo();

@@ -16,8 +16,6 @@ namespace CapaPresentacion
 {
     public partial class frmCategoria : Form
     {
-        
-        frmHerramienta FH = new frmHerramienta();
         private Herramienta H = new Herramienta();
         private string categoria = null;
         private Categoria C = new Categoria();

@@ -55,4 +55,4 @@ C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPrese
 C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.frmPersonal.resources
 C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.frmPrestamo.resources
 C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.frmInicio.resources
-C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.frmPrincipalEditor.resources
+C:\Users\victor alvarado\Desktop\SISTEMA-C-\CapaPresentacion\obj\Debug\CapaPresentacion.frmPrincipalBodeguero.resources

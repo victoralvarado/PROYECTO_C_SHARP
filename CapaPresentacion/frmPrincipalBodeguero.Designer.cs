@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class frmPrincipalEditor
+    partial class frmPrincipalBodeguero
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation3 = new BunifuAnimatorNS.Animation();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipalEditor));
-            BunifuAnimatorNS.Animation animation4 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation15 = new BunifuAnimatorNS.Animation();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipalBodeguero));
+            BunifuAnimatorNS.Animation animation16 = new BunifuAnimatorNS.Animation();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlUsuario = new System.Windows.Forms.Panel();
+            this.lblUserName = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.PictureBox();
             this.lblMenu = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.btnCerrarMenu = new System.Windows.Forms.PictureBox();
@@ -45,14 +48,11 @@
             this.tblpPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.Sidebar = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.btnPrestamo = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnUsuarios = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCategoria = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnPersonal = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnHerramientas = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnGestionar = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnHPrestamo = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnHistorialDe = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnReportes = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnNuevoPre = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnInicio = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -63,9 +63,13 @@
             this.MoverDashboard = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.CurvaSidebar = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.tmrRefresh = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblBodeguero = new System.Windows.Forms.Label();
+            this.lblPanel = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.pnlUsuario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).BeginInit();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAbrirMenu)).BeginInit();
@@ -75,6 +79,8 @@
             this.Sidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlFormularios.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -94,12 +100,13 @@
             this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.6042296F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.909366F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.18127F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.13897F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.966767F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.62537F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.12085F));
+            this.tableLayoutPanel1.Controls.Add(this.pnlUsuario, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblMenu, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.pnlMenu, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 3, 0);
             this.AnimacionSidebarBack.SetDecoration(this.tableLayoutPanel1, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebar.SetDecoration(this.tableLayoutPanel1, BunifuAnimatorNS.DecorationType.None);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -110,6 +117,46 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1324, 58);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // pnlUsuario
+            // 
+            this.pnlUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlUsuario.Controls.Add(this.btnLogout);
+            this.AnimacionSidebarBack.SetDecoration(this.pnlUsuario, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebar.SetDecoration(this.pnlUsuario, BunifuAnimatorNS.DecorationType.None);
+            this.pnlUsuario.Location = new System.Drawing.Point(1190, 3);
+            this.pnlUsuario.Name = "pnlUsuario";
+            this.pnlUsuario.Size = new System.Drawing.Size(131, 52);
+            this.pnlUsuario.TabIndex = 3;
+            // 
+            // lblUserName
+            // 
+            this.lblUserName.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblUserName.AutoSize = true;
+            this.AnimacionSidebar.SetDecoration(this.lblUserName, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebarBack.SetDecoration(this.lblUserName, BunifuAnimatorNS.DecorationType.None);
+            this.lblUserName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserName.ForeColor = System.Drawing.Color.White;
+            this.lblUserName.Location = new System.Drawing.Point(943, 13);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(90, 21);
+            this.lblUserName.TabIndex = 1;
+            this.lblUserName.Text = "UserName";
+            this.lblUserName.Visible = false;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AnimacionSidebar.SetDecoration(this.btnLogout, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebarBack.SetDecoration(this.btnLogout, BunifuAnimatorNS.DecorationType.None);
+            this.btnLogout.Image = global::CapaPresentacion.Properties.Resources.Logout;
+            this.btnLogout.Location = new System.Drawing.Point(47, 11);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(37, 36);
+            this.btnLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnLogout.TabIndex = 0;
+            this.btnLogout.TabStop = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // lblMenu
             // 
             this.lblMenu.AutoSize = true;
@@ -118,11 +165,11 @@
             this.lblMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMenu.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMenu.ForeColor = System.Drawing.Color.White;
-            this.lblMenu.Location = new System.Drawing.Point(76, 0);
+            this.lblMenu.Location = new System.Drawing.Point(74, 0);
             this.lblMenu.Name = "lblMenu";
-            this.lblMenu.Size = new System.Drawing.Size(195, 58);
+            this.lblMenu.Size = new System.Drawing.Size(72, 58);
             this.lblMenu.TabIndex = 0;
-            this.lblMenu.Text = "Menu";
+            this.lblMenu.Text = "Menú";
             this.lblMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlMenu
@@ -131,9 +178,9 @@
             this.pnlMenu.Controls.Add(this.btnAbrirMenu);
             this.AnimacionSidebarBack.SetDecoration(this.pnlMenu, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebar.SetDecoration(this.pnlMenu, BunifuAnimatorNS.DecorationType.None);
-            this.pnlMenu.Location = new System.Drawing.Point(11, 3);
+            this.pnlMenu.Location = new System.Drawing.Point(10, 3);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(59, 52);
+            this.pnlMenu.Size = new System.Drawing.Size(58, 52);
             this.pnlMenu.TabIndex = 1;
             // 
             // btnCerrarMenu
@@ -211,22 +258,22 @@
             // 
             this.AnimacionSidebar.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.AnimacionSidebar.Cursor = null;
-            animation3.AnimateOnlyDifferences = true;
-            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
-            animation3.LeafCoeff = 0F;
-            animation3.MaxTime = 1F;
-            animation3.MinTime = 0F;
-            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
-            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
-            animation3.MosaicSize = 1;
-            animation3.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation3.RotateCoeff = 0F;
-            animation3.RotateLimit = 0F;
-            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
-            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
-            animation3.TimeCoeff = 2F;
-            animation3.TransparencyCoeff = 0F;
-            this.AnimacionSidebar.DefaultAnimation = animation3;
+            animation15.AnimateOnlyDifferences = true;
+            animation15.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation15.BlindCoeff")));
+            animation15.LeafCoeff = 0F;
+            animation15.MaxTime = 1F;
+            animation15.MinTime = 0F;
+            animation15.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation15.MosaicCoeff")));
+            animation15.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation15.MosaicShift")));
+            animation15.MosaicSize = 1;
+            animation15.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation15.RotateCoeff = 0F;
+            animation15.RotateLimit = 0F;
+            animation15.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation15.ScaleCoeff")));
+            animation15.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation15.SlideCoeff")));
+            animation15.TimeCoeff = 2F;
+            animation15.TransparencyCoeff = 0F;
+            this.AnimacionSidebar.DefaultAnimation = animation15;
             this.AnimacionSidebar.TimeStep = 0.08F;
             // 
             // tblpPrincipal
@@ -254,14 +301,11 @@
             this.Sidebar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Sidebar.BackgroundImage")));
             this.Sidebar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Sidebar.Controls.Add(this.btnPrestamo);
-            this.Sidebar.Controls.Add(this.btnUsuarios);
             this.Sidebar.Controls.Add(this.btnCategoria);
             this.Sidebar.Controls.Add(this.btnPersonal);
             this.Sidebar.Controls.Add(this.btnHerramientas);
             this.Sidebar.Controls.Add(this.pictureBox2);
             this.Sidebar.Controls.Add(this.btnGestionar);
-            this.Sidebar.Controls.Add(this.btnHPrestamo);
-            this.Sidebar.Controls.Add(this.btnHistorialDe);
             this.Sidebar.Controls.Add(this.btnReportes);
             this.Sidebar.Controls.Add(this.btnNuevoPre);
             this.Sidebar.Controls.Add(this.btnInicio);
@@ -285,7 +329,7 @@
             this.btnPrestamo.BackColor = System.Drawing.Color.Transparent;
             this.btnPrestamo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnPrestamo.BorderRadius = 0;
-            this.btnPrestamo.ButtonText = "      Detalle Prestamo";
+            this.btnPrestamo.ButtonText = "      Detalle Préstamo";
             this.btnPrestamo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AnimacionSidebar.SetDecoration(this.btnPrestamo, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebarBack.SetDecoration(this.btnPrestamo, BunifuAnimatorNS.DecorationType.None);
@@ -302,7 +346,7 @@
             this.btnPrestamo.IconVisible = true;
             this.btnPrestamo.IconZoom = 50D;
             this.btnPrestamo.IsTab = false;
-            this.btnPrestamo.Location = new System.Drawing.Point(15, 523);
+            this.btnPrestamo.Location = new System.Drawing.Point(15, 377);
             this.btnPrestamo.Name = "btnPrestamo";
             this.btnPrestamo.Normalcolor = System.Drawing.Color.Transparent;
             this.btnPrestamo.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(62)))), ((int)(((byte)(74)))));
@@ -310,48 +354,11 @@
             this.btnPrestamo.selected = false;
             this.btnPrestamo.Size = new System.Drawing.Size(252, 37);
             this.btnPrestamo.TabIndex = 20;
-            this.btnPrestamo.Text = "      Detalle Prestamo";
+            this.btnPrestamo.Text = "      Detalle Préstamo";
             this.btnPrestamo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPrestamo.Textcolor = System.Drawing.Color.LightGray;
             this.btnPrestamo.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnPrestamo.Click += new System.EventHandler(this.btnPrestamo_Click);
-            // 
-            // btnUsuarios
-            // 
-            this.btnUsuarios.Activecolor = System.Drawing.Color.Transparent;
-            this.btnUsuarios.BackColor = System.Drawing.Color.Transparent;
-            this.btnUsuarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnUsuarios.BorderRadius = 0;
-            this.btnUsuarios.ButtonText = "      Usuarios";
-            this.btnUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AnimacionSidebar.SetDecoration(this.btnUsuarios, BunifuAnimatorNS.DecorationType.None);
-            this.AnimacionSidebarBack.SetDecoration(this.btnUsuarios, BunifuAnimatorNS.DecorationType.None);
-            this.btnUsuarios.DisabledColor = System.Drawing.Color.Gray;
-            this.btnUsuarios.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnUsuarios.Iconimage = global::CapaPresentacion.Properties.Resources._007_equipo;
-            this.btnUsuarios.Iconimage_right = null;
-            this.btnUsuarios.Iconimage_right_Selected = null;
-            this.btnUsuarios.Iconimage_Selected = null;
-            this.btnUsuarios.IconMarginLeft = 0;
-            this.btnUsuarios.IconMarginRight = 0;
-            this.btnUsuarios.IconRightVisible = true;
-            this.btnUsuarios.IconRightZoom = 0D;
-            this.btnUsuarios.IconVisible = true;
-            this.btnUsuarios.IconZoom = 50D;
-            this.btnUsuarios.IsTab = false;
-            this.btnUsuarios.Location = new System.Drawing.Point(15, 374);
-            this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnUsuarios.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(62)))), ((int)(((byte)(74)))));
-            this.btnUsuarios.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnUsuarios.selected = false;
-            this.btnUsuarios.Size = new System.Drawing.Size(252, 32);
-            this.btnUsuarios.TabIndex = 19;
-            this.btnUsuarios.Text = "      Usuarios";
-            this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarios.Textcolor = System.Drawing.Color.LightGray;
-            this.btnUsuarios.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnUsuarios.Click += new System.EventHandler(this.BtnUsuarios_Click);
             // 
             // btnCategoria
             // 
@@ -359,7 +366,7 @@
             this.btnCategoria.BackColor = System.Drawing.Color.Transparent;
             this.btnCategoria.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCategoria.BorderRadius = 0;
-            this.btnCategoria.ButtonText = "       Categorias";
+            this.btnCategoria.ButtonText = "       Categorías";
             this.btnCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AnimacionSidebar.SetDecoration(this.btnCategoria, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebarBack.SetDecoration(this.btnCategoria, BunifuAnimatorNS.DecorationType.None);
@@ -376,7 +383,7 @@
             this.btnCategoria.IconVisible = true;
             this.btnCategoria.IconZoom = 50D;
             this.btnCategoria.IsTab = false;
-            this.btnCategoria.Location = new System.Drawing.Point(15, 485);
+            this.btnCategoria.Location = new System.Drawing.Point(15, 339);
             this.btnCategoria.Name = "btnCategoria";
             this.btnCategoria.Normalcolor = System.Drawing.Color.Transparent;
             this.btnCategoria.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(62)))), ((int)(((byte)(74)))));
@@ -384,7 +391,7 @@
             this.btnCategoria.selected = false;
             this.btnCategoria.Size = new System.Drawing.Size(252, 32);
             this.btnCategoria.TabIndex = 18;
-            this.btnCategoria.Text = "       Categorias";
+            this.btnCategoria.Text = "       Categorías";
             this.btnCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCategoria.Textcolor = System.Drawing.Color.LightGray;
             this.btnCategoria.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
@@ -413,7 +420,7 @@
             this.btnPersonal.IconVisible = true;
             this.btnPersonal.IconZoom = 50D;
             this.btnPersonal.IsTab = false;
-            this.btnPersonal.Location = new System.Drawing.Point(15, 448);
+            this.btnPersonal.Location = new System.Drawing.Point(15, 302);
             this.btnPersonal.Name = "btnPersonal";
             this.btnPersonal.Normalcolor = System.Drawing.Color.Transparent;
             this.btnPersonal.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(62)))), ((int)(((byte)(74)))));
@@ -450,7 +457,7 @@
             this.btnHerramientas.IconVisible = true;
             this.btnHerramientas.IconZoom = 50D;
             this.btnHerramientas.IsTab = false;
-            this.btnHerramientas.Location = new System.Drawing.Point(15, 411);
+            this.btnHerramientas.Location = new System.Drawing.Point(15, 265);
             this.btnHerramientas.Name = "btnHerramientas";
             this.btnHerramientas.Normalcolor = System.Drawing.Color.Transparent;
             this.btnHerramientas.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(62)))), ((int)(((byte)(74)))));
@@ -500,7 +507,7 @@
             this.btnGestionar.IconVisible = true;
             this.btnGestionar.IconZoom = 50D;
             this.btnGestionar.IsTab = false;
-            this.btnGestionar.Location = new System.Drawing.Point(13, 332);
+            this.btnGestionar.Location = new System.Drawing.Point(13, 223);
             this.btnGestionar.Name = "btnGestionar";
             this.btnGestionar.Normalcolor = System.Drawing.Color.Transparent;
             this.btnGestionar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
@@ -513,78 +520,6 @@
             this.btnGestionar.Textcolor = System.Drawing.Color.LightGray;
             this.btnGestionar.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnGestionar.Click += new System.EventHandler(this.BtnGestionar_Click);
-            // 
-            // btnHPrestamo
-            // 
-            this.btnHPrestamo.Activecolor = System.Drawing.Color.Transparent;
-            this.btnHPrestamo.BackColor = System.Drawing.Color.Transparent;
-            this.btnHPrestamo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnHPrestamo.BorderRadius = 0;
-            this.btnHPrestamo.ButtonText = "      HISTORIAL PRESTAMO";
-            this.btnHPrestamo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AnimacionSidebar.SetDecoration(this.btnHPrestamo, BunifuAnimatorNS.DecorationType.None);
-            this.AnimacionSidebarBack.SetDecoration(this.btnHPrestamo, BunifuAnimatorNS.DecorationType.None);
-            this.btnHPrestamo.DisabledColor = System.Drawing.Color.Gray;
-            this.btnHPrestamo.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnHPrestamo.Iconimage = global::CapaPresentacion.Properties.Resources._005_espalda;
-            this.btnHPrestamo.Iconimage_right = null;
-            this.btnHPrestamo.Iconimage_right_Selected = null;
-            this.btnHPrestamo.Iconimage_Selected = null;
-            this.btnHPrestamo.IconMarginLeft = 0;
-            this.btnHPrestamo.IconMarginRight = 0;
-            this.btnHPrestamo.IconRightVisible = true;
-            this.btnHPrestamo.IconRightZoom = 0D;
-            this.btnHPrestamo.IconVisible = true;
-            this.btnHPrestamo.IconZoom = 50D;
-            this.btnHPrestamo.IsTab = false;
-            this.btnHPrestamo.Location = new System.Drawing.Point(13, 280);
-            this.btnHPrestamo.Name = "btnHPrestamo";
-            this.btnHPrestamo.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnHPrestamo.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.btnHPrestamo.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnHPrestamo.selected = false;
-            this.btnHPrestamo.Size = new System.Drawing.Size(252, 40);
-            this.btnHPrestamo.TabIndex = 12;
-            this.btnHPrestamo.Text = "      HISTORIAL PRESTAMO";
-            this.btnHPrestamo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHPrestamo.Textcolor = System.Drawing.Color.LightGray;
-            this.btnHPrestamo.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            // 
-            // btnHistorialDe
-            // 
-            this.btnHistorialDe.Activecolor = System.Drawing.Color.Transparent;
-            this.btnHistorialDe.BackColor = System.Drawing.Color.Transparent;
-            this.btnHistorialDe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnHistorialDe.BorderRadius = 0;
-            this.btnHistorialDe.ButtonText = "      HISTORIAL DEVOLUCION";
-            this.btnHistorialDe.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AnimacionSidebar.SetDecoration(this.btnHistorialDe, BunifuAnimatorNS.DecorationType.None);
-            this.AnimacionSidebarBack.SetDecoration(this.btnHistorialDe, BunifuAnimatorNS.DecorationType.None);
-            this.btnHistorialDe.DisabledColor = System.Drawing.Color.Gray;
-            this.btnHistorialDe.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnHistorialDe.Iconimage = global::CapaPresentacion.Properties.Resources._004_reloj;
-            this.btnHistorialDe.Iconimage_right = null;
-            this.btnHistorialDe.Iconimage_right_Selected = null;
-            this.btnHistorialDe.Iconimage_Selected = null;
-            this.btnHistorialDe.IconMarginLeft = 0;
-            this.btnHistorialDe.IconMarginRight = 0;
-            this.btnHistorialDe.IconRightVisible = true;
-            this.btnHistorialDe.IconRightZoom = 0D;
-            this.btnHistorialDe.IconVisible = true;
-            this.btnHistorialDe.IconZoom = 50D;
-            this.btnHistorialDe.IsTab = false;
-            this.btnHistorialDe.Location = new System.Drawing.Point(13, 228);
-            this.btnHistorialDe.Name = "btnHistorialDe";
-            this.btnHistorialDe.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnHistorialDe.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.btnHistorialDe.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnHistorialDe.selected = false;
-            this.btnHistorialDe.Size = new System.Drawing.Size(252, 40);
-            this.btnHistorialDe.TabIndex = 11;
-            this.btnHistorialDe.Text = "      HISTORIAL DEVOLUCION";
-            this.btnHistorialDe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistorialDe.Textcolor = System.Drawing.Color.LightGray;
-            this.btnHistorialDe.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             // 
             // btnReportes
             // 
@@ -628,7 +563,7 @@
             this.btnNuevoPre.BackColor = System.Drawing.Color.Transparent;
             this.btnNuevoPre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnNuevoPre.BorderRadius = 0;
-            this.btnNuevoPre.ButtonText = "     NUEVO PRESTAMO";
+            this.btnNuevoPre.ButtonText = "     NUEVO PRÉSTAMO";
             this.btnNuevoPre.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AnimacionSidebar.SetDecoration(this.btnNuevoPre, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebarBack.SetDecoration(this.btnNuevoPre, BunifuAnimatorNS.DecorationType.None);
@@ -653,7 +588,7 @@
             this.btnNuevoPre.selected = false;
             this.btnNuevoPre.Size = new System.Drawing.Size(252, 40);
             this.btnNuevoPre.TabIndex = 9;
-            this.btnNuevoPre.Text = "     NUEVO PRESTAMO";
+            this.btnNuevoPre.Text = "     NUEVO PRÉSTAMO";
             this.btnNuevoPre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevoPre.Textcolor = System.Drawing.Color.LightGray;
             this.btnNuevoPre.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
@@ -727,6 +662,7 @@
             // 
             this.pnlFormularios.AutoSize = true;
             this.pnlFormularios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
+            this.pnlFormularios.Controls.Add(this.lblUserName);
             this.AnimacionSidebarBack.SetDecoration(this.pnlFormularios, BunifuAnimatorNS.DecorationType.None);
             this.AnimacionSidebar.SetDecoration(this.pnlFormularios, BunifuAnimatorNS.DecorationType.None);
             this.pnlFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -739,22 +675,22 @@
             // 
             this.AnimacionSidebarBack.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
             this.AnimacionSidebarBack.Cursor = null;
-            animation4.AnimateOnlyDifferences = true;
-            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
-            animation4.LeafCoeff = 0F;
-            animation4.MaxTime = 1F;
-            animation4.MinTime = 0F;
-            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
-            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
-            animation4.MosaicSize = 0;
-            animation4.Padding = new System.Windows.Forms.Padding(0);
-            animation4.RotateCoeff = 0F;
-            animation4.RotateLimit = 0F;
-            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
-            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
-            animation4.TimeCoeff = 0F;
-            animation4.TransparencyCoeff = 0F;
-            this.AnimacionSidebarBack.DefaultAnimation = animation4;
+            animation16.AnimateOnlyDifferences = true;
+            animation16.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation16.BlindCoeff")));
+            animation16.LeafCoeff = 0F;
+            animation16.MaxTime = 1F;
+            animation16.MinTime = 0F;
+            animation16.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation16.MosaicCoeff")));
+            animation16.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation16.MosaicShift")));
+            animation16.MosaicSize = 0;
+            animation16.Padding = new System.Windows.Forms.Padding(0);
+            animation16.RotateCoeff = 0F;
+            animation16.RotateLimit = 0F;
+            animation16.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation16.ScaleCoeff")));
+            animation16.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation16.SlideCoeff")));
+            animation16.TimeCoeff = 0F;
+            animation16.TransparencyCoeff = 0F;
+            this.AnimacionSidebarBack.DefaultAnimation = animation16;
             this.AnimacionSidebarBack.TimeStep = 0.08F;
             // 
             // MoverDashboard
@@ -769,20 +705,48 @@
             this.CurvaSidebar.ElipseRadius = 7;
             this.CurvaSidebar.TargetControl = this.Sidebar;
             // 
-            // label1
+            // lblBodeguero
             // 
-            this.label1.AutoSize = true;
-            this.AnimacionSidebarBack.SetDecoration(this.label1, BunifuAnimatorNS.DecorationType.None);
-            this.AnimacionSidebar.SetDecoration(this.label1, BunifuAnimatorNS.DecorationType.None);
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(1061, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(260, 58);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Bodeguero";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblBodeguero.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblBodeguero.AutoSize = true;
+            this.AnimacionSidebar.SetDecoration(this.lblBodeguero, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebarBack.SetDecoration(this.lblBodeguero, BunifuAnimatorNS.DecorationType.None);
+            this.lblBodeguero.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBodeguero.ForeColor = System.Drawing.Color.White;
+            this.lblBodeguero.Location = new System.Drawing.Point(511, 15);
+            this.lblBodeguero.Name = "lblBodeguero";
+            this.lblBodeguero.Size = new System.Drawing.Size(115, 25);
+            this.lblBodeguero.TabIndex = 3;
+            this.lblBodeguero.Text = "Bodeguero";
             // 
-            // frmPrincipalEditor
+            // lblPanel
+            // 
+            this.lblPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPanel.AutoSize = true;
+            this.AnimacionSidebar.SetDecoration(this.lblPanel, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebarBack.SetDecoration(this.lblPanel, BunifuAnimatorNS.DecorationType.None);
+            this.lblPanel.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPanel.ForeColor = System.Drawing.Color.White;
+            this.lblPanel.Location = new System.Drawing.Point(448, 15);
+            this.lblPanel.Name = "lblPanel";
+            this.lblPanel.Size = new System.Drawing.Size(64, 25);
+            this.lblPanel.TabIndex = 2;
+            this.lblPanel.Text = "Panel";
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(123)))), ((int)(((byte)(155)))));
+            this.panel2.Controls.Add(this.lblBodeguero);
+            this.panel2.Controls.Add(this.lblPanel);
+            this.AnimacionSidebarBack.SetDecoration(this.panel2, BunifuAnimatorNS.DecorationType.None);
+            this.AnimacionSidebar.SetDecoration(this.panel2, BunifuAnimatorNS.DecorationType.None);
+            this.panel2.Location = new System.Drawing.Point(152, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1032, 52);
+            this.panel2.TabIndex = 4;
+            // 
+            // frmPrincipalBodeguero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -794,7 +758,7 @@
             this.AnimacionSidebar.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1340, 691);
-            this.Name = "frmPrincipalEditor";
+            this.Name = "frmPrincipalBodeguero";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "TOOLSOFT";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -803,6 +767,8 @@
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.pnlUsuario.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).EndInit();
             this.pnlMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAbrirMenu)).EndInit();
@@ -814,6 +780,10 @@
             this.Sidebar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlFormularios.ResumeLayout(false);
+            this.pnlFormularios.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -830,8 +800,6 @@
         private Bunifu.Framework.UI.BunifuGradientPanel Sidebar;
         private System.Windows.Forms.PictureBox pictureBox2;
         private Bunifu.Framework.UI.BunifuFlatButton btnGestionar;
-        private Bunifu.Framework.UI.BunifuFlatButton btnHPrestamo;
-        private Bunifu.Framework.UI.BunifuFlatButton btnHistorialDe;
         private Bunifu.Framework.UI.BunifuFlatButton btnReportes;
         private Bunifu.Framework.UI.BunifuFlatButton btnNuevoPre;
         private Bunifu.Framework.UI.BunifuFlatButton btnInicio;
@@ -842,7 +810,6 @@
         private System.Windows.Forms.Label lblFooter;
         private System.Windows.Forms.Panel pnlFormularios;
         private Bunifu.Framework.UI.BunifuFlatButton btnHerramientas;
-        private Bunifu.Framework.UI.BunifuFlatButton btnUsuarios;
         private Bunifu.Framework.UI.BunifuFlatButton btnCategoria;
         private Bunifu.Framework.UI.BunifuFlatButton btnPersonal;
         private Bunifu.Framework.UI.BunifuFlatButton btnPrestamo;
@@ -851,7 +818,12 @@
         private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.PictureBox btnAbrirMenu;
         private System.Windows.Forms.PictureBox btnCerrarMenu;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel pnlUsuario;
+        private System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.PictureBox btnLogout;
+        private System.Windows.Forms.Label lblBodeguero;
+        private System.Windows.Forms.Label lblPanel;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

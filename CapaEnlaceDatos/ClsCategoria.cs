@@ -34,7 +34,7 @@ namespace CapaEnlaceDatos
         {
             int dat;
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "select count (id) from bodega.personal";
+            comando.CommandText = "select count (idCategoria) from bodega.categoria";
             comando.CommandType = CommandType.Text;
             dat = (int)comando.ExecuteScalar();
             (lbl.Text) = dat.ToString();
