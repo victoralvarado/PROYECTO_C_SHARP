@@ -2,7 +2,12 @@
 using System;
 using System.Data;
 using System.Windows.Forms;
-
+/*
+* @Nombre de Clase: Personal.
+* @Version: 1.0.
+* @Copyright: ToolSoft.
+* @Author Victor, Adrian, Andrea & Diego
+*/
 namespace CapaLogicaNegocio
 {
     public class Personal

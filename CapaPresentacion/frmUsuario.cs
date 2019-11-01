@@ -3,14 +3,14 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 /*
- * @Nombre de Clase: frmUsuario.
+ * @Nombre de Clase: FrmUsuario.
  * @Version: 1.0.
  * @Copyright: ToolSoft.
  * @Author Victor, Adrian, Andrea & Diego
  */
 namespace CapaPresentacion
 {
-    public partial class frmUsuario : Form
+    public partial class FrmUsuario : Form
     {
         private Usuario U = new Usuario();
         private string idUsuario = null;
@@ -20,7 +20,7 @@ namespace CapaPresentacion
         bool ValidarF = false;
         bool Seleccionado = false;
 
-        public frmUsuario()
+        public FrmUsuario()
         {
             InitializeComponent();
         }

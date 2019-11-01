@@ -5,14 +5,14 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 /*
- * @Nombre de Clase: frmLogin.
+ * @Nombre de Clase: FrmLogin.
  * @Version: 1.0.
  * @Copyright: ToolSoft.
  * @Author Victor, Adrian, Andrea & Diego
  */
 namespace CapaPresentacion
 {
-    public partial class frmLogin : Form
+    public partial class FrmLogin : Form
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -24,7 +24,7 @@ namespace CapaPresentacion
                int nWidthEllipse, // height of ellipse
                int nHeightEllipse // width of ellipse
            );
-        public frmLogin()
+        public FrmLogin()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -49,13 +49,13 @@ namespace CapaPresentacion
                 tipo = U.Login(userName, password);
                 if (tipo == "Administrador")
                 {
-                    frmPrincipal FP = new frmPrincipal(userName);
+                    FrmPrincipal FP = new FrmPrincipal(userName);
                     FP.Show();
                     this.Hide();
                 }
                 if (tipo == "Bodeguero")
                 {
-                    frmPrincipalBodeguero FPE = new frmPrincipalBodeguero(userName);
+                    FrmPrincipalBodeguero FPE = new FrmPrincipalBodeguero(userName);
                     FPE.Show();
                     this.Hide();
                 }

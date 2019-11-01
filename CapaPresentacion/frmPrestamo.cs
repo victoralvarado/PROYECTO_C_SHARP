@@ -2,16 +2,21 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-
+/*
+ * @Nombre de Clase: FrmPrestamo.
+ * @Version: 1.0.
+ * @Copyright: ToolSoft.
+ * @Author Victor, Adrian, Andrea & Diego
+ */
 namespace CapaPresentacion
 {
-    public partial class frmPrestamo : Form
+    public partial class FrmPrestamo : Form
     {
-        public frmPrestamo()
+        public FrmPrestamo()
         {
             InitializeComponent();
         }
-        public frmPrestamo(string userName, string tipo)
+        public FrmPrestamo(string userName, string tipo)
         {
             InitializeComponent();
             lblPresPor.Text = userName;

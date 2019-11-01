@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class frmPrincipalBodeguero
+    partial class FrmPrincipalBodeguero
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             BunifuAnimatorNS.Animation animation15 = new BunifuAnimatorNS.Animation();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipalBodeguero));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipalBodeguero));
             BunifuAnimatorNS.Animation animation16 = new BunifuAnimatorNS.Animation();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();

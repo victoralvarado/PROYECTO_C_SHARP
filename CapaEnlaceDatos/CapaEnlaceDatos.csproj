@@ -67,6 +67,7 @@
     <Compile Include="ClsDetallePrestamo.cs" />
     <Compile Include="ClsDevolucion.cs" />
     <Compile Include="ClsHerramienta.cs" />
+    <Compile Include="ClsHistorial.cs" />
     <Compile Include="ClsPersonal.cs" />
     <Compile Include="ClsUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

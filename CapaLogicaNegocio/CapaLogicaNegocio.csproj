@@ -46,6 +46,7 @@
     <Compile Include="DetallePrestamo.cs" />
     <Compile Include="Devolucion.cs" />
     <Compile Include="Herramienta.cs" />
+    <Compile Include="Historial.cs" />
     <Compile Include="Items.cs" />
     <Compile Include="Personal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

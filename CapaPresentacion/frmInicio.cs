@@ -9,12 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-
+/*
+ * @Nombre de Clase: FrmInicio.
+ * @Version: 1.0.
+ * @Copyright: ToolSoft.
+ * @Author Victor, Adrian, Andrea & Diego
+ */
 namespace CapaPresentacion
 {
-    public partial class frmInicio : Form
+    public partial class FrmInicio : Form
     {
-        public frmInicio()
+        public FrmInicio()
         {
             InitializeComponent();
         }

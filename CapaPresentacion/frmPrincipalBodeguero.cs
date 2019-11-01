@@ -3,24 +3,24 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 /*
- * @Nombre de Clase: frmPrincipal.
+ * @Nombre de Clase: FrmPrincipalBodeguero.
  * @Version: 1.0.
  * @Copyright: ToolSoft.
  * @Author Victor, Adrian, Andrea & Diego
  */
 namespace CapaPresentacion
 {
-    public partial class frmPrincipalBodeguero : Form
+    public partial class FrmPrincipalBodeguero : Form
     {
-        public frmPrincipalBodeguero()
+        public FrmPrincipalBodeguero()
         {
             InitializeComponent();
         }
 
-        public frmPrincipalBodeguero(string userName)
+        public FrmPrincipalBodeguero(string userName)
         {
             InitializeComponent();
-            lblUserName.Text =  userName;
+            lblUserName.Text = userName;
         }
 
         ToolTip tt = new ToolTip();
@@ -71,7 +71,7 @@ namespace CapaPresentacion
             sidebarContraer();
             tt.SetToolTip(btnAbrirMenu, "Expandir Menu");
             tt.SetToolTip(btnCerrarMenu, "Contraer Menu");
-            AbrirformInpanel(new frmInicio());
+            AbrirformInpanel(new FrmInicio());
             ActivBoton();
             btnInicio.Normalcolor = Color.FromArgb(22, 36, 49);
             Footer();
@@ -84,7 +84,7 @@ namespace CapaPresentacion
             if (btnHerramientas.Visible == false)
             {
                 MostratBotones();
-                btnGestionar.Text = "      GESTIONAR                     ▼";
+                btnGestionar.Text = "      GESTIONAR                    ▼";
             }
             else
             {
@@ -105,7 +105,7 @@ namespace CapaPresentacion
             fh.Dock = DockStyle.Fill;
             this.pnlFormularios.Controls.Add(fh);
             this.pnlFormularios.Tag = fh;
-            fh.Show(); 
+            fh.Show();
         }
 
         public void MostratBotones()
@@ -128,7 +128,7 @@ namespace CapaPresentacion
 
         public void ActivBoton()
         {
-            
+
             btnInicio.Normalcolor = Color.Transparent;
             btnNuevoPre.Normalcolor = Color.Transparent;
             btnReportes.Normalcolor = Color.Transparent;
@@ -142,7 +142,7 @@ namespace CapaPresentacion
 
         private void BtnHerramientas_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new frmHerramienta());
+            AbrirformInpanel(new FrmHerramienta());
             ActivBoton();
             btnHerramientas.Normalcolor = Color.FromArgb(49, 62, 74);
             btnGestionar.Normalcolor = Color.FromArgb(22, 36, 49);
@@ -150,24 +150,24 @@ namespace CapaPresentacion
 
         private void BtnCategoria_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new frmCategoria());
+            AbrirformInpanel(new FrmCategoria());
             ActivBoton();
             btnCategoria.Normalcolor = Color.FromArgb(49, 62, 74);
             btnGestionar.Normalcolor = Color.FromArgb(22, 36, 49);
-            
+
 
         }
 
         private void btnNuevoPre_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new frmPrestamo(lblUserName.Text, lblBodeguero.Text));
+            AbrirformInpanel(new FrmPrestamo(lblUserName.Text, lblBodeguero.Text));
             ActivBoton();
             btnNuevoPre.Normalcolor = Color.FromArgb(22, 36, 49);
         }
 
         private void btnPrestamo_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new frmDetallePrestamo());
+            AbrirformInpanel(new FrmDetallePrestamo());
             ActivBoton();
             btnPrestamo.Normalcolor = Color.FromArgb(49, 62, 74);
             btnGestionar.Normalcolor = Color.FromArgb(22, 36, 49);
@@ -175,7 +175,7 @@ namespace CapaPresentacion
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new frmInicio());
+            AbrirformInpanel(new FrmInicio());
             ActivBoton();
             btnInicio.Normalcolor = Color.FromArgb(22, 36, 49);
         }
@@ -192,13 +192,13 @@ namespace CapaPresentacion
 
         private void btnPersonal_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new frmPersonal());
+            AbrirformInpanel(new FrmPersonal());
             ActivBoton();
             btnPersonal.Normalcolor = Color.FromArgb(49, 62, 74);
             btnGestionar.Normalcolor = Color.FromArgb(22, 36, 49);
         }
 
-        private void frmPrincipalEditor_FormClosing(object sender, FormClosingEventArgs e)
+        private void frmPrincipalEditor_FormClosing(object sender, FormClosingEventArgs eC)
         {
             Application.Exit();
         }
@@ -207,7 +207,7 @@ namespace CapaPresentacion
         {
             if (MessageBox.Show("¿Está seguro que desea cerrar sesión?", "Cerrando", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                frmLogin L = new frmLogin();
+                FrmLogin L = new FrmLogin();
                 this.Hide();
                 L.Show();
             }

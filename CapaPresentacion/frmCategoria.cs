@@ -7,14 +7,14 @@ using System.Drawing;
 using System.Windows.Forms;
 using CapaLogicaNegocio;
 /*
-* @Nombre de Clase: frmCategoria.
+* @Nombre de Clase: FrmCategoria.
 * @Version: 1.0.
 * @Copyright: ToolSoft.
 * @Author Victor, Adrian, Andrea, Diego
 */
 namespace CapaPresentacion
 {
-    public partial class frmCategoria : Form
+    public partial class FrmCategoria : Form
     {
         private Herramienta H = new Herramienta();
         private string categoria = null;
@@ -25,7 +25,7 @@ namespace CapaPresentacion
         bool Agregando = false;
         bool ValidarF = false;
         bool Seleccionado = false;
-        public frmCategoria()
+        public FrmCategoria()
         {
             InitializeComponent();
         }

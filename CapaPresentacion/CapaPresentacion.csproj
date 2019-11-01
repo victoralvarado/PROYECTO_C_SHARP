@@ -77,97 +77,115 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmCategoria.cs">
+    <Compile Include="FrmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCategoria.Designer.cs">
-      <DependentUpon>frmCategoria.cs</DependentUpon>
+    <Compile Include="FrmCategoria.Designer.cs">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDetallePrestamo.cs">
+    <Compile Include="FrmDetallePrestamo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDetallePrestamo.Designer.cs">
-      <DependentUpon>frmDetallePrestamo.cs</DependentUpon>
+    <Compile Include="FrmDetallePrestamo.Designer.cs">
+      <DependentUpon>FrmDetallePrestamo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHerramienta.cs">
+    <Compile Include="FrmHerramienta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHerramienta.Designer.cs">
-      <DependentUpon>frmHerramienta.cs</DependentUpon>
+    <Compile Include="FrmHerramienta.Designer.cs">
+      <DependentUpon>FrmHerramienta.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInicio.cs">
+    <Compile Include="FrmHistorialDevolucion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInicio.Designer.cs">
-      <DependentUpon>frmInicio.cs</DependentUpon>
+    <Compile Include="FrmHistorialDevolucion.Designer.cs">
+      <DependentUpon>FrmHistorialDevolucion.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="FrmInicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <Compile Include="FrmInicio.Designer.cs">
+      <DependentUpon>FrmInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPersonal.cs">
+    <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPersonal.Designer.cs">
-      <DependentUpon>frmPersonal.cs</DependentUpon>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPrestamo.cs">
+    <Compile Include="FrmPersonal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPrestamo.Designer.cs">
-      <DependentUpon>frmPrestamo.cs</DependentUpon>
+    <Compile Include="FrmPersonal.Designer.cs">
+      <DependentUpon>FrmPersonal.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPrincipalBodeguero.cs">
+    <Compile Include="FrmPrestamo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPrincipalBodeguero.Designer.cs">
-      <DependentUpon>frmPrincipalBodeguero.cs</DependentUpon>
+    <Compile Include="FrmPrestamo.Designer.cs">
+      <DependentUpon>FrmPrestamo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPrincipal.cs">
+    <Compile Include="FrmPrincipalBodeguero.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPrincipal.Designer.cs">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    <Compile Include="FrmPrincipalBodeguero.Designer.cs">
+      <DependentUpon>FrmPrincipalBodeguero.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUsuario.cs">
+    <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUsuario.Designer.cs">
-      <DependentUpon>frmUsuario.cs</DependentUpon>
+    <Compile Include="FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportes.Designer.cs">
+      <DependentUpon>FrmReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuario.Designer.cs">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHistorialPrestamo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHistorialPrestamo.Designer.cs">
+      <DependentUpon>FrmHistorialPrestamo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmCategoria.resx">
-      <DependentUpon>frmCategoria.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCategoria.resx">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDetallePrestamo.resx">
-      <DependentUpon>frmDetallePrestamo.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDetallePrestamo.resx">
+      <DependentUpon>FrmDetallePrestamo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHerramienta.resx">
-      <DependentUpon>frmHerramienta.cs</DependentUpon>
+    <EmbeddedResource Include="FrmHerramienta.resx">
+      <DependentUpon>FrmHerramienta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInicio.resx">
-      <DependentUpon>frmInicio.cs</DependentUpon>
+    <EmbeddedResource Include="FrmInicio.resx">
+      <DependentUpon>FrmInicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPersonal.resx">
-      <DependentUpon>frmPersonal.cs</DependentUpon>
+    <EmbeddedResource Include="FrmPersonal.resx">
+      <DependentUpon>FrmPersonal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPrestamo.resx">
-      <DependentUpon>frmPrestamo.cs</DependentUpon>
+    <EmbeddedResource Include="FrmPrestamo.resx">
+      <DependentUpon>FrmPrestamo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPrincipalBodeguero.resx">
-      <DependentUpon>frmPrincipalBodeguero.cs</DependentUpon>
+    <EmbeddedResource Include="FrmPrincipalBodeguero.resx">
+      <DependentUpon>FrmPrincipalBodeguero.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPrincipal.resx">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUsuario.resx">
-      <DependentUpon>frmUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="FrmUsuario.resx">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

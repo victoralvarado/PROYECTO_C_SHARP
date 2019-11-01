@@ -3,24 +3,24 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 /*
- * @Nombre de Clase: frmPrincipal.
+ * @Nombre de Clase: FrmPrincipal.
  * @Version: 1.0.
  * @Copyright: ToolSoft.
  * @Author Victor, Adrian, Andrea & Diego
  */
 namespace CapaPresentacion
 {
-    public partial class frmPrincipal : Form
+    public partial class FrmPrincipal : Form
     {
-        public frmPrincipal()
+        public FrmPrincipal()
         {
             InitializeComponent();
         }
 
-        public frmPrincipal(string userName)
+        public FrmPrincipal(string userName)
         {
             InitializeComponent();
-            lblUserName.Text =  userName;
+            lblUserName.Text = userName;
         }
 
 
@@ -57,17 +57,17 @@ namespace CapaPresentacion
 
         public void sidebarContraer()
         {
-                tt.SetToolTip(this.btnInicio, "Inicio");
-                tt.SetToolTip(this.btnNuevoPre, "Nuevo Prestamo");
-                tt.SetToolTip(this.btnReportes, "Reportes");
-                tt.SetToolTip(this.btnHistorialDe, "Histaorial de Devolucion");
-                tt.SetToolTip(this.btnHPrestamo, "Historial de Prestamos");
-                tt.SetToolTip(this.btnGestionar, "Gestionar");
-                tt.SetToolTip(this.btnUsuarios, "Gestionar Usuarios");
-                tt.SetToolTip(this.btnHerramientas, "Gestionar Herramientas");
-                tt.SetToolTip(this.btnPersonal, "Gestionar Personal");
-                tt.SetToolTip(this.btnCategoria, "Gestionar Categorias");
-                tt.SetToolTip(this.btnPrestamo, "Gestionar Detalle Prestamo");
+            tt.SetToolTip(this.btnInicio, "Inicio");
+            tt.SetToolTip(this.btnNuevoPre, "Nuevo Prestamo");
+            tt.SetToolTip(this.btnReportes, "Reportes");
+            tt.SetToolTip(this.btnHistorialDe, "Histaorial de Devolucion");
+            tt.SetToolTip(this.btnHPrestamo, "Historial de Prestamos");
+            tt.SetToolTip(this.btnGestionar, "Gestionar");
+            tt.SetToolTip(this.btnUsuarios, "Gestionar Usuarios");
+            tt.SetToolTip(this.btnHerramientas, "Gestionar Herramientas");
+            tt.SetToolTip(this.btnPersonal, "Gestionar Personal");
+            tt.SetToolTip(this.btnCategoria, "Gestionar Categorias");
+            tt.SetToolTip(this.btnPrestamo, "Gestionar Detalle Prestamo");
         }
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
@@ -75,7 +75,7 @@ namespace CapaPresentacion
             sidebarContraer();
             tt.SetToolTip(btnAbrirMenu, "Expandir Menú");
             tt.SetToolTip(btnCerrarMenu, "Contraer Menú");
-            AbrirformInpanel(new frmInicio());
+            AbrirformInpanel(new FrmInicio());
             ActivBoton();
             btnInicio.Normalcolor = Color.FromArgb(22, 36, 49);
             Footer();
@@ -109,7 +109,7 @@ namespace CapaPresentacion
             fh.Dock = DockStyle.Fill;
             this.pnlFormularios.Controls.Add(fh);
             this.pnlFormularios.Tag = fh;
-            fh.Show(); 
+            fh.Show();
         }
 
         public void MostratBotones()
@@ -134,7 +134,7 @@ namespace CapaPresentacion
 
         public void ActivBoton()
         {
-            
+
             btnInicio.Normalcolor = Color.Transparent;
             btnNuevoPre.Normalcolor = Color.Transparent;
             btnReportes.Normalcolor = Color.Transparent;
@@ -150,16 +150,16 @@ namespace CapaPresentacion
 
         private void BtnUsuarios_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new frmUsuario());
+            AbrirformInpanel(new FrmUsuario());
             ActivBoton();
             btnUsuarios.Normalcolor = Color.FromArgb(49, 62, 74);
             btnGestionar.Normalcolor = Color.FromArgb(22, 36, 49);
-            
+
         }
 
         private void BtnHerramientas_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new frmHerramienta());
+            AbrirformInpanel(new FrmHerramienta());
             ActivBoton();
             btnHerramientas.Normalcolor = Color.FromArgb(49, 62, 74);
             btnGestionar.Normalcolor = Color.FromArgb(22, 36, 49);
@@ -167,24 +167,24 @@ namespace CapaPresentacion
 
         private void BtnCategoria_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new frmCategoria());
+            AbrirformInpanel(new FrmCategoria());
             ActivBoton();
             btnCategoria.Normalcolor = Color.FromArgb(49, 62, 74);
             btnGestionar.Normalcolor = Color.FromArgb(22, 36, 49);
-            
+
 
         }
 
         private void btnNuevoPre_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new frmPrestamo(lblUserName.Text, lblAdministrador.Text));
+            AbrirformInpanel(new FrmPrestamo(lblUserName.Text, lblAdministrador.Text));
             ActivBoton();
             btnNuevoPre.Normalcolor = Color.FromArgb(22, 36, 49);
         }
 
         private void btnPrestamo_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new frmDetallePrestamo());
+            AbrirformInpanel(new FrmDetallePrestamo());
             ActivBoton();
             btnPrestamo.Normalcolor = Color.FromArgb(49, 62, 74);
             btnGestionar.Normalcolor = Color.FromArgb(22, 36, 49);
@@ -192,7 +192,7 @@ namespace CapaPresentacion
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new frmInicio());
+            AbrirformInpanel(new FrmInicio());
             ActivBoton();
             btnInicio.Normalcolor = Color.FromArgb(22, 36, 49);
         }
@@ -209,7 +209,7 @@ namespace CapaPresentacion
 
         private void btnPersonal_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new frmPersonal());
+            AbrirformInpanel(new FrmPersonal());
             ActivBoton();
             btnPersonal.Normalcolor = Color.FromArgb(49, 62, 74);
             btnGestionar.Normalcolor = Color.FromArgb(22, 36, 49);
@@ -224,7 +224,7 @@ namespace CapaPresentacion
         {
             if (MessageBox.Show("¿Está seguro que desea cerrar sesión?", "Cerrando", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                frmLogin L = new frmLogin();
+                FrmLogin L = new FrmLogin();
                 this.Hide();
                 L.Show();
             }
