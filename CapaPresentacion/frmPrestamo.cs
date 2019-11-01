@@ -26,6 +26,7 @@ namespace CapaPresentacion
         private Herramienta H = new Herramienta();
         private Personal P = new Personal();
         private DetallePrestamo DP = new DetallePrestamo();
+        private Historial HI = new Historial();
         private string idHerramienta = null;
         private string idPersonal = null;
         private string uso = null;
@@ -179,6 +180,7 @@ namespace CapaPresentacion
                 uso = "SI";
                 DP.RegistrarDetallePrestamo(idPersonal, idHerramienta, txtFecha.Text, lblPresPor.Text);
                 DP.ModificarUso(uso, estado, idHerramienta);
+                HI.RegistrarHistorial(idPersonal, idHerramienta, txtFecha.Text, lblPresPor.Text);
                 MessageBox.Show("Herramienta prestada correctamente", "Prestando", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ListarDetallePrestamo();
                 ListarHerramientas();

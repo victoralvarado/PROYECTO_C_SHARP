@@ -161,6 +161,9 @@
     <EmbeddedResource Include="FrmHerramienta.resx">
       <DependentUpon>FrmHerramienta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmHistorialPrestamo.resx">
+      <DependentUpon>FrmHistorialPrestamo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmInicio.resx">
       <DependentUpon>FrmInicio.cs</DependentUpon>
     </EmbeddedResource>

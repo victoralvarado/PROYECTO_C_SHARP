@@ -139,7 +139,6 @@ namespace CapaEnlaceDatos
 
         public DataTable FiltrarTCPrestamo(string buscar)
         {
-            //Buscar por todos los campos de la tabla
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "select h.idHerramienta AS 'CÓDIGO HERRAMIENTA', h.nombreHerramienta AS 'NOMBRE HERRAMIENTA', h.estado AS 'ESTADO' " +
                 "from Bodega.herramienta h where h.uso = 'NO' and (h.estado = 'NUEVA' or h.estado = 'NORMAL') and (h.idHerramienta like '%"+buscar+"%' or h.nombreHerramienta " +
@@ -153,7 +152,6 @@ namespace CapaEnlaceDatos
 
          public DataTable FiltrarTC(string buscar)
         {
-            //Buscar por todos los campos de la tabla
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "select h.idHerramienta AS 'CÓDIGO HERRAMIENTA', h.nombreHerramienta AS 'NOMBRE HERRAMIENTA', h.idCategoria " +
                 "AS 'CÓDIGO CATEGORÍA', h.uso AS 'USO', h.estado AS 'ESTADO', c.nombreCategoria AS 'CATEGORÍA' " +
