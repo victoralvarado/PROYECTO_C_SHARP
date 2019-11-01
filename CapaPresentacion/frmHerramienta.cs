@@ -177,56 +177,6 @@ namespace CapaPresentacion
             Botones();
         }
 
-        private void BtnGuardar_Click(object sender, EventArgs e)
-        {
-            ValidarF = true;
-            ep.Clear();
-
-            if (txtNombre.Text.Trim().Length == 0)
-            {
-                ep.SetError(txtNombre, "¡Campo requerido!");
-                ValidarF = false;
-            }
-            if (cmbCategoria.SelectedIndex == 0)
-            {
-                ep.SetError(cmbCategoria, "¡Seleccione una categoria!");
-                ValidarF = false;
-            }
-            if (cmbEstado.SelectedIndex == 0)
-            {
-                ep.SetError(cmbEstado, "¡Seleccione estado!");
-                ValidarF = false;
-            }
-            if (cmbUso.SelectedIndex == 0)
-            {
-                ep.SetError(cmbUso, "¡Seleccione uso!");
-                ValidarF = false;
-            }
-            if (ValidarF == true)
-            {
-                if (Agregando == true && Editando == false)
-                {
-                    string idCategoria = Convert.ToString(cmbCategoria.SelectedValue);
-                    H.RegistrarHerramienta(txtNombre.Text, idCategoria, cmbUso.Text, cmbEstado.Text);
-                    MessageBox.Show("Datos agregados correctamente", "Agregando", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Botones();
-                    ListarHerramientas();
-                    LimpiarControles();
-                    dgvHerramienta.Enabled = true;
-                }
-                else
-                {
-                    string idCategoria = Convert.ToString(cmbCategoria.SelectedValue);
-                    H.ModificarHerramienta(txtNombre.Text, idCategoria, cmbUso.Text, cmbEstado.Text, idHerramienta);
-                    MessageBox.Show("Datos modificados correctamente", "Modificando", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Botones();
-                    ListarHerramientas();
-                    LimpiarControles();
-                    dgvHerramienta.Enabled = true;
-                }
-            }
-        }
-
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             dgvHerramienta.Enabled = false;
@@ -235,70 +185,6 @@ namespace CapaPresentacion
             ActivarBotones();
             Editando = false;
             Agregando = true;
-        }
-
-        private void BtnEditar_Click(object sender, EventArgs e)
-        {
-            if (dgvHerramienta.RowCount > 0)
-            {
-                Seleccionado = false;
-                if (txtNombre.Text.Length > 0)
-                {
-                    Seleccionado = true;
-                }
-
-                if (Seleccionado == true)
-                {
-                    dgvHerramienta.Enabled = false;
-                    ActivarControles();
-                    ActivarBotones();
-                    Editando = true;
-                    Agregando = false;
-                }
-                else
-                {
-                    MessageBox.Show("Debe dar clic sobre la fila a editar", "Seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-        }
-
-        private void BtnEliminar_Click(object sender, EventArgs e)
-        {
-            if (dgvHerramienta.RowCount > 0)
-            {
-                //Si la herramienta SI está en uso no podra ser eliminada
-                if (dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["USO"].Value.ToString() == "SI")
-                {
-                    MessageBox.Show("No puede editar ni eliminar herramientas en uso", "Herramientas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    LimpiarControles();
-                }
-                //Si la herramienta NO está en uso si podra ser eliminada
-                else
-                {
-                    if (MessageBox.Show("¿Desea eliminar la herramienta?", "Validación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        H.EliminarHerramienta(idHerramienta);
-                        Botones();
-                        ListarHerramientas();
-                        MessageBox.Show("Registro eliminado correctamente", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LimpiarControles();
-                    }
-                }
-            }
-        }
-
-        private void BtnCancelar_Click(object sender, EventArgs e)
-        {
-            //Si cancela la operacion limpiara cajas de texto y bloquera botones y controles
-            if (MessageBox.Show("¿Desea cancelar la operación?", "Validacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                LimpiarControles();
-                ep.Clear();
-                Agregando = false;
-                Editando = false;
-                Botones();
-                dgvHerramienta.Enabled = true;
-            }
         }
 
         private void DgvHerramienta_Click(object sender, EventArgs e)
@@ -386,9 +272,118 @@ namespace CapaPresentacion
             }
         }
 
-        private void tmrRefresh_Tick(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
+            ValidarF = true;
+            ep.Clear();
 
+            if (txtNombre.Text.Trim().Length == 0)
+            {
+                ep.SetError(txtNombre, "¡Campo requerido!");
+                ValidarF = false;
+            }
+            if (cmbCategoria.SelectedIndex == 0)
+            {
+                ep.SetError(cmbCategoria, "¡Seleccione una categoria!");
+                ValidarF = false;
+            }
+            if (cmbEstado.SelectedIndex == 0)
+            {
+                ep.SetError(cmbEstado, "¡Seleccione estado!");
+                ValidarF = false;
+            }
+            if (cmbUso.SelectedIndex == 0)
+            {
+                ep.SetError(cmbUso, "¡Seleccione uso!");
+                ValidarF = false;
+            }
+            if (ValidarF == true)
+            {
+                if (Agregando == true && Editando == false)
+                {
+                    string idCategoria = Convert.ToString(cmbCategoria.SelectedValue);
+                    H.RegistrarHerramienta(txtNombre.Text, idCategoria, cmbUso.Text, cmbEstado.Text);
+                    MessageBox.Show("Datos agregados correctamente", "Agregando", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Botones();
+                    ListarHerramientas();
+                    LimpiarControles();
+                    dgvHerramienta.Enabled = true;
+                }
+                else
+                {
+                    string idCategoria = Convert.ToString(cmbCategoria.SelectedValue);
+                    H.ModificarHerramienta(txtNombre.Text, idCategoria, cmbUso.Text, cmbEstado.Text, idHerramienta);
+                    MessageBox.Show("Datos modificados correctamente", "Modificando", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Botones();
+                    ListarHerramientas();
+                    LimpiarControles();
+                    dgvHerramienta.Enabled = true;
+                }
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (dgvHerramienta.RowCount > 0)
+            {
+                Seleccionado = false;
+                if (txtNombre.Text.Length > 0)
+                {
+                    Seleccionado = true;
+                }
+
+                if (Seleccionado == true)
+                {
+                    dgvHerramienta.Enabled = false;
+                    ActivarControles();
+                    ActivarBotones();
+                    Editando = true;
+                    Agregando = false;
+                }
+                else
+                {
+                    MessageBox.Show("Debe dar clic sobre la fila a editar", "Seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            //Si cancela la operacion limpiara cajas de texto y bloquera botones y controles
+            if (MessageBox.Show("¿Desea cancelar la operación?", "Validacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                LimpiarControles();
+                ep.Clear();
+                Agregando = false;
+                Editando = false;
+                Botones();
+                dgvHerramienta.Enabled = true;
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvHerramienta.RowCount > 0)
+            {
+                //Si la herramienta SI está en uso no podra ser eliminada
+                if (dgvHerramienta.Rows[dgvHerramienta.CurrentRow.Index].Cells["USO"].Value.ToString() == "SI")
+                {
+                    MessageBox.Show("No puede editar ni eliminar herramientas en uso", "Herramientas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    LimpiarControles();
+                }
+                //Si la herramienta NO está en uso si podra ser eliminada
+                else
+                {
+                    if (MessageBox.Show("¿Desea eliminar la herramienta?", "Validación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        H.EliminarHerramienta(idHerramienta);
+                        Botones();
+                        ListarHerramientas();
+                        MessageBox.Show("Registro eliminado correctamente", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimpiarControles();
+                    }
+                }
+            }
         }
     }
 }

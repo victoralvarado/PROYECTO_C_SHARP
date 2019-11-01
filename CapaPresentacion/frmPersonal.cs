@@ -143,7 +143,6 @@ namespace CapaPresentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
             dgvPersonal.Enabled = false;
             LimpiarControles();
             ActivarControles();
@@ -186,7 +185,6 @@ namespace CapaPresentacion
                     MessageBox.Show("Debe dar clic sobre la fila a editar", "Seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

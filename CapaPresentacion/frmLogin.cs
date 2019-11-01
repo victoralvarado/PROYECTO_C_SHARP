@@ -4,6 +4,7 @@ using System.Data;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 /*
  * @Nombre de Clase: FrmLogin.
  * @Version: 1.0.
@@ -14,6 +15,10 @@ namespace CapaPresentacion
 {
     public partial class FrmLogin : Form
     {
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
            (
@@ -84,6 +89,7 @@ namespace CapaPresentacion
             ToolTip t = new ToolTip();
             t.ShowAlways = true;
             t.SetToolTip(btnCerrar, "Cerrar");
+            t.SetToolTip(btnMinimizar, "Minimizar");
             t.SetToolTip(btnLogIn, "Acceder");
         }
 
@@ -133,6 +139,17 @@ namespace CapaPresentacion
         private void btnLogIn_Click(object sender, EventArgs e)
         {
             Login();
+        }
+
+        private void tplTop_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

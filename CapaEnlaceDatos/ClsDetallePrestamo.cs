@@ -81,8 +81,8 @@ namespace CapaEnlaceDatos
         public DataTable filtrarPrestamo(string buscar) 
         {
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "select p.id as 'CODIGO EMPLEADO',p.nombre as 'NOMBRES',p.apellido as 'APELLIDOS'," +
-                "d.idPrestamo as 'CODIGO PRESTAMO',d.idherramienta as 'CODIGO HERRAMIENTA',h.nombreHerramienta as 'HERRAMIENTA'," +
+            comando.CommandText = "select p.id as 'CÓDIGO EMPLEADO',p.nombre as 'NOMBRES',p.apellido as 'APELLIDOS'," +
+                "d.idPrestamo as 'CÓDIGO PRÉSTAMO',d.idherramienta as 'CÓDIGO HERRAMIENTA',h.nombreHerramienta as 'HERRAMIENTA'," +
                 " d.fechaHora as 'FECHA-HORA',d.prespor as 'ASIGNADA POR' from bodega.personal p inner join bodega.detallePrestamo d " +
                 "on p.id = d.idPersonal inner join bodega.herramienta h on d.idHerramienta=h.idHerramienta " +
                 "where h.idHerramienta like '%" + buscar + "%' or h.idCategoria like '%" + buscar + "%' " +

@@ -129,7 +129,14 @@ namespace CapaPresentacion
             }
         }
 
-        private void BtnAgregar_Click(object sender, EventArgs e)
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            Categoria FC = new Categoria();
+            string buscar = txtBuscar.Text;
+            dgvCategoria.DataSource = FC.FiltrarCat(buscar);
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
             dgvCategoria.Enabled = false;
             LimpiarControles();
@@ -140,7 +147,7 @@ namespace CapaPresentacion
             txtCategoria.Focus();
         }
 
-        private void BtnEditar_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
         {
             if (dgvCategoria.RowCount > 0)
             {
@@ -165,7 +172,7 @@ namespace CapaPresentacion
             }
         }
 
-        private void BtnEliminar_Click(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dgvCategoria.RowCount > 0)
             {
@@ -231,10 +238,9 @@ namespace CapaPresentacion
                     }
                 }
             }
-            
         }
 
-        private void BtnCancelar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Desea cancelar la operación?", "Validación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -247,7 +253,7 @@ namespace CapaPresentacion
             }
         }
 
-        private void BtnGuardar_Click(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
             ValidarF = true;
             ep.Clear();
@@ -276,16 +282,8 @@ namespace CapaPresentacion
                     LimpiarControles();
                     dgvCategoria.Enabled = true;
                 }
-                
-            }
-            
-        }
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            Categoria FC = new Categoria();
-            string buscar = txtBuscar.Text;
-            dgvCategoria.DataSource = FC.FiltrarCat(buscar);
+            }
         }
     }
 }

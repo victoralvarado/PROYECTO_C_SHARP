@@ -128,14 +128,46 @@ namespace CapaPresentacion
         {
             if (dgvUsuario.RowCount > 0)
             {
-                idUsuario = dgvUsuario.Rows[dgvUsuario.CurrentRow.Index].Cells["ID USUARIO"].Value.ToString();
+                idUsuario = dgvUsuario.Rows[dgvUsuario.CurrentRow.Index].Cells["CÓDIGO USUARIO"].Value.ToString();
                 txtUserName.Text = dgvUsuario.Rows[dgvUsuario.CurrentRow.Index].Cells["NOMBRE DE USUARIO"].Value.ToString();
                 txtPassword.Text = dgvUsuario.Rows[dgvUsuario.CurrentRow.Index].Cells["password"].Value.ToString();
                 cmbTipo.Text = dgvUsuario.Rows[dgvUsuario.CurrentRow.Index].Cells["TIPO DE USUARIO"].Value.ToString();
             }
         }
 
-        private void BtnAgregar_Click(object sender, EventArgs e)
+        private void DgvUsuario_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.dgvUsuario.Columns[e.ColumnIndex].Name == "TIPO DE USUARIO")
+            {
+                if (Convert.ToString(e.Value) == "Administrador")
+                {
+                    e.CellStyle.ForeColor = Color.White;
+                    e.CellStyle.BackColor = Color.OrangeRed;
+                }
+                else
+                {
+                    e.CellStyle.ForeColor = Color.White;
+                    e.CellStyle.BackColor = Color.ForestGreen;
+                }
+            }
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Usuario LU = new Usuario();
+                string buscar = txtBuscar.Text;
+                dgvUsuario.DataSource = LU.FiltrarUsuario(buscar.Replace("'", ""));
+                dgvUsuario.Columns["password"].Visible = false;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocurrio un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
             dgvUsuario.Enabled = false;
             LimpiarControles();
@@ -147,7 +179,7 @@ namespace CapaPresentacion
             txtUserName.Focus();
         }
 
-        private void BtnEditar_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
         {
             if (dgvUsuario.RowCount > 0)
             {
@@ -186,7 +218,7 @@ namespace CapaPresentacion
             }
         }
 
-        private void BtnCancelar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click_1(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Desea cancelar la operación ?", "Validacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -199,11 +231,11 @@ namespace CapaPresentacion
             }
         }
 
-        private void BtnEliminar_Click(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dgvUsuario.RowCount > 0)
             {
-                idUsuario = dgvUsuario.CurrentRow.Cells["ID USUARIO"].Value.ToString();
+                idUsuario = dgvUsuario.CurrentRow.Cells["CÓDIGO USUARIO"].Value.ToString();
                 if (idUsuario == "1")
                 {
                     MessageBox.Show("El administrador principal no puede ser eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -223,7 +255,7 @@ namespace CapaPresentacion
             }
         }
 
-        private void BtnGuardar_Click(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
             ValidarF = true;
             ep.Clear();
@@ -263,38 +295,6 @@ namespace CapaPresentacion
                     LimpiarControles();
                     dgvUsuario.Enabled = true;
                 }
-            }
-        }
-
-        private void DgvUsuario_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (this.dgvUsuario.Columns[e.ColumnIndex].Name == "TIPO DE USUARIO")
-            {
-                if (Convert.ToString(e.Value) == "Administrador")
-                {
-                    e.CellStyle.ForeColor = Color.White;
-                    e.CellStyle.BackColor = Color.OrangeRed;
-                }
-                else
-                {
-                    e.CellStyle.ForeColor = Color.White;
-                    e.CellStyle.BackColor = Color.ForestGreen;
-                }
-            }
-        }
-
-        private void TxtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                Usuario LU = new Usuario();
-                string buscar = txtBuscar.Text;
-                dgvUsuario.DataSource = LU.FiltrarUsuario(buscar.Replace("'", ""));
-                dgvUsuario.Columns["password"].Visible = false;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Ocurrio un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

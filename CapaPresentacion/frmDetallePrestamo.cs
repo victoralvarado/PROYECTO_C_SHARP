@@ -83,47 +83,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            ep.Clear();
-            ValidarF = true;
-            if (txtHerramienta.Text.Trim().Length == 0)
-            {
-                ValidarF = false;
-                ep.SetError(txtHerramienta, "Debe seleccionar una herramienta de la tabla detalle prestamo");
-            }
-            if (cmbEstado.SelectedIndex==0)
-            {
-                ValidarF = false;
-                ep.SetError(cmbEstado, "Debe seleccionar un estado valido");
-            }
-
-            if (ValidarF == true)
-            {
-                recibidapor = "Administrador";//VARIABLE DE QUIEN ESTE LOGUEADO
-                uso = "NO";
-                
-                DP.ModificarUso(uso, cmbEstado.Text, idHerramienta);
-                D.EliminarPrestamo(idPrestamo);
-                MessageBox.Show("Herramienta entregada correctamente", "Entregando",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                ListarDetallePrestamo();
-                ListarHerramientas();
-                LimpiarControles();
-            }
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            ep.Clear();
-            if (cmbEstado.SelectedIndex > 0 || txtHerramienta.Text.Length > 0)
-            {
-                if (MessageBox.Show("Esta seguro que desea cancelar la operacion", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    LimpiarControles();
-                }
-            }
-        }
-
         private void dgvHerramienta_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (this.dgvHerramienta.Columns[e.ColumnIndex].Name == "ESTADO")
@@ -147,6 +106,47 @@ namespace CapaPresentacion
             DetallePrestamo DPEP = new DetallePrestamo();
             string buscar = txtBuscar.Text;
             dgvDetalleprestamo.DataSource = DPEP.filtrarPrestamo(buscar);
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            ep.Clear();
+            ValidarF = true;
+            if (txtHerramienta.Text.Trim().Length == 0)
+            {
+                ValidarF = false;
+                ep.SetError(txtHerramienta, "Debe seleccionar una herramienta de la tabla detalle prestamo");
+            }
+            if (cmbEstado.SelectedIndex == 0)
+            {
+                ValidarF = false;
+                ep.SetError(cmbEstado, "Debe seleccionar un estado valido");
+            }
+
+            if (ValidarF == true)
+            {
+                recibidapor = "Administrador";//VARIABLE DE QUIEN ESTE LOGUEADO
+                uso = "NO";
+
+                DP.ModificarUso(uso, cmbEstado.Text, idHerramienta);
+                D.EliminarPrestamo(idPrestamo);
+                MessageBox.Show("Herramienta entregada correctamente", "Entregando", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ListarDetallePrestamo();
+                ListarHerramientas();
+                LimpiarControles();
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            ep.Clear();
+            if (cmbEstado.SelectedIndex > 0 || txtHerramienta.Text.Length > 0)
+            {
+                if (MessageBox.Show("Esta seguro que desea cancelar la operacion", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    LimpiarControles();
+                }
+            }
         }
     }
 }

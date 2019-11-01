@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 /*
- * @Nombre de Clase: FrmPrincipalBodeguero.
+ * @Nombre de Clase: FrmPrincipal.
  * @Version: 1.0.
  * @Copyright: ToolSoft.
  * @Author Victor, Adrian, Andrea & Diego
@@ -23,6 +23,7 @@ namespace CapaPresentacion
             lblUserName.Text = userName;
         }
 
+
         ToolTip tt = new ToolTip();
         public void Footer()
         {
@@ -30,24 +31,20 @@ namespace CapaPresentacion
             year = DateTime.Now.ToString("yyyy");
             lblFooter.Text = "Copyright © " + year + " ToolSoft. Todos los derechos reservados";
         }
+
         public void SideBar()
         {
 
-            if (Sidebar.Width == 270)
+            if (pnlConteMenu.Width == 270)
             {
-                Sidebar.Visible = false;
-                Sidebar.Width = 62;
-                LineaSidebar.Width = 50;
-                AnimacionSidebar.Show(Sidebar);
+                pnlConteMenu.Width = 62;
                 btnCerrarMenu.Visible = false;
                 btnAbrirMenu.Visible = true;
+                sidebarContraer();
             }
             else
             {
-                Sidebar.Visible = false;
-                Sidebar.Width = 270;
-                LineaSidebar.Width = 252;
-                AnimacionSidebarBack.Show(Sidebar);
+                pnlConteMenu.Width = 270;
                 btnAbrirMenu.Visible = false;
                 btnCerrarMenu.Visible = true;
             }
@@ -56,43 +53,56 @@ namespace CapaPresentacion
         public void sidebarContraer()
         {
             tt.SetToolTip(this.btnInicio, "Inicio");
-            tt.SetToolTip(this.btnNuevoPre, "Nuevo Prestamo");
+            tt.SetToolTip(this.btnNuevoPre, "Nuevo Préstamo");
             tt.SetToolTip(this.btnReportes, "Reportes");
             tt.SetToolTip(this.btnGestionar, "Gestionar");
             tt.SetToolTip(this.btnHerramientas, "Gestionar Herramientas");
             tt.SetToolTip(this.btnPersonal, "Gestionar Personal");
-            tt.SetToolTip(this.btnCategoria, "Gestionar Categorias");
-            tt.SetToolTip(this.btnPrestamo, "Gestionar Detalle Prestamo");
+            tt.SetToolTip(this.btnCategoria, "Gestionar Categorías");
+            tt.SetToolTip(this.btnPrestamo, "Gestionar Detalle Préstamo");
         }
 
-        private void FrmPrincipalEditor_Load(object sender, EventArgs e)
+        public void comproSidebar()
+        {
+            if (pnlConteMenu.Width == 270)
+            {
+                if (btnPersonal.Visible == false)
+                {
+                    MostratBotones();
+                    btnGestionar.Text = "      GESTIONAR                     ▼";
+                }
+                if (btnPersonal.Visible == true)
+                {
+                    OcultarBotones();
+                    btnGestionar.Text = "      GESTIONAR                     ◀";
+                }
+            }
+            if (pnlConteMenu.Width == 62)
+            {
+                if (btnPersonal.Visible == false)
+                {
+                    MostratBotones();
+                    btnGestionar.Text = " ▼";
+                }
+                if (btnPersonal.Visible == true)
+                {
+                    OcultarBotones();
+                    btnGestionar.Text = " ◀";
+                }
+            }
+        }
+        private void FrmPrincipal_Load(object sender, EventArgs e)
         {
             tt.SetToolTip(btnLogout, "Cerrar sesión");
-            sidebarContraer();
-            tt.SetToolTip(btnAbrirMenu, "Expandir Menu");
-            tt.SetToolTip(btnCerrarMenu, "Contraer Menu");
+            tt.SetToolTip(btnAbrirMenu, "Expandir Menú");
+            tt.SetToolTip(btnCerrarMenu, "Contraer Menú");
             AbrirformInpanel(new FrmInicio());
             ActivBoton();
-            btnInicio.Normalcolor = Color.FromArgb(22, 36, 49);
+            btnInicio.BackColor = Color.FromArgb(22, 36, 49);
             Footer();
             OcultarBotones();
-            btnGestionar.Text = "      GESTIONAR                     ◀";
         }
 
-        private void BtnGestionar_Click(object sender, EventArgs e)
-        {
-            if (btnHerramientas.Visible == false)
-            {
-                MostratBotones();
-                btnGestionar.Text = "      GESTIONAR                    ▼";
-            }
-            else
-            {
-                OcultarBotones();
-                btnGestionar.Text = "      GESTIONAR                     ◀";
-            }
-
-        }
 
         public void AbrirformInpanel(Form formhijo)
         {
@@ -129,76 +139,29 @@ namespace CapaPresentacion
         public void ActivBoton()
         {
 
-            btnInicio.Normalcolor = Color.Transparent;
-            btnNuevoPre.Normalcolor = Color.Transparent;
-            btnReportes.Normalcolor = Color.Transparent;
-            btnGestionar.Normalcolor = Color.Transparent;
-            btnHerramientas.Normalcolor = Color.Transparent;
-            btnPersonal.Normalcolor = Color.Transparent;
-            btnCategoria.Normalcolor = Color.Transparent;
-            btnPrestamo.Normalcolor = Color.Transparent;
-        }
-
-
-        private void BtnHerramientas_Click(object sender, EventArgs e)
-        {
-            AbrirformInpanel(new FrmHerramienta());
-            ActivBoton();
-            btnHerramientas.Normalcolor = Color.FromArgb(49, 62, 74);
-            btnGestionar.Normalcolor = Color.FromArgb(22, 36, 49);
-        }
-
-        private void BtnCategoria_Click(object sender, EventArgs e)
-        {
-            AbrirformInpanel(new FrmCategoria());
-            ActivBoton();
-            btnCategoria.Normalcolor = Color.FromArgb(49, 62, 74);
-            btnGestionar.Normalcolor = Color.FromArgb(22, 36, 49);
-
-
-        }
-
-        private void btnNuevoPre_Click(object sender, EventArgs e)
-        {
-            AbrirformInpanel(new FrmPrestamo(lblUserName.Text, lblBodeguero.Text));
-            ActivBoton();
-            btnNuevoPre.Normalcolor = Color.FromArgb(22, 36, 49);
-        }
-
-        private void btnPrestamo_Click(object sender, EventArgs e)
-        {
-            AbrirformInpanel(new FrmDetallePrestamo());
-            ActivBoton();
-            btnPrestamo.Normalcolor = Color.FromArgb(49, 62, 74);
-            btnGestionar.Normalcolor = Color.FromArgb(22, 36, 49);
-        }
-
-        private void btnInicio_Click(object sender, EventArgs e)
-        {
-            AbrirformInpanel(new FrmInicio());
-            ActivBoton();
-            btnInicio.Normalcolor = Color.FromArgb(22, 36, 49);
+            btnInicio.BackColor = Color.Transparent;
+            btnNuevoPre.BackColor = Color.Transparent;
+            btnReportes.BackColor = Color.Transparent;
+            btnGestionar.BackColor = Color.Transparent;
+            btnHerramientas.BackColor = Color.Transparent;
+            btnPersonal.BackColor = Color.Transparent;
+            btnCategoria.BackColor = Color.Transparent;
+            btnPrestamo.BackColor = Color.Transparent;
         }
 
         private void btnCerrarMenu_Click(object sender, EventArgs e)
         {
             SideBar();
+            comproSidebar();
         }
 
         private void btnAbrirMenu_Click(object sender, EventArgs e)
         {
             SideBar();
+            comproSidebar();
         }
 
-        private void btnPersonal_Click(object sender, EventArgs e)
-        {
-            AbrirformInpanel(new FrmPersonal());
-            ActivBoton();
-            btnPersonal.Normalcolor = Color.FromArgb(49, 62, 74);
-            btnGestionar.Normalcolor = Color.FromArgb(22, 36, 49);
-        }
-
-        private void frmPrincipalEditor_FormClosing(object sender, FormClosingEventArgs eC)
+        private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
@@ -211,6 +174,89 @@ namespace CapaPresentacion
                 this.Hide();
                 L.Show();
             }
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            AbrirformInpanel(new FrmInicio());
+            ActivBoton();
+            btnInicio.BackColor = Color.FromArgb(22, 36, 49);
+        }
+
+        private void btnNuevoPre_Click(object sender, EventArgs e)
+        {
+            AbrirformInpanel(new FrmPrestamo(lblUserName.Text, lblBodeguero.Text));
+            ActivBoton();
+            btnNuevoPre.BackColor = Color.FromArgb(22, 36, 49);
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            AbrirformInpanel(new FrmReportes());
+            ActivBoton();
+            btnReportes.BackColor = Color.FromArgb(22, 36, 49);
+        }
+
+        private void btnGestionar_Click(object sender, EventArgs e)
+        {
+            if (pnlConteMenu.Width == 270)
+            {
+                if (btnPersonal.Visible == false)
+                {
+                    MostratBotones();
+                    btnGestionar.Text = "      GESTIONAR                     ▼";
+                }
+                else
+                {
+                    OcultarBotones();
+                    btnGestionar.Text = "      GESTIONAR                     ◀";
+                }
+            }
+            if (pnlConteMenu.Width == 62)
+            {
+                if (btnPersonal.Visible == false)
+                {
+                    MostratBotones();
+                    btnGestionar.Text = " ▼";
+                }
+                else
+                {
+                    OcultarBotones();
+                    btnGestionar.Text = " ◀";
+                }
+            }
+        }
+
+        private void btnHerramientas_Click(object sender, EventArgs e)
+        {
+            AbrirformInpanel(new FrmHerramienta());
+            ActivBoton();
+            btnHerramientas.BackColor = Color.FromArgb(49, 62, 74);
+            btnGestionar.BackColor = Color.FromArgb(22, 36, 49);
+        }
+
+        private void btnPersonal_Click(object sender, EventArgs e)
+        {
+            AbrirformInpanel(new FrmPersonal());
+            ActivBoton();
+            btnPersonal.BackColor = Color.FromArgb(49, 62, 74);
+            btnGestionar.BackColor = Color.FromArgb(22, 36, 49);
+        }
+
+        private void btnCategoria_Click(object sender, EventArgs e)
+        {
+            AbrirformInpanel(new FrmCategoria());
+            ActivBoton();
+            btnCategoria.BackColor = Color.FromArgb(49, 62, 74);
+            btnGestionar.BackColor = Color.FromArgb(22, 36, 49);
+        }
+
+        private void btnPrestamo_Click(object sender, EventArgs e)
+        {
+            AbrirformInpanel(new FrmDetallePrestamo());
+            ActivBoton();
+            btnPrestamo.BackColor = Color.FromArgb(49, 62, 74);
+            btnGestionar.BackColor = Color.FromArgb(22, 36, 49);
         }
     }
 }

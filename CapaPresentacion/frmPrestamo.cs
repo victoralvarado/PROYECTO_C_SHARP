@@ -142,48 +142,48 @@ namespace CapaPresentacion
             dgvEmpleado.DataSource = LP.FiltrarPersonal(buscar);
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void tmrFechaHora_Tick(object sender, EventArgs e)
         {
-            ValidarF = true;
-            ep.Clear();
-            if (txtEmpleado.Text.Trim().Length==0)
-            {
-                ep.SetError(txtEmpleado, "¡Seleccione un Empleado de la tabla!");
-                ValidarF = false;
-            }
-            if (txtHerramienta.Text.Trim().Length==0)
-            {
-                ep.SetError(txtHerramienta, "¡Selleccione una Herramienta de la tabla!");
-                ValidarF = false;
-            }
-
-            if (ValidarF==true)
-            {
-                uso = "SI";
-                DP.RegistrarDetallePrestamo(idPersonal,idHerramienta,txtFecha.Text,lblPresPor.Text);
-                DP.ModificarUso(uso,estado,idHerramienta);
-                MessageBox.Show("Herramienta prestada correctamente", "Prestando", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ListarDetallePrestamo();
-                ListarHerramientas();
-                LimpiarControles();
-            }
+            txtFecha.Text = DateTime.Now.ToString();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             ep.Clear();
-            if (txtEmpleado.Text.Length > 0 || txtHerramienta.Text.Length > 0) 
+            if (txtEmpleado.Text.Length > 0 || txtHerramienta.Text.Length > 0)
             {
-                if (MessageBox.Show("¿Está seguro que desea cancelar la operacion?", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro que desea cancelar la operacion?", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     LimpiarControles();
                 }
             }
         }
 
-        private void tmrFechaHora_Tick(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
-            txtFecha.Text = DateTime.Now.ToString();
+            ValidarF = true;
+            ep.Clear();
+            if (txtEmpleado.Text.Trim().Length == 0)
+            {
+                ep.SetError(txtEmpleado, "¡Seleccione un Empleado de la tabla!");
+                ValidarF = false;
+            }
+            if (txtHerramienta.Text.Trim().Length == 0)
+            {
+                ep.SetError(txtHerramienta, "¡Selleccione una Herramienta de la tabla!");
+                ValidarF = false;
+            }
+
+            if (ValidarF == true)
+            {
+                uso = "SI";
+                DP.RegistrarDetallePrestamo(idPersonal, idHerramienta, txtFecha.Text, lblPresPor.Text);
+                DP.ModificarUso(uso, estado, idHerramienta);
+                MessageBox.Show("Herramienta prestada correctamente", "Prestando", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ListarDetallePrestamo();
+                ListarHerramientas();
+                LimpiarControles();
+            }
         }
     }
 }

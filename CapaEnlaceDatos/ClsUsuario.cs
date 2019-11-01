@@ -89,7 +89,7 @@ namespace CapaEnlaceDatos
             try
             {
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "SELECT idUsuario AS 'ID USUARIO', UserName AS " +
+                comando.CommandText = "SELECT idUsuario AS 'CÓDIGO USUARIO', UserName AS " +
                     "'NOMBRE DE USUARIO',password, tipoUsuario AS 'TIPO DE USUARIO' " +
                     "FROM Bodega.usuario WHERE userName LIKE '%" + buscar + "%' OR  tipoUsuario " +
                     "LIKE '%" + buscar + "%' OR idUsuario LIKE '%" + buscar + "%'";
