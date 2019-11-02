@@ -80,11 +80,11 @@ namespace CapaEnlaceDatos
         public DataTable FiltrarTC(string buscar)
         {
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = " select p.id AS 'CÓDIGO EMPLEADO',p.nombre AS 'NOMBRES',p.apellido AS 'APELLIDOS',hi.idPrestamoH AS 'CÓDIGO PRESTAMO'," +
+            comando.CommandText = " select p.id AS 'CÓDIGO EMPLEADO',p.nombre AS 'NOMBRES',p.apellido AS 'APELLIDOS',hi.idPrestamoH AS 'CÓDIGO HISTORIAL'," +
                 "hi.idherramienta 'CÓDIGO HERRAMIENTA', h.nombreHerramienta AS 'HERRAMIENTA',hi.fechaHora AS 'FECHA-HORA',hi.prespor AS 'ASIGNADA POR' " +
                 "from bodega.personal p inner join bodega.historial hi on p.id = hi.idPersonal inner join bodega.herramienta h on hi.idHerramienta=h.idHerramienta " +
-                "where p.id like '%'" + buscar + "'%' or p.nombre like '%'" + buscar + "'%' or p.apellido like '%'" + buscar + "'%' or hi.idPrestamoH like '%'" + buscar + "'%' " +
-                "or hi.idHerramienta like '%'" + buscar + "'%' or h.nombreHerramienta like '%'" + buscar + "'%' or hi.fechaHora like '%'" + buscar + "'%' or hi.prespor like '%'" + buscar + "'%'";
+                "where p.id like '%" + buscar + "%' or p.nombre like '%" + buscar + "%' or p.apellido like '%" + buscar + "%' or hi.idPrestamoH like '%" + buscar + "%' " +
+                "or hi.idHerramienta like '%" + buscar + "%' or h.nombreHerramienta like '%" + buscar + "%' or hi.fechaHora like '%" + buscar + "%' or hi.prespor like '%" + buscar + "%'";
             comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
             tabla.Load(leer);

@@ -123,13 +123,6 @@ namespace CapaPresentacion
 
         }
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            Personal DPEP = new Personal();
-            string buscar = txtBuscar.Text;
-            dgvPersonal.DataSource = DPEP.FiltrarPersonal2(buscar);
-        }
-
         private void dgvPersonal_Click(object sender, EventArgs e)
         {
             if (dgvPersonal.RowCount > 0)
@@ -205,6 +198,7 @@ namespace CapaPresentacion
                 {
                     if (MessageBox.Show("¿Desea eliminar el registro seleccionado?", "Validacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
+                        P.EliminarPersonal(idPersonal);
                         Botones();
                         ListarPersonal();
                         MessageBox.Show("Registro eliminado correctamente", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -254,7 +248,7 @@ namespace CapaPresentacion
                 if (Agregando == true && Editando == false)
                 {
 
-                    P.RegistrarPersonal(txtNombres.Text, txtApellidos.Text, nudEdad.ToString());
+                    P.RegistrarPersonal(txtNombres.Text, txtApellidos.Text, nudEdad.Value.ToString());
                     MessageBox.Show("Datos agregados correctamente", "Agregando", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Botones();
                     ListarPersonal();
@@ -271,6 +265,13 @@ namespace CapaPresentacion
                 }
 
             }
+        }
+
+        private void txtBuscarEmpleado_TextChanged(object sender, EventArgs e)
+        {
+            Personal DPEP = new Personal();
+            string buscar = txtBuscarEmpleado.Text;
+            dgvPersonal.DataSource = DPEP.FiltrarPersonal2(buscar);
         }
     }
 }

@@ -23,12 +23,18 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
+        public FrmDetallePrestamo(string userName)
+        {
+            InitializeComponent();
+            lblRecibidapor.Text = userName;
+        }
+
         private DetallePrestamo DP = new DetallePrestamo();
         private Devolucion D = new Devolucion();
         private string idPrestamo = null;
         private string idHerramienta = null;
         private string idPersonal = null;
-        private string recibidapor = null;
+        private string prespor = null;
         private string uso = null;
         private string estado = null;
         private bool ValidarF = false;
@@ -77,6 +83,8 @@ namespace CapaPresentacion
         {
             if (dgvDetalleprestamo.RowCount > 0)
             {
+                prespor = dgvDetalleprestamo.Rows[dgvDetalleprestamo.CurrentRow.Index].Cells["ASIGNADA POR"].Value.ToString();
+                idPersonal = dgvDetalleprestamo.Rows[dgvDetalleprestamo.CurrentRow.Index].Cells["CÓDIGO EMPLEADO"].Value.ToString();
                 idPrestamo = dgvDetalleprestamo.Rows[dgvDetalleprestamo.CurrentRow.Index].Cells["CÓDIGO PRÉSTAMO"].Value.ToString();
                 txtHerramienta.Text= dgvDetalleprestamo.Rows[dgvDetalleprestamo.CurrentRow.Index].Cells["HERRAMIENTA"].Value.ToString();
                 idHerramienta = dgvDetalleprestamo.Rows[dgvDetalleprestamo.CurrentRow.Index].Cells["CÓDIGO HERRAMIENTA"].Value.ToString();
@@ -125,11 +133,11 @@ namespace CapaPresentacion
 
             if (ValidarF == true)
             {
-                recibidapor = "Administrador";//VARIABLE DE QUIEN ESTE LOGUEADO
                 uso = "NO";
 
                 DP.ModificarUso(uso, cmbEstado.Text, idHerramienta);
                 D.EliminarPrestamo(idPrestamo);
+                D.RegistrarDevolucion(idHerramienta,idPersonal,cmbEstado.Text, txtFecha.Text,prespor,lblRecibidapor.Text);
                 MessageBox.Show("Herramienta entregada correctamente", "Entregando", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ListarDetallePrestamo();
                 ListarHerramientas();

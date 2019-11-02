@@ -177,7 +177,7 @@ namespace CapaPresentacion
             if (dgvCategoria.RowCount > 0)
             {
                 categoria = dgvCategoria.CurrentRow.Cells["CATEGORÍA"].Value.ToString();
-
+                idCategoria = dgvCategoria.CurrentRow.Cells["CÓDIGO CATEGORÍA"].Value.ToString();
                 string usoS = null;
                 string usoN = null;
 

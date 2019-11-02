@@ -172,16 +172,6 @@ namespace CapaPresentacion
             Botones();
         }
 
-        private void BtnAgregar_Click(object sender, EventArgs e)
-        {
-            dgvHerramienta.Enabled = false;
-            LimpiarControles();
-            ActivarControles();
-            ActivarBotones();
-            Editando = false;
-            Agregando = true;
-        }
-
         private void DgvHerramienta_Click(object sender, EventArgs e)
         {
             if (dgvHerramienta.RowCount > 0)
@@ -371,6 +361,7 @@ namespace CapaPresentacion
                 {
                     if (MessageBox.Show("¿Desea eliminar la herramienta?", "Validación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
+                        idHerramienta = dgvHerramienta.CurrentRow.Cells["CÓDIGO HERRAMIENTA"].Value.ToString();
                         H.EliminarHerramienta(idHerramienta);
                         Botones();
                         ListarHerramientas();
@@ -379,6 +370,16 @@ namespace CapaPresentacion
                     }
                 }
             }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            dgvHerramienta.Enabled = false;
+            LimpiarControles();
+            ActivarControles();
+            ActivarBotones();
+            Editando = false;
+            Agregando = true;
         }
     }
 }

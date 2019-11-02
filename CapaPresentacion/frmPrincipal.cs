@@ -286,7 +286,7 @@ namespace CapaPresentacion
 
         private void btnPrestamo_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new FrmDetallePrestamo());
+            AbrirformInpanel(new FrmDetallePrestamo(lblUserName.Text));
             ActivBoton();
             btnPrestamo.BackColor = Color.FromArgb(49, 62, 74);
             btnGestionar.BackColor = Color.FromArgb(22, 36, 49);

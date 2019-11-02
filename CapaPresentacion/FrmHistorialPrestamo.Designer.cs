@@ -71,6 +71,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvHistorialPrestamo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvHistorialPrestamo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHistorialPrestamo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvHistorialPrestamo.EnableHeadersVisualStyles = false;
             this.dgvHistorialPrestamo.Location = new System.Drawing.Point(28, 88);

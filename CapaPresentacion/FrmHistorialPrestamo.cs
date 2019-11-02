@@ -35,8 +35,8 @@ namespace CapaPresentacion
             List<Items> lista = new List<Items>();
             //                     NAME                  VALUE
             lista.Add(new Items("SELECCIONAR", ""));
-            lista.Add(new Items("CÓDIGO PERSONAL", "p.id"));
-            lista.Add(new Items("NOMBRES", " p.nombre"));
+            lista.Add(new Items("CÓDIGO EMPLEADO", "p.id"));
+            lista.Add(new Items("NOMBRES", "p.nombre"));
             lista.Add(new Items("APELLIDOS", "p.apellido"));
             lista.Add(new Items("CÓDIGO HISTORIAL", "hi.idPrestamoH"));
             lista.Add(new Items("CÓDIGO HERRAMIENTA", "hi.idherramienta"));
