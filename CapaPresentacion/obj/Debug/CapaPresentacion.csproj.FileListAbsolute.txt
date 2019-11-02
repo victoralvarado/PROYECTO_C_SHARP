@@ -81,3 +81,4 @@ C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\obj\Debug\Capa
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\obj\Debug\CapaPresentacion.FrmPrincipalBodeguero.resources
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\obj\Debug\CapaPresentacion.FrmHistorialPrestamo.resources
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\obj\Debug\CapaPresentacion.FrmHistorialDevolucion.resources
+C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\obj\Debug\CapaPresentacion.FrmReportes.resources

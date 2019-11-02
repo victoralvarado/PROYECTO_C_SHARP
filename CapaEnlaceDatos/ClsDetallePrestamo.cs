@@ -15,6 +15,7 @@ namespace CapaEnlaceDatos
 
         SqlDataReader leer;
         DataTable tabla = new DataTable();
+        DataTable tabla1 = new DataTable();
         SqlCommand comando = new SqlCommand();
 
         public DataTable Listar()
@@ -33,6 +34,24 @@ namespace CapaEnlaceDatos
                 MessageBox.Show("Ocurrio un error :" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return tabla;
+
+        }
+        public DataTable ListarPP()
+        {
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "ListarPrestamoPersonal";
+                comando.CommandType = CommandType.StoredProcedure;
+                leer = comando.ExecuteReader();
+                tabla1.Load(leer);
+                conexion.CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ocurrio un error :" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return tabla1;
 
         }
 
@@ -88,6 +107,18 @@ namespace CapaEnlaceDatos
                 "where h.idHerramienta like '%" + buscar + "%' or h.idCategoria like '%" + buscar + "%' " +
                 "or h.nombreHerramienta like '%" + buscar + "%' or  h.uso like '%" + buscar + "%' or h.estado like '%" + buscar+"%' " +
                 "order by p.id asc;";
+            comando.CommandType = CommandType.Text;
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+            conexion.CerrarConexion();
+            return tabla;
+        }
+
+        public DataTable filtrarPP(string buscar)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "SELECT distinct p.id AS 'CÓDIGO EMPLEADO', p.nombre+ ' ' +p.apellido AS 'NOMBRE COMPLETO' FROM Bodega.personal p inner join" +
+                " bodega.detallePrestamo d on p.id = d.idPersonal where p.id like '%" + buscar + "%' or p.nombre+ ' ' +p.apellido like '%" + buscar + "%'";
             comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
             tabla.Load(leer);
