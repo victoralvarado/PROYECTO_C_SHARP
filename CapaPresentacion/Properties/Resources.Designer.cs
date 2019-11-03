@@ -193,6 +193,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GradientPanel {
+            get {
+                object obj = ResourceManager.GetObject("GradientPanel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HDevolucion {
             get {
                 object obj = ResourceManager.GetObject("HDevolucion", resourceCulture);
@@ -326,6 +336,36 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap printer {
             get {
                 object obj = ResourceManager.GetObject("printer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap proteger {
+            get {
+                object obj = ResourceManager.GetObject("proteger", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap proteger__25px_ {
+            get {
+                object obj = ResourceManager.GetObject("proteger (25px)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap proteger__30px_ {
+            get {
+                object obj = ResourceManager.GetObject("proteger (30px)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

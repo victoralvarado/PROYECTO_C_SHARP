@@ -318,6 +318,18 @@
   <ItemGroup>
     <None Include="Resources\printer.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GradientPanel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\proteger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\proteger %2830px%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\proteger %2825px%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

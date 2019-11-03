@@ -33,10 +33,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblMenu = new System.Windows.Forms.Label();
             this.pnlUsuario = new System.Windows.Forms.Panel();
-            this.btnLogout = new System.Windows.Forms.PictureBox();
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.btnCerrarMenu = new System.Windows.Forms.PictureBox();
-            this.btnAbrirMenu = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblAdministrador = new System.Windows.Forms.Label();
             this.lblPanel = new System.Windows.Forms.Label();
@@ -47,6 +44,7 @@
             this.pnlFormularios = new System.Windows.Forms.Panel();
             this.lblUserName = new System.Windows.Forms.Label();
             this.pnlConteMenu = new System.Windows.Forms.Panel();
+            this.btnUserName = new System.Windows.Forms.Button();
             this.btnPrestamo = new System.Windows.Forms.Button();
             this.btnCategoria = new System.Windows.Forms.Button();
             this.btnPersonal = new System.Windows.Forms.Button();
@@ -61,13 +59,13 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnInicio = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.PictureBox();
+            this.btnCerrarMenu = new System.Windows.Forms.PictureBox();
+            this.btnAbrirMenu = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).BeginInit();
             this.pnlMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAbrirMenu)).BeginInit();
             this.panel2.SuspendLayout();
             this.pnlFooter.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -77,6 +75,9 @@
             this.pnlCabeTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAbrirMenu)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -131,19 +132,6 @@
             this.pnlUsuario.Size = new System.Drawing.Size(139, 52);
             this.pnlUsuario.TabIndex = 2;
             // 
-            // btnLogout
-            // 
-            this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogout.Image = global::CapaPresentacion.Properties.Resources.Logout;
-            this.btnLogout.Location = new System.Drawing.Point(51, 9);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(37, 36);
-            this.btnLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnLogout.TabIndex = 0;
-            this.btnLogout.TabStop = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
             // pnlMenu
             // 
             this.pnlMenu.Controls.Add(this.btnCerrarMenu);
@@ -152,31 +140,6 @@
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(58, 52);
             this.pnlMenu.TabIndex = 1;
-            // 
-            // btnCerrarMenu
-            // 
-            this.btnCerrarMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrarMenu.Image = global::CapaPresentacion.Properties.Resources.arrowleft;
-            this.btnCerrarMenu.Location = new System.Drawing.Point(4, 0);
-            this.btnCerrarMenu.Name = "btnCerrarMenu";
-            this.btnCerrarMenu.Size = new System.Drawing.Size(51, 49);
-            this.btnCerrarMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnCerrarMenu.TabIndex = 2;
-            this.btnCerrarMenu.TabStop = false;
-            this.btnCerrarMenu.Click += new System.EventHandler(this.btnCerrarMenu_Click);
-            // 
-            // btnAbrirMenu
-            // 
-            this.btnAbrirMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAbrirMenu.Image = global::CapaPresentacion.Properties.Resources.arrowright;
-            this.btnAbrirMenu.Location = new System.Drawing.Point(4, 0);
-            this.btnAbrirMenu.Name = "btnAbrirMenu";
-            this.btnAbrirMenu.Size = new System.Drawing.Size(51, 49);
-            this.btnAbrirMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnAbrirMenu.TabIndex = 1;
-            this.btnAbrirMenu.TabStop = false;
-            this.btnAbrirMenu.Visible = false;
-            this.btnAbrirMenu.Click += new System.EventHandler(this.btnAbrirMenu_Click);
             // 
             // panel2
             // 
@@ -293,6 +256,9 @@
             this.pnlConteMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlConteMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(82)))), ((int)(((byte)(118)))));
+            this.pnlConteMenu.BackgroundImage = global::CapaPresentacion.Properties.Resources.GradientPanel;
+            this.pnlConteMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlConteMenu.Controls.Add(this.btnUserName);
             this.pnlConteMenu.Controls.Add(this.btnPrestamo);
             this.pnlConteMenu.Controls.Add(this.btnCategoria);
             this.pnlConteMenu.Controls.Add(this.btnPersonal);
@@ -310,6 +276,27 @@
             this.pnlConteMenu.Size = new System.Drawing.Size(270, 563);
             this.pnlConteMenu.TabIndex = 1;
             // 
+            // btnUserName
+            // 
+            this.btnUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnUserName.BackColor = System.Drawing.Color.Black;
+            this.btnUserName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUserName.FlatAppearance.BorderSize = 0;
+            this.btnUserName.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnUserName.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnUserName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserName.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserName.ForeColor = System.Drawing.Color.White;
+            this.btnUserName.Image = global::CapaPresentacion.Properties.Resources.proteger__25px_;
+            this.btnUserName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUserName.Location = new System.Drawing.Point(15, 527);
+            this.btnUserName.Name = "btnUserName";
+            this.btnUserName.Size = new System.Drawing.Size(240, 32);
+            this.btnUserName.TabIndex = 12;
+            this.btnUserName.Text = "      UserName";
+            this.btnUserName.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUserName.UseVisualStyleBackColor = false;
+            // 
             // btnPrestamo
             // 
             this.btnPrestamo.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -321,9 +308,9 @@
             this.btnPrestamo.ForeColor = System.Drawing.Color.White;
             this.btnPrestamo.Image = global::CapaPresentacion.Properties.Resources.Detalle;
             this.btnPrestamo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrestamo.Location = new System.Drawing.Point(12, 480);
+            this.btnPrestamo.Location = new System.Drawing.Point(15, 489);
             this.btnPrestamo.Name = "btnPrestamo";
-            this.btnPrestamo.Size = new System.Drawing.Size(252, 32);
+            this.btnPrestamo.Size = new System.Drawing.Size(240, 32);
             this.btnPrestamo.TabIndex = 10;
             this.btnPrestamo.Text = "      Detalle Préstamo";
             this.btnPrestamo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -341,9 +328,9 @@
             this.btnCategoria.ForeColor = System.Drawing.Color.White;
             this.btnCategoria.Image = global::CapaPresentacion.Properties.Resources.Categoria;
             this.btnCategoria.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCategoria.Location = new System.Drawing.Point(12, 442);
+            this.btnCategoria.Location = new System.Drawing.Point(15, 451);
             this.btnCategoria.Name = "btnCategoria";
-            this.btnCategoria.Size = new System.Drawing.Size(252, 32);
+            this.btnCategoria.Size = new System.Drawing.Size(240, 32);
             this.btnCategoria.TabIndex = 9;
             this.btnCategoria.Text = "      Categorías";
             this.btnCategoria.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -361,9 +348,9 @@
             this.btnPersonal.ForeColor = System.Drawing.Color.White;
             this.btnPersonal.Image = global::CapaPresentacion.Properties.Resources.Personal;
             this.btnPersonal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPersonal.Location = new System.Drawing.Point(12, 404);
+            this.btnPersonal.Location = new System.Drawing.Point(15, 413);
             this.btnPersonal.Name = "btnPersonal";
-            this.btnPersonal.Size = new System.Drawing.Size(252, 32);
+            this.btnPersonal.Size = new System.Drawing.Size(240, 32);
             this.btnPersonal.TabIndex = 8;
             this.btnPersonal.Text = "      Personal";
             this.btnPersonal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -381,9 +368,9 @@
             this.btnHerramientas.ForeColor = System.Drawing.Color.White;
             this.btnHerramientas.Image = global::CapaPresentacion.Properties.Resources.Herramienta;
             this.btnHerramientas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHerramientas.Location = new System.Drawing.Point(12, 366);
+            this.btnHerramientas.Location = new System.Drawing.Point(15, 375);
             this.btnHerramientas.Name = "btnHerramientas";
-            this.btnHerramientas.Size = new System.Drawing.Size(252, 32);
+            this.btnHerramientas.Size = new System.Drawing.Size(240, 32);
             this.btnHerramientas.TabIndex = 7;
             this.btnHerramientas.Text = "      Herramientas";
             this.btnHerramientas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -401,9 +388,9 @@
             this.btnUsuarios.ForeColor = System.Drawing.Color.White;
             this.btnUsuarios.Image = global::CapaPresentacion.Properties.Resources.Usuario;
             this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarios.Location = new System.Drawing.Point(12, 328);
+            this.btnUsuarios.Location = new System.Drawing.Point(14, 337);
             this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Size = new System.Drawing.Size(252, 32);
+            this.btnUsuarios.Size = new System.Drawing.Size(241, 32);
             this.btnUsuarios.TabIndex = 6;
             this.btnUsuarios.Text = "      Usuarios";
             this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -421,9 +408,9 @@
             this.btnGestionar.ForeColor = System.Drawing.Color.White;
             this.btnGestionar.Image = global::CapaPresentacion.Properties.Resources.Gestionar;
             this.btnGestionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGestionar.Location = new System.Drawing.Point(14, 282);
+            this.btnGestionar.Location = new System.Drawing.Point(14, 291);
             this.btnGestionar.Name = "btnGestionar";
-            this.btnGestionar.Size = new System.Drawing.Size(239, 40);
+            this.btnGestionar.Size = new System.Drawing.Size(241, 40);
             this.btnGestionar.TabIndex = 5;
             this.btnGestionar.Text = "      GESTIONAR                     ◀";
             this.btnGestionar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -441,9 +428,9 @@
             this.btnHPrestamo.ForeColor = System.Drawing.Color.White;
             this.btnHPrestamo.Image = global::CapaPresentacion.Properties.Resources.HPrestamo;
             this.btnHPrestamo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHPrestamo.Location = new System.Drawing.Point(14, 236);
+            this.btnHPrestamo.Location = new System.Drawing.Point(14, 245);
             this.btnHPrestamo.Name = "btnHPrestamo";
-            this.btnHPrestamo.Size = new System.Drawing.Size(239, 40);
+            this.btnHPrestamo.Size = new System.Drawing.Size(241, 40);
             this.btnHPrestamo.TabIndex = 4;
             this.btnHPrestamo.Text = "      HISTORIAL PRÉSTAMO";
             this.btnHPrestamo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -461,9 +448,9 @@
             this.btnHistorialDe.ForeColor = System.Drawing.Color.White;
             this.btnHistorialDe.Image = global::CapaPresentacion.Properties.Resources.HDevolucion;
             this.btnHistorialDe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistorialDe.Location = new System.Drawing.Point(14, 190);
+            this.btnHistorialDe.Location = new System.Drawing.Point(14, 199);
             this.btnHistorialDe.Name = "btnHistorialDe";
-            this.btnHistorialDe.Size = new System.Drawing.Size(239, 40);
+            this.btnHistorialDe.Size = new System.Drawing.Size(241, 40);
             this.btnHistorialDe.TabIndex = 3;
             this.btnHistorialDe.Text = "      HISTORIAL DEVOLUCIÓN";
             this.btnHistorialDe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -481,9 +468,9 @@
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.Image = global::CapaPresentacion.Properties.Resources.Reporte;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(14, 144);
+            this.btnReportes.Location = new System.Drawing.Point(14, 153);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(239, 40);
+            this.btnReportes.Size = new System.Drawing.Size(241, 40);
             this.btnReportes.TabIndex = 2;
             this.btnReportes.Text = "     REPORTES";
             this.btnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -501,9 +488,9 @@
             this.btnNuevoPre.ForeColor = System.Drawing.Color.White;
             this.btnNuevoPre.Image = global::CapaPresentacion.Properties.Resources.Nuevo;
             this.btnNuevoPre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevoPre.Location = new System.Drawing.Point(14, 98);
+            this.btnNuevoPre.Location = new System.Drawing.Point(14, 107);
             this.btnNuevoPre.Name = "btnNuevoPre";
-            this.btnNuevoPre.Size = new System.Drawing.Size(239, 40);
+            this.btnNuevoPre.Size = new System.Drawing.Size(240, 40);
             this.btnNuevoPre.TabIndex = 1;
             this.btnNuevoPre.Text = "     NUEVO PRÉSTAMO";
             this.btnNuevoPre.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -550,14 +537,52 @@
             this.btnInicio.ForeColor = System.Drawing.Color.White;
             this.btnInicio.Image = global::CapaPresentacion.Properties.Resources.Inicio;
             this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInicio.Location = new System.Drawing.Point(14, 61);
+            this.btnInicio.Location = new System.Drawing.Point(15, 61);
             this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Size = new System.Drawing.Size(239, 40);
+            this.btnInicio.Size = new System.Drawing.Size(240, 40);
             this.btnInicio.TabIndex = 0;
             this.btnInicio.Text = "     INICIO";
             this.btnInicio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInicio.UseVisualStyleBackColor = true;
             this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogout.Image = global::CapaPresentacion.Properties.Resources.Logout;
+            this.btnLogout.Location = new System.Drawing.Point(51, 9);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(37, 36);
+            this.btnLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnLogout.TabIndex = 0;
+            this.btnLogout.TabStop = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // btnCerrarMenu
+            // 
+            this.btnCerrarMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrarMenu.Image = global::CapaPresentacion.Properties.Resources.arrowleft;
+            this.btnCerrarMenu.Location = new System.Drawing.Point(4, 0);
+            this.btnCerrarMenu.Name = "btnCerrarMenu";
+            this.btnCerrarMenu.Size = new System.Drawing.Size(51, 49);
+            this.btnCerrarMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCerrarMenu.TabIndex = 2;
+            this.btnCerrarMenu.TabStop = false;
+            this.btnCerrarMenu.Click += new System.EventHandler(this.btnCerrarMenu_Click);
+            // 
+            // btnAbrirMenu
+            // 
+            this.btnAbrirMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAbrirMenu.Image = global::CapaPresentacion.Properties.Resources.arrowright;
+            this.btnAbrirMenu.Location = new System.Drawing.Point(4, 0);
+            this.btnAbrirMenu.Name = "btnAbrirMenu";
+            this.btnAbrirMenu.Size = new System.Drawing.Size(51, 49);
+            this.btnAbrirMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnAbrirMenu.TabIndex = 1;
+            this.btnAbrirMenu.TabStop = false;
+            this.btnAbrirMenu.Visible = false;
+            this.btnAbrirMenu.Click += new System.EventHandler(this.btnAbrirMenu_Click);
             // 
             // FrmPrincipal
             // 
@@ -579,10 +604,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.pnlUsuario.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).EndInit();
             this.pnlMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAbrirMenu)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.pnlFooter.ResumeLayout(false);
@@ -595,6 +617,9 @@
             this.pnlCabeTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAbrirMenu)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -633,6 +658,7 @@
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnNuevoPre;
         private System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.Button btnUserName;
     }
 }
 

@@ -23,8 +23,8 @@ namespace CapaPresentacion
             lblUserName.Text = userName;
         }
 
-
         ToolTip tt = new ToolTip();
+        ToolTip ttL = new ToolTip();
         public void Footer()
         {
             string year;
@@ -40,7 +40,6 @@ namespace CapaPresentacion
                 pnlConteMenu.Width = 62;
                 btnCerrarMenu.Visible = false;
                 btnAbrirMenu.Visible = true;
-                sidebarContraer();
             }
             else
             {
@@ -54,6 +53,7 @@ namespace CapaPresentacion
 
         public void sidebarContraer()
         {
+            tt.Active = true;
             tt.SetToolTip(this.btnInicio, "Inicio");
             tt.SetToolTip(this.btnNuevoPre, "Nuevo Préstamo");
             tt.SetToolTip(this.btnReportes, "Reportes");
@@ -65,6 +65,7 @@ namespace CapaPresentacion
             tt.SetToolTip(this.btnPersonal, "Gestionar Personal");
             tt.SetToolTip(this.btnCategoria, "Gestionar Categorías");
             tt.SetToolTip(this.btnPrestamo, "Gestionar Detalle Préstamo");
+            tt.SetToolTip(this.btnUserName, "Usuario: " + lblUserName.Text + "");
         }
 
         public void comproSidebar()
@@ -98,15 +99,15 @@ namespace CapaPresentacion
         }
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            tt.SetToolTip(btnLogout, "Cerrar sesión");
-            tt.SetToolTip(btnAbrirMenu, "Expandir Menú");
-            tt.SetToolTip(btnCerrarMenu, "Contraer Menú");
+            ttL.SetToolTip(btnLogout, "Cerrar sesión");
+            ttL.SetToolTip(btnAbrirMenu, "Expandir Menú");
+            ttL.SetToolTip(btnCerrarMenu, "Contraer Menú");
             AbrirformInpanel(new FrmInicio());
             ActivBoton();
             btnInicio.BackColor = Color.FromArgb(22, 36, 49);
             Footer();
             OcultarBotones();
-            btnGestionar.Text = "      GESTIONAR                     ◀";
+            btnUserName.Text = "      " + lblUserName.Text;
         }
 
 
@@ -164,12 +165,14 @@ namespace CapaPresentacion
         {
             SideBar();
             comproSidebar();
+            sidebarContraer();
         }
 
         private void btnAbrirMenu_Click(object sender, EventArgs e)
         {
             SideBar();
             comproSidebar();
+            tt.Active = false;
         }
 
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
