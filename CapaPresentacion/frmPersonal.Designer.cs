@@ -49,6 +49,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtBuscarEmpleado = new System.Windows.Forms.TextBox();
+            this.lblTipoUsuario = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEdad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleprestamo)).BeginInit();
@@ -320,12 +321,23 @@
             this.txtBuscarEmpleado.TabIndex = 42;
             this.txtBuscarEmpleado.TextChanged += new System.EventHandler(this.txtBuscarEmpleado_TextChanged);
             // 
+            // lblTipoUsuario
+            // 
+            this.lblTipoUsuario.AutoSize = true;
+            this.lblTipoUsuario.Location = new System.Drawing.Point(12, 9);
+            this.lblTipoUsuario.Name = "lblTipoUsuario";
+            this.lblTipoUsuario.Size = new System.Drawing.Size(60, 13);
+            this.lblTipoUsuario.TabIndex = 43;
+            this.lblTipoUsuario.Text = "tipoUsuario";
+            this.lblTipoUsuario.Visible = false;
+            // 
             // FrmPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(82)))), ((int)(((byte)(118)))));
             this.ClientSize = new System.Drawing.Size(1026, 524);
+            this.Controls.Add(this.lblTipoUsuario);
             this.Controls.Add(this.txtBuscarEmpleado);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnEditar);
@@ -372,5 +384,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox txtBuscarEmpleado;
+        private System.Windows.Forms.Label lblTipoUsuario;
     }
 }

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 /*
- * @Nombre de Clase: FrmPrincipal.
+ * @Nombre de Clase: FrmPrincipalBodeguero.
  * @Version: 1.0.
  * @Copyright: ToolSoft.
  * @Author Victor, Adrian, Andrea & Diego
@@ -93,19 +92,6 @@ namespace CapaPresentacion
                 }
             }
         }
-        private void FrmPrincipal_Load(object sender, EventArgs e)
-        {
-            ttL.SetToolTip(btnLogout, "Cerrar sesión");
-            ttL.SetToolTip(btnAbrirMenu, "Expandir Menú");
-            ttL.SetToolTip(btnCerrarMenu, "Contraer Menú");
-            AbrirformInpanel(new FrmInicio());
-            ActivBoton();
-            btnInicio.BackColor = Color.FromArgb(22, 36, 49);
-            Footer();
-            OcultarBotones();
-            btnUserName.Text = "      " + lblUserName.Text;
-        }
-
 
         public void AbrirformInpanel(Form formhijo)
         {
@@ -127,7 +113,6 @@ namespace CapaPresentacion
             btnPersonal.Visible = true;
             btnCategoria.Visible = true;
             btnPrestamo.Visible = true;
-
         }
 
         public void OcultarBotones()
@@ -136,7 +121,6 @@ namespace CapaPresentacion
             btnPersonal.Visible = false;
             btnCategoria.Visible = false;
             btnPrestamo.Visible = false;
-
         }
 
         public void ActivBoton()
@@ -150,6 +134,19 @@ namespace CapaPresentacion
             btnPersonal.BackColor = Color.Transparent;
             btnCategoria.BackColor = Color.Transparent;
             btnPrestamo.BackColor = Color.Transparent;
+        }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            ttL.SetToolTip(btnLogout, "Cerrar sesión");
+            ttL.SetToolTip(btnAbrirMenu, "Expandir Menú");
+            ttL.SetToolTip(btnCerrarMenu, "Contraer Menú");
+            AbrirformInpanel(new FrmInicio());
+            ActivBoton();
+            btnInicio.BackColor = Color.FromArgb(22, 36, 49);
+            Footer();
+            OcultarBotones();
+            btnUserName.Text = "      " + lblUserName.Text;
         }
 
         private void btnCerrarMenu_Click(object sender, EventArgs e)
@@ -234,7 +231,7 @@ namespace CapaPresentacion
 
         private void btnHerramientas_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new FrmHerramienta());
+            AbrirformInpanel(new FrmHerramienta(lblBodeguero.Text));
             ActivBoton();
             btnHerramientas.BackColor = Color.FromArgb(49, 62, 74);
             btnGestionar.BackColor = Color.FromArgb(22, 36, 49);
@@ -242,7 +239,7 @@ namespace CapaPresentacion
 
         private void btnPersonal_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new FrmPersonal());
+            AbrirformInpanel(new FrmPersonal(lblBodeguero.Text));
             ActivBoton();
             btnPersonal.BackColor = Color.FromArgb(49, 62, 74);
             btnGestionar.BackColor = Color.FromArgb(22, 36, 49);
@@ -250,7 +247,7 @@ namespace CapaPresentacion
 
         private void btnCategoria_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new FrmCategoria());
+            AbrirformInpanel(new FrmCategoria(lblBodeguero.Text));
             ActivBoton();
             btnCategoria.BackColor = Color.FromArgb(49, 62, 74);
             btnGestionar.BackColor = Color.FromArgb(22, 36, 49);
@@ -258,7 +255,7 @@ namespace CapaPresentacion
 
         private void btnPrestamo_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new FrmDetallePrestamo());
+            AbrirformInpanel(new FrmDetallePrestamo(lblBodeguero.Text));
             ActivBoton();
             btnPrestamo.BackColor = Color.FromArgb(49, 62, 74);
             btnGestionar.BackColor = Color.FromArgb(22, 36, 49);

@@ -23,6 +23,12 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
+        public FrmPersonal(string tipo)
+        {
+            InitializeComponent();
+            lblTipoUsuario.Text = tipo;
+        }
+
         private Personal P = new Personal();
         private string idPersonal = null;
         ErrorProvider ep = new ErrorProvider();
@@ -64,10 +70,8 @@ namespace CapaPresentacion
                 btnEliminar.Cursor = Cursors.Hand;
 
                 btnCancelar.Enabled = false;
-                btnCancelar.Cursor = Cursors.No;
 
                 btnGuardar.Enabled = false;
-                btnGuardar.Cursor = Cursors.No;
             }
             else
             {
@@ -75,29 +79,22 @@ namespace CapaPresentacion
                 btnAgregar.Cursor = Cursors.Hand;
 
                 btnEditar.Enabled = false;
-                btnEditar.Cursor = Cursors.No;
 
                 btnEliminar.Enabled = false;
-                btnEliminar.Cursor = Cursors.No;
 
                 btnCancelar.Enabled = false;
-                btnCancelar.Cursor = Cursors.No;
 
                 btnGuardar.Enabled = false;
-                btnGuardar.Cursor = Cursors.No;
             }
         }
 
         public void ActivarBotones()
         {
             btnAgregar.Enabled = false;
-            btnAgregar.Cursor = Cursors.No;
 
             btnEditar.Enabled = false;
-            btnEditar.Cursor = Cursors.No;
 
             btnEliminar.Enabled = false;
-            btnEliminar.Cursor = Cursors.No;
 
             btnCancelar.Enabled = true;
             btnCancelar.Cursor = Cursors.Hand;
@@ -114,13 +111,24 @@ namespace CapaPresentacion
             DesactivarControles();
         }
 
+        public void validarTipoUsuario()
+        {
+            if (lblTipoUsuario.Text == "Bodeguero")
+            {
+                btnEliminar.Enabled = false;
+            }
+            if (lblTipoUsuario.Text == "Administrador")
+            {
+                btnEliminar.Enabled = true;
+            }
+        }
+
         private void frmPersonal_Load(object sender, EventArgs e)
         {
             ListarPersonal();
             DesactivarControles();
             Botones();
-
-
+            validarTipoUsuario();
         }
 
         private void dgvPersonal_Click(object sender, EventArgs e)
@@ -171,7 +179,6 @@ namespace CapaPresentacion
                         Editando = true;
                         Agregando = false;
                     }
-
                 }
                 else
                 {
@@ -188,7 +195,6 @@ namespace CapaPresentacion
                 idPersonal = dgvPersonal.CurrentRow.Cells["CÓDIGO EMPLEADO"].Value.ToString();
 
                 dgvDetalleprestamo.DataSource = LPP.BuscarIDEMP(idPersonal);
-
 
                 if (dgvDetalleprestamo.RowCount > 0)
                 {
@@ -220,6 +226,7 @@ namespace CapaPresentacion
                 Botones();
                 dgvPersonal.Enabled = true;
             }
+            validarTipoUsuario();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -263,8 +270,8 @@ namespace CapaPresentacion
                     LimpiarControles();
                     dgvPersonal.Enabled = true;
                 }
-
             }
+            validarTipoUsuario();
         }
 
         private void txtBuscarEmpleado_TextChanged(object sender, EventArgs e)

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 /*
  * @Nombre de Clase: FrmPrincipal.
@@ -25,6 +24,7 @@ namespace CapaPresentacion
 
         ToolTip tt = new ToolTip();
         ToolTip ttL = new ToolTip();
+
         public void Footer()
         {
             string year;
@@ -48,8 +48,6 @@ namespace CapaPresentacion
                 btnCerrarMenu.Visible = true;
             }
         }
-
-
 
         public void sidebarContraer()
         {
@@ -97,20 +95,8 @@ namespace CapaPresentacion
                 }
             }
         }
-        private void FrmPrincipal_Load(object sender, EventArgs e)
-        {
-            ttL.SetToolTip(btnLogout, "Cerrar sesión");
-            ttL.SetToolTip(btnAbrirMenu, "Expandir Menú");
-            ttL.SetToolTip(btnCerrarMenu, "Contraer Menú");
-            AbrirformInpanel(new FrmInicio());
-            ActivBoton();
-            btnInicio.BackColor = Color.FromArgb(22, 36, 49);
-            Footer();
-            OcultarBotones();
-            btnUserName.Text = "      " + lblUserName.Text;
-        }
 
-
+        //Metodo para abrir un formulario a la vez
         public void AbrirformInpanel(Form formhijo)
         {
             if (this.pnlFormularios.Controls.Count > 0)
@@ -132,7 +118,6 @@ namespace CapaPresentacion
             btnPersonal.Visible = true;
             btnCategoria.Visible = true;
             btnPrestamo.Visible = true;
-
         }
 
         public void OcultarBotones()
@@ -147,7 +132,6 @@ namespace CapaPresentacion
 
         public void ActivBoton()
         {
-
             btnInicio.BackColor = Color.Transparent;
             btnNuevoPre.BackColor = Color.Transparent;
             btnReportes.BackColor = Color.Transparent;
@@ -159,6 +143,19 @@ namespace CapaPresentacion
             btnPersonal.BackColor = Color.Transparent;
             btnCategoria.BackColor = Color.Transparent;
             btnPrestamo.BackColor = Color.Transparent;
+        }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            ttL.SetToolTip(btnLogout, "Cerrar sesión");
+            ttL.SetToolTip(btnAbrirMenu, "Expandir Menú");
+            ttL.SetToolTip(btnCerrarMenu, "Contraer Menú");
+            AbrirformInpanel(new FrmInicio());
+            ActivBoton();
+            btnInicio.BackColor = Color.FromArgb(22, 36, 49);
+            Footer();
+            OcultarBotones();
+            btnUserName.Text = "      " + lblUserName.Text;
         }
 
         private void btnCerrarMenu_Click(object sender, EventArgs e)
@@ -265,7 +262,7 @@ namespace CapaPresentacion
 
         private void btnHerramientas_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new FrmHerramienta());
+            AbrirformInpanel(new FrmHerramienta(lblAdministrador.Text));
             ActivBoton();
             btnHerramientas.BackColor = Color.FromArgb(49, 62, 74);
             btnGestionar.BackColor = Color.FromArgb(22, 36, 49);
@@ -273,7 +270,7 @@ namespace CapaPresentacion
 
         private void btnPersonal_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new FrmPersonal());
+            AbrirformInpanel(new FrmPersonal(lblAdministrador.Text));
             ActivBoton();
             btnPersonal.BackColor = Color.FromArgb(49, 62, 74);
             btnGestionar.BackColor = Color.FromArgb(22, 36, 49);
@@ -281,7 +278,7 @@ namespace CapaPresentacion
 
         private void btnCategoria_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new FrmCategoria());
+            AbrirformInpanel(new FrmCategoria(lblAdministrador.Text));
             ActivBoton();
             btnCategoria.BackColor = Color.FromArgb(49, 62, 74);
             btnGestionar.BackColor = Color.FromArgb(22, 36, 49);

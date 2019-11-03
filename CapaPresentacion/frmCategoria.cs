@@ -16,7 +16,17 @@ namespace CapaPresentacion
 {
     public partial class FrmCategoria : Form
     {
-        private Herramienta H = new Herramienta();
+        public FrmCategoria()
+        {
+            InitializeComponent();
+        }
+
+        public FrmCategoria(string tipo)
+        {
+            InitializeComponent();
+            lblTipoUsuario.Text = tipo;
+        }
+
         private string categoria = null;
         private Categoria C = new Categoria();
         private string idCategoria = null;
@@ -25,10 +35,6 @@ namespace CapaPresentacion
         bool Agregando = false;
         bool ValidarF = false;
         bool Seleccionado = false;
-        public FrmCategoria()
-        {
-            InitializeComponent();
-        }
 
         private void ListarCategorias()
         {
@@ -60,10 +66,8 @@ namespace CapaPresentacion
                 btnEliminar.Cursor = Cursors.Hand;
 
                 btnCancelar.Enabled = false;
-                btnCancelar.Cursor = Cursors.No;
 
                 btnGuardar.Enabled = false;
-                btnGuardar.Cursor = Cursors.No;
             }
             else
             {
@@ -71,29 +75,22 @@ namespace CapaPresentacion
                 btnAgregar.Cursor = Cursors.Hand;
 
                 btnEditar.Enabled = false;
-                btnEditar.Cursor = Cursors.No;
 
                 btnEliminar.Enabled = false;
-                btnEliminar.Cursor = Cursors.No;
 
                 btnCancelar.Enabled = false;
-                btnCancelar.Cursor = Cursors.No;
 
                 btnGuardar.Enabled = false;
-                btnGuardar.Cursor = Cursors.No;
             }
         }
 
         public void ActivarBotones()
         {
             btnAgregar.Enabled = false;
-            btnAgregar.Cursor = Cursors.No;
 
             btnEditar.Enabled = false;
-            btnEditar.Cursor = Cursors.No;
 
             btnEliminar.Enabled = false;
-            btnEliminar.Cursor = Cursors.No;
 
             btnCancelar.Enabled = true;
             btnCancelar.Cursor = Cursors.Hand;
@@ -108,7 +105,17 @@ namespace CapaPresentacion
             DesactivarControles();
         }
 
-
+        public void validarTipoUsuario()
+        {
+            if (lblTipoUsuario.Text == "Bodeguero")
+            {
+                btnEliminar.Enabled = false;
+            }
+            if (lblTipoUsuario.Text == "Administrador")
+            {
+                btnEliminar.Enabled = true;
+            }
+        }
 
         private void FrmCategoria_Load(object sender, EventArgs e)
         {
@@ -117,7 +124,7 @@ namespace CapaPresentacion
             Botones();
             dgvHerramientaUS.Visible = false;
             dgvHerramientaUN.Visible = false;
-
+            validarTipoUsuario();
         }
 
         private void DgvCategoria_Click(object sender, EventArgs e)
@@ -251,6 +258,7 @@ namespace CapaPresentacion
                 Botones();
                 dgvCategoria.Enabled = true;
             }
+            validarTipoUsuario();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -282,8 +290,8 @@ namespace CapaPresentacion
                     LimpiarControles();
                     dgvCategoria.Enabled = true;
                 }
-
             }
+            validarTipoUsuario();
         }
     }
 }

@@ -13,10 +13,16 @@ namespace CapaPresentacion
 {
     public partial class FrmHerramienta : Form
     {
-        
+
         public FrmHerramienta()
         {
             InitializeComponent();
+        }
+
+        public FrmHerramienta(string tipo)
+        {
+            InitializeComponent();
+            lblTipoUsuario.Text = tipo;
         }
 
         private Herramienta H = new Herramienta();
@@ -58,13 +64,13 @@ namespace CapaPresentacion
             //Metodo para llenar los campos para filtar(Buscar) en la tabla por un campo especifico
             List<Items> lista = new List<Items>();
             //                     NAME                  VALUE
-            lista.Add(new Items("SELECCIONAR",                     ""));
-            lista.Add(new Items("CÓDIGO HERRAMIENTA",   "h.idHerramienta"));
+            lista.Add(new Items("SELECCIONAR", ""));
+            lista.Add(new Items("CÓDIGO HERRAMIENTA", "h.idHerramienta"));
             lista.Add(new Items("HERRAMIENTA", " h.nombreHerramienta"));
-            lista.Add(new Items("CÓDIGO CATEGORÍA",       "h.idCategoria"));
-            lista.Add(new Items("USO",                        "h.uso"));
-            lista.Add(new Items("ESTADO",                  "h.estado"));
-            lista.Add(new Items("CATEGORÍA",      "c.nombreCategoria"));
+            lista.Add(new Items("CÓDIGO CATEGORÍA", "h.idCategoria"));
+            lista.Add(new Items("USO", "h.uso"));
+            lista.Add(new Items("ESTADO", "h.estado"));
+            lista.Add(new Items("CATEGORÍA", "c.nombreCategoria"));
             //Se mostrara el Name y tomara el value del combobox
             cmbCampo.DisplayMember = "Name";
             cmbCampo.ValueMember = "Value";
@@ -74,7 +80,7 @@ namespace CapaPresentacion
 
         public void ListarHerramientas()
         {
-            
+
             Herramienta LH = new Herramienta();
             dgvHerramienta.DataSource = LH.ListarHerramienta();
         }
@@ -109,10 +115,8 @@ namespace CapaPresentacion
                 btnEliminar.Cursor = Cursors.Hand;
 
                 btnCancelar.Enabled = false;
-                btnCancelar.Cursor = Cursors.No;
 
                 btnGuardar.Enabled = false;
-                btnGuardar.Cursor = Cursors.No;
             }
             else
             {
@@ -120,29 +124,22 @@ namespace CapaPresentacion
                 btnAgregar.Cursor = Cursors.Hand;
 
                 btnEditar.Enabled = false;
-                btnEditar.Cursor = Cursors.No;
 
                 btnEliminar.Enabled = false;
-                btnEliminar.Cursor = Cursors.No;
 
                 btnCancelar.Enabled = false;
-                btnCancelar.Cursor = Cursors.No;
 
                 btnGuardar.Enabled = false;
-                btnGuardar.Cursor = Cursors.No;
             }
         }
 
         public void ActivarBotones()
         {
             btnAgregar.Enabled = false;
-            btnAgregar.Cursor = Cursors.No;
 
             btnEditar.Enabled = false;
-            btnEditar.Cursor = Cursors.No;
 
             btnEliminar.Enabled = false;
-            btnEliminar.Cursor = Cursors.No;
 
             btnCancelar.Enabled = true;
             btnCancelar.Cursor = Cursors.Hand;
@@ -160,9 +157,20 @@ namespace CapaPresentacion
             DesactivarControles();
         }
 
+        public void validarTipoUsuario()
+        {
+            if (lblTipoUsuario.Text == "Bodeguero")
+            {
+                btnEliminar.Enabled = false;
+            }
+            if (lblTipoUsuario.Text == "Administrador")
+            {
+                btnEliminar.Enabled = true;
+            }
+        }
+
         private void FrmHerramienta_Load(object sender, EventArgs e)
         {
-            
             CargarCat();
             LlenarUso();
             LlenarEstado();
@@ -170,6 +178,7 @@ namespace CapaPresentacion
             LlenarCampo();
             DesactivarControles();
             Botones();
+            validarTipoUsuario();
         }
 
         private void DgvHerramienta_Click(object sender, EventArgs e)
@@ -252,7 +261,7 @@ namespace CapaPresentacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ocurrio un error : "+ ex +"", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ocurrio un error : " + ex + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -305,6 +314,7 @@ namespace CapaPresentacion
                     dgvHerramienta.Enabled = true;
                 }
             }
+            validarTipoUsuario();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -344,6 +354,7 @@ namespace CapaPresentacion
                 Botones();
                 dgvHerramienta.Enabled = true;
             }
+            validarTipoUsuario();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -380,6 +391,7 @@ namespace CapaPresentacion
             ActivarBotones();
             Editando = false;
             Agregando = true;
+            txtNombre.Focus();
         }
     }
 }
