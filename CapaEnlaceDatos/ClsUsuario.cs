@@ -24,7 +24,7 @@ namespace CapaEnlaceDatos
         {
             string tipo = "";
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "select tipoUsuario from bodega.usuario where userName='"+userName.Replace("'", "") + "' and password='"+password.Replace("'","")+"'";
+            comando.CommandText = "select tipoUsuario from bodega.usuario where userName='"+userName.Replace("'", "") + "' COLLATE  SQL_Latin1_General_CP1_CS_AS and password='" + password.Replace("'","")+ "' COLLATE  SQL_Latin1_General_CP1_CS_AS";
             //comando.Parameters.AddWithValue("@userName", userName);
             //comando.Parameters.AddWithValue("@password", password);
             comando.CommandType = CommandType.Text;

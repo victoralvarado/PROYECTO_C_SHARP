@@ -48,6 +48,10 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="DevComponents.DotNetBar2">
       <HintPath>..\..\PRACTICA BD\PracticaConexionBD\Presentacion\bin\Debug\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
@@ -57,10 +61,13 @@
     <Reference Include="DevComponents.TreeGX">
       <HintPath>..\..\PRACTICA BD\PracticaConexionBD\Presentacion\bin\Debug\DevComponents.TreeGX.dll</HintPath>
     </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -152,6 +159,30 @@
       <DependentUpon>FrmHistorialPrestamo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Reportes\RptHerramientasC.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptHerramientasC.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RptPrestamoP.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptPrestamoP.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\VsrReporteHerramientasC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\VsrReporteHerramientasC.Designer.cs">
+      <DependentUpon>VsrReporteHerramientasC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\VsrReportePrestamoP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\VsrReportePrestamoP.Designer.cs">
+      <DependentUpon>VsrReportePrestamoP.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmCategoria.resx">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +225,20 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptHerramientasC.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptHerramientasC.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptPrestamoP.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptPrestamoP.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\VsrReporteHerramientasC.resx">
+      <DependentUpon>VsrReporteHerramientasC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\VsrReportePrestamoP.resx">
+      <DependentUpon>VsrReportePrestamoP.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -313,7 +358,7 @@
     <None Include="Resources\IMGPersonal.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Reportes\" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\printer.png" />
@@ -329,6 +374,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\proteger %2825px%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VAADLOGO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VAAD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EMPRESA.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

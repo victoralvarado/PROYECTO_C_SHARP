@@ -91,7 +91,7 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(99)))), ((int)(((byte)(139)))));
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(123)))), ((int)(((byte)(155)))));
             this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.6042296F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.909366F));
@@ -499,27 +499,28 @@
             // 
             // pnlCabeTop
             // 
+            this.pnlCabeTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(102)))), ((int)(((byte)(85)))));
             this.pnlCabeTop.Controls.Add(this.pictureBox2);
             this.pnlCabeTop.Controls.Add(this.pictureBox1);
-            this.pnlCabeTop.Location = new System.Drawing.Point(3, 3);
+            this.pnlCabeTop.Location = new System.Drawing.Point(-3, -3);
             this.pnlCabeTop.Name = "pnlCabeTop";
-            this.pnlCabeTop.Size = new System.Drawing.Size(264, 52);
+            this.pnlCabeTop.Size = new System.Drawing.Size(273, 58);
             this.pnlCabeTop.TabIndex = 0;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.ToolSoft;
-            this.pictureBox2.Location = new System.Drawing.Point(60, 12);
+            this.pictureBox2.Image = global::CapaPresentacion.Properties.Resources.EMPRESA;
+            this.pictureBox2.Location = new System.Drawing.Point(65, 16);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(174, 28);
+            this.pictureBox2.Size = new System.Drawing.Size(192, 29);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.iconoToolSoft;
-            this.pictureBox1.Location = new System.Drawing.Point(11, 6);
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.VAAD;
+            this.pictureBox1.Location = new System.Drawing.Point(15, 10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(40, 40);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

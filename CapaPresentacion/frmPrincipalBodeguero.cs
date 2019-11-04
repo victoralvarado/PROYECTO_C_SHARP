@@ -52,6 +52,7 @@ namespace CapaPresentacion
         public void sidebarContraer()
         {
             tt.Active = true;
+            tt.IsBalloon = true;
             tt.SetToolTip(this.btnInicio, "Inicio");
             tt.SetToolTip(this.btnNuevoPre, "Nuevo Préstamo");
             tt.SetToolTip(this.btnReportes, "Reportes");
@@ -194,7 +195,7 @@ namespace CapaPresentacion
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new FrmReportes());
+            AbrirformInpanel(new FrmReportes(lblUserName.Text, lblBodeguero.Text));
             ActivBoton();
             btnReportes.BackColor = Color.FromArgb(22, 36, 49);
         }

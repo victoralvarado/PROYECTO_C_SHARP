@@ -101,9 +101,9 @@
             this.tlpContenedorBg.BackgroundImage = global::CapaPresentacion.Properties.Resources.bg;
             this.tlpContenedorBg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tlpContenedorBg.ColumnCount = 3;
-            this.tlpContenedorBg.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.69197F));
-            this.tlpContenedorBg.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.30369F));
-            this.tlpContenedorBg.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.22126F));
+            this.tlpContenedorBg.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.76573F));
+            this.tlpContenedorBg.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.15618F));
+            this.tlpContenedorBg.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.29501F));
             this.tlpContenedorBg.Controls.Add(this.pbLogo, 1, 1);
             this.tlpContenedorBg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpContenedorBg.Location = new System.Drawing.Point(66, 3);
@@ -119,10 +119,10 @@
             // 
             this.pbLogo.BackColor = System.Drawing.Color.Transparent;
             this.pbLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbLogo.Image = global::CapaPresentacion.Properties.Resources.LogoToolSoft;
-            this.pbLogo.Location = new System.Drawing.Point(102, 60);
+            this.pbLogo.Image = global::CapaPresentacion.Properties.Resources.VAADLOGO;
+            this.pbLogo.Location = new System.Drawing.Point(130, 60);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(271, 227);
+            this.pbLogo.Size = new System.Drawing.Size(215, 227);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;

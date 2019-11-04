@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaLogicaNegocio;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 /*
@@ -22,8 +23,8 @@ namespace CapaPresentacion
             lblUserName.Text = userName;
         }
 
-        ToolTip tt = new ToolTip();
         ToolTip ttL = new ToolTip();
+        ToolTip tt = new ToolTip();
 
         public void Footer()
         {
@@ -52,6 +53,7 @@ namespace CapaPresentacion
         public void sidebarContraer()
         {
             tt.Active = true;
+            tt.IsBalloon = true;
             tt.SetToolTip(this.btnInicio, "Inicio");
             tt.SetToolTip(this.btnNuevoPre, "Nuevo Préstamo");
             tt.SetToolTip(this.btnReportes, "Reportes");
@@ -203,7 +205,7 @@ namespace CapaPresentacion
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new FrmReportes());
+            AbrirformInpanel(new FrmReportes(lblUserName.Text, lblAdministrador.Text));
             ActivBoton();
             btnReportes.BackColor = Color.FromArgb(22, 36, 49);
         }

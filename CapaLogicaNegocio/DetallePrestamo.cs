@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 /*
 * @Nombre de Clase: DetallePrestamo.
 * @Version: 1.0.
@@ -29,6 +30,11 @@ namespace CapaLogicaNegocio
             DataTable tabla1 = new DataTable();
             tabla1 = detalleprestamo.ListarPP();
             return tabla1;
+        }
+
+        public void listarTotalDP(Label lbl)
+        {
+            detalleprestamo.listarTotalDP(lbl);
         }
 
         public void RegistrarDetallePrestamo(string idPersonal, string idHerramienta, string fechaHora, string prespor)

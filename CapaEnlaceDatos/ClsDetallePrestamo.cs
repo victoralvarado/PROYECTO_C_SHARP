@@ -36,6 +36,18 @@ namespace CapaEnlaceDatos
             return tabla;
 
         }
+
+        public void listarTotalDP(Label lbl)
+        {
+            int dat;
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "select count(*) from bodega.detalleprestamo";
+            comando.CommandType = CommandType.Text;
+            dat = (int)comando.ExecuteScalar();
+            (lbl.Text) = dat.ToString();
+            conexion.CerrarConexion();
+        }
+
         public DataTable ListarPP()
         {
             try
