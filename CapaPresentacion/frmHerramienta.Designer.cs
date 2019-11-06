@@ -154,7 +154,7 @@
             this.dgvHerramienta.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHerramienta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHerramienta.Size = new System.Drawing.Size(967, 153);
-            this.dgvHerramienta.TabIndex = 2;
+            this.dgvHerramienta.TabIndex = 0;
             this.dgvHerramienta.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvHerramienta_CellFormatting);
             this.dgvHerramienta.Click += new System.EventHandler(this.DgvHerramienta_Click);
             // 
@@ -178,7 +178,7 @@
             this.lblCampo.Location = new System.Drawing.Point(-1, 6);
             this.lblCampo.Name = "lblCampo";
             this.lblCampo.Size = new System.Drawing.Size(59, 17);
-            this.lblCampo.TabIndex = 3;
+            this.lblCampo.TabIndex = 2;
             this.lblCampo.Text = "CAMPO:";
             this.lblCampo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -190,7 +190,7 @@
             this.cmbCampo.Location = new System.Drawing.Point(60, 3);
             this.cmbCampo.Name = "cmbCampo";
             this.cmbCampo.Size = new System.Drawing.Size(232, 29);
-            this.cmbCampo.TabIndex = 2;
+            this.cmbCampo.TabIndex = 0;
             // 
             // lblBuscar
             // 
@@ -200,7 +200,7 @@
             this.lblBuscar.Location = new System.Drawing.Point(314, 6);
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(61, 17);
-            this.lblBuscar.TabIndex = 1;
+            this.lblBuscar.TabIndex = 3;
             this.lblBuscar.Text = "BUSCAR:";
             this.lblBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -210,7 +210,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(374, 3);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(352, 29);
-            this.txtBuscar.TabIndex = 0;
+            this.txtBuscar.TabIndex = 1;
             this.txtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // tableLayoutPanel4
@@ -280,7 +280,7 @@
             this.label2.Location = new System.Drawing.Point(214, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(262, 32);
-            this.label2.TabIndex = 0;
+            this.label2.TabIndex = 4;
             this.label2.Text = "Nombre de Herramienta";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -293,7 +293,7 @@
             this.label3.Location = new System.Drawing.Point(545, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(237, 32);
-            this.label3.TabIndex = 1;
+            this.label3.TabIndex = 5;
             this.label3.Text = "Uso";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -306,7 +306,7 @@
             this.label4.Location = new System.Drawing.Point(214, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(262, 40);
-            this.label4.TabIndex = 2;
+            this.label4.TabIndex = 6;
             this.label4.Text = "Categoría";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -319,7 +319,7 @@
             this.label5.Location = new System.Drawing.Point(545, 81);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(237, 40);
-            this.label5.TabIndex = 3;
+            this.label5.TabIndex = 7;
             this.label5.Text = "Estado";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -332,7 +332,7 @@
             this.cmbCategoria.Location = new System.Drawing.Point(214, 124);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(262, 29);
-            this.cmbCategoria.TabIndex = 5;
+            this.cmbCategoria.TabIndex = 2;
             // 
             // cmbEstado
             // 
@@ -343,7 +343,7 @@
             this.cmbEstado.Location = new System.Drawing.Point(545, 124);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(237, 29);
-            this.cmbEstado.TabIndex = 7;
+            this.cmbEstado.TabIndex = 3;
             // 
             // cmbUso
             // 
@@ -354,7 +354,7 @@
             this.cmbUso.Location = new System.Drawing.Point(545, 45);
             this.cmbUso.Name = "cmbUso";
             this.cmbUso.Size = new System.Drawing.Size(237, 29);
-            this.cmbUso.TabIndex = 8;
+            this.cmbUso.TabIndex = 1;
             // 
             // txtNombre
             // 
@@ -363,7 +363,7 @@
             this.txtNombre.Location = new System.Drawing.Point(214, 45);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(262, 26);
-            this.txtNombre.TabIndex = 9;
+            this.txtNombre.TabIndex = 0;
             // 
             // tableLayoutPanel7
             // 
@@ -400,7 +400,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(148, 3);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(152, 40);
-            this.btnAgregar.TabIndex = 0;
+            this.btnAgregar.TabIndex = 4;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -417,7 +417,7 @@
             this.btnEditar.Location = new System.Drawing.Point(306, 3);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(133, 40);
-            this.btnEditar.TabIndex = 1;
+            this.btnEditar.TabIndex = 3;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -451,7 +451,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(595, 3);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(147, 40);
-            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.TabIndex = 1;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -468,7 +468,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(748, 3);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(136, 40);
-            this.btnGuardar.TabIndex = 4;
+            this.btnGuardar.TabIndex = 0;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);

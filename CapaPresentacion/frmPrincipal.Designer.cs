@@ -130,7 +130,7 @@
             this.pnlUsuario.Location = new System.Drawing.Point(1182, 3);
             this.pnlUsuario.Name = "pnlUsuario";
             this.pnlUsuario.Size = new System.Drawing.Size(139, 52);
-            this.pnlUsuario.TabIndex = 2;
+            this.pnlUsuario.TabIndex = 1;
             // 
             // btnLogout
             // 
@@ -152,7 +152,7 @@
             this.pnlMenu.Location = new System.Drawing.Point(10, 3);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(58, 52);
-            this.pnlMenu.TabIndex = 1;
+            this.pnlMenu.TabIndex = 0;
             // 
             // btnCerrarMenu
             // 
@@ -330,7 +330,7 @@
             this.btnUserName.Location = new System.Drawing.Point(15, 527);
             this.btnUserName.Name = "btnUserName";
             this.btnUserName.Size = new System.Drawing.Size(240, 32);
-            this.btnUserName.TabIndex = 12;
+            this.btnUserName.TabIndex = 11;
             this.btnUserName.Text = "      UserName";
             this.btnUserName.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUserName.UseVisualStyleBackColor = false;

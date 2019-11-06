@@ -47,7 +47,7 @@
             this.lblCampo.Location = new System.Drawing.Point(61, 53);
             this.lblCampo.Name = "lblCampo";
             this.lblCampo.Size = new System.Drawing.Size(59, 17);
-            this.lblCampo.TabIndex = 40;
+            this.lblCampo.TabIndex = 3;
             this.lblCampo.Text = "CAMPO:";
             this.lblCampo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -59,7 +59,7 @@
             this.cmbCampo.Location = new System.Drawing.Point(122, 50);
             this.cmbCampo.Name = "cmbCampo";
             this.cmbCampo.Size = new System.Drawing.Size(232, 29);
-            this.cmbCampo.TabIndex = 39;
+            this.cmbCampo.TabIndex = 0;
             // 
             // txtBuscar
             // 
@@ -69,7 +69,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(435, 50);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(364, 29);
-            this.txtBuscar.TabIndex = 38;
+            this.txtBuscar.TabIndex = 1;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // label1
@@ -80,7 +80,7 @@
             this.label1.Location = new System.Drawing.Point(359, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 21);
-            this.label1.TabIndex = 37;
+            this.label1.TabIndex = 4;
             this.label1.Text = "BUSCAR:";
             // 
             // lblTitulo
@@ -92,7 +92,7 @@
             this.lblTitulo.Location = new System.Drawing.Point(391, 6);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(275, 25);
-            this.lblTitulo.TabIndex = 36;
+            this.lblTitulo.TabIndex = 5;
             this.lblTitulo.Text = "HISTORIAL DE DEVOLUCIÓN";
             // 
             // dgvHistorialDevolucion
@@ -132,7 +132,7 @@
             this.dgvHistorialDevolucion.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHistorialDevolucion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHistorialDevolucion.Size = new System.Drawing.Size(971, 434);
-            this.dgvHistorialDevolucion.TabIndex = 35;
+            this.dgvHistorialDevolucion.TabIndex = 2;
             // 
             // FrmHistorialDevolucion
             // 

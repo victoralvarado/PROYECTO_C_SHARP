@@ -48,7 +48,7 @@
             this.lblTitulo.Location = new System.Drawing.Point(401, 9);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(256, 25);
-            this.lblTitulo.TabIndex = 17;
+            this.lblTitulo.TabIndex = 5;
             this.lblTitulo.Text = "HISTORIAL DE PRÉSTAMO";
             // 
             // dgvHistorialPrestamo
@@ -88,7 +88,7 @@
             this.dgvHistorialPrestamo.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHistorialPrestamo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHistorialPrestamo.Size = new System.Drawing.Size(971, 434);
-            this.dgvHistorialPrestamo.TabIndex = 16;
+            this.dgvHistorialPrestamo.TabIndex = 2;
             // 
             // txtBuscar
             // 
@@ -98,7 +98,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(436, 53);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(364, 29);
-            this.txtBuscar.TabIndex = 32;
+            this.txtBuscar.TabIndex = 1;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // label1
@@ -109,7 +109,7 @@
             this.label1.Location = new System.Drawing.Point(360, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 21);
-            this.label1.TabIndex = 31;
+            this.label1.TabIndex = 4;
             this.label1.Text = "BUSCAR:";
             // 
             // lblCampo
@@ -120,7 +120,7 @@
             this.lblCampo.Location = new System.Drawing.Point(62, 56);
             this.lblCampo.Name = "lblCampo";
             this.lblCampo.Size = new System.Drawing.Size(59, 17);
-            this.lblCampo.TabIndex = 34;
+            this.lblCampo.TabIndex = 3;
             this.lblCampo.Text = "CAMPO:";
             this.lblCampo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -132,7 +132,7 @@
             this.cmbCampo.Location = new System.Drawing.Point(123, 53);
             this.cmbCampo.Name = "cmbCampo";
             this.cmbCampo.Size = new System.Drawing.Size(232, 29);
-            this.cmbCampo.TabIndex = 33;
+            this.cmbCampo.TabIndex = 0;
             // 
             // FrmHistorialPrestamo
             // 

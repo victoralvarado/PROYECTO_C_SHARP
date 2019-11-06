@@ -165,17 +165,101 @@
       <DependentUpon>RptHerramientasC.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\RptHerramientasDefectuosas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptHerramientasDefectuosas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RptHerramientasDisponibles.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptHerramientasDisponibles.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RptHerramientasEnUso.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptHerramientasEnUso.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RptHerramientasNuevas1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptHerramientasNuevas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RptHistorialDeDevolucion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptHistorialDeDevolucion.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RptHistorialDePrestamos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptHistorialDePrestamos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\RptPrestamoP.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RptPrestamoP.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\RptPrestamoPersonal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptPrestamoPersonal.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\VsrReporteHistorialDeDevolucion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\VsrReporteHistorialDeDevolucion.Designer.cs">
+      <DependentUpon>VsrReporteHistorialDeDevolucion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\VsrReporteHistorialDePrestamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\VsrReporteHistorialDePrestamos.Designer.cs">
+      <DependentUpon>VsrReporteHistorialDePrestamos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\VsrReportePrestamosPersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\VsrReportePrestamosPersonal.Designer.cs">
+      <DependentUpon>VsrReportePrestamosPersonal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\VsrReporteHerramientasC.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\VsrReporteHerramientasC.Designer.cs">
       <DependentUpon>VsrReporteHerramientasC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\VsrReporteHerramientasDefectuosas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\VsrReporteHerramientasDefectuosas.Designer.cs">
+      <DependentUpon>VsrReporteHerramientasDefectuosas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\VsrReporteHerramientasDisponibles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\VsrReporteHerramientasDisponibles.Designer.cs">
+      <DependentUpon>VsrReporteHerramientasDisponibles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\VsrReporteHerramientasEnUso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\VsrReporteHerramientasEnUso.Designer.cs">
+      <DependentUpon>VsrReporteHerramientasEnUso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\VsrReporteHerramientasNuevas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\VsrReporteHerramientasNuevas.Designer.cs">
+      <DependentUpon>VsrReporteHerramientasNuevas.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\VsrReportePrestamoP.cs">
       <SubType>Form</SubType>
@@ -230,12 +314,58 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptHerramientasC.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptHerramientasDefectuosas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptHerramientasDefectuosas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptHerramientasDisponibles.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptHerramientasDisponibles.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptHerramientasEnUso.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptHerramientasEnUso.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptHerramientasNuevas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptHerramientasNuevas1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptHistorialDeDevolucion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptHistorialDeDevolucion.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptHistorialDePrestamos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptHistorialDePrestamos.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\RptPrestamoP.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptPrestamoP.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptPrestamoPersonal.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptPrestamoPersonal.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\VsrReporteHistorialDeDevolucion.resx">
+      <DependentUpon>VsrReporteHistorialDeDevolucion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\VsrReportePrestamosPersonal.resx">
+      <DependentUpon>VsrReportePrestamosPersonal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\VsrReporteHerramientasC.resx">
       <DependentUpon>VsrReporteHerramientasC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\VsrReporteHerramientasDefectuosas.resx">
+      <DependentUpon>VsrReporteHerramientasDefectuosas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\VsrReporteHerramientasDisponibles.resx">
+      <DependentUpon>VsrReporteHerramientasDisponibles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\VsrReporteHerramientasEnUso.resx">
+      <DependentUpon>VsrReporteHerramientasEnUso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\VsrReporteHerramientasNuevas.resx">
+      <DependentUpon>VsrReporteHerramientasNuevas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\VsrReportePrestamoP.resx">
       <DependentUpon>VsrReportePrestamoP.cs</DependentUpon>

@@ -103,24 +103,46 @@ namespace CapaPresentacion
             }
             if (cmbReporteH.SelectedIndex == 2)
             {
-                //Herramientas NuevasHerramientas Disponibles
+                //Herramientas Nuevas
+                Reportes.VsrReporteHerramientasNuevas rpt = new Reportes.VsrReporteHerramientasNuevas(lblUserName.Text);
+                rpt.Show();
             }
             if (cmbReporteH.SelectedIndex == 3)
             {
                 //Herramientas Disponibles
+                Reportes.VsrReporteHerramientasDisponibles rpt = new Reportes.VsrReporteHerramientasDisponibles(lblUserName.Text);
+                rpt.Show();
             }
             if (cmbReporteH.SelectedIndex == 4)
             {
                 //Herramientas en Uso
+                Reportes.VsrReporteHerramientasEnUso rpt = new Reportes.VsrReporteHerramientasEnUso(lblUserName.Text);
+                rpt.Show();
             }
             if (cmbReporteH.SelectedIndex == 5)
             {
                 //Herramientas Prestadas, ordenadas por Empleado
+                Reportes.VsrReportePrestamosPersonal rpt = new Reportes.VsrReportePrestamosPersonal(lblUserName.Text);
+                rpt.Show();
             }
             if (cmbReporteH.SelectedIndex == 6)
             {
                 //Herramientas Defectuosas
+                Reportes.VsrReporteHerramientasDefectuosas rpt = new Reportes.VsrReporteHerramientasDefectuosas(lblUserName.Text);
+                rpt.Show();
             }
+        }
+
+        private void btnHistorialP_Click(object sender, EventArgs e)
+        {
+            Reportes.VsrReporteHistorialDePrestamos rpt = new Reportes.VsrReporteHistorialDePrestamos(lblUserName.Text);
+            rpt.Show();
+        }
+
+        private void btnHistorialD_Click(object sender, EventArgs e)
+        {
+            Reportes.VsrReporteHistorialDeDevolucion rpt = new Reportes.VsrReporteHistorialDeDevolucion(lblUserName.Text);
+            rpt.Show();
         }
     }
 }

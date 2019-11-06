@@ -62,7 +62,7 @@
             this.lblTitulo.Location = new System.Drawing.Point(447, 9);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(134, 25);
-            this.lblTitulo.TabIndex = 1;
+            this.lblTitulo.TabIndex = 9;
             this.lblTitulo.Text = "CATEGORÍAS";
             // 
             // txtCategoria
@@ -72,7 +72,7 @@
             this.txtCategoria.Location = new System.Drawing.Point(381, 77);
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.Size = new System.Drawing.Size(266, 29);
-            this.txtCategoria.TabIndex = 2;
+            this.txtCategoria.TabIndex = 0;
             // 
             // lblCategoria
             // 
@@ -83,7 +83,7 @@
             this.lblCategoria.Location = new System.Drawing.Point(427, 53);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(174, 21);
-            this.lblCategoria.TabIndex = 3;
+            this.lblCategoria.TabIndex = 10;
             this.lblCategoria.Text = "Nombre de Categoría";
             // 
             // dgvCategoria
@@ -121,7 +121,7 @@
             this.dgvCategoria.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCategoria.Size = new System.Drawing.Size(874, 233);
-            this.dgvCategoria.TabIndex = 16;
+            this.dgvCategoria.TabIndex = 7;
             this.dgvCategoria.Click += new System.EventHandler(this.DgvCategoria_Click);
             // 
             // dgvHerramientaUS
@@ -156,7 +156,7 @@
             this.dgvHerramientaUS.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvHerramientaUS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHerramientaUS.Size = new System.Drawing.Size(621, 16);
-            this.dgvHerramientaUS.TabIndex = 17;
+            this.dgvHerramientaUS.TabIndex = 11;
             // 
             // dgvHerramientaUN
             // 
@@ -190,7 +190,7 @@
             this.dgvHerramientaUN.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvHerramientaUN.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHerramientaUN.Size = new System.Drawing.Size(621, 14);
-            this.dgvHerramientaUN.TabIndex = 18;
+            this.dgvHerramientaUN.TabIndex = 12;
             // 
             // txtBuscar
             // 
@@ -200,7 +200,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(149, 194);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(316, 29);
-            this.txtBuscar.TabIndex = 30;
+            this.txtBuscar.TabIndex = 6;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // label1
@@ -211,7 +211,7 @@
             this.label1.Location = new System.Drawing.Point(73, 197);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 21);
-            this.label1.TabIndex = 29;
+            this.label1.TabIndex = 8;
             this.label1.Text = "BUSCAR:";
             // 
             // btnAgregar
@@ -226,7 +226,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(144, 130);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(152, 40);
-            this.btnAgregar.TabIndex = 31;
+            this.btnAgregar.TabIndex = 5;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -243,7 +243,7 @@
             this.btnEditar.Location = new System.Drawing.Point(302, 130);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(133, 40);
-            this.btnEditar.TabIndex = 33;
+            this.btnEditar.TabIndex = 4;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -260,7 +260,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(441, 130);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(144, 40);
-            this.btnEliminar.TabIndex = 34;
+            this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -277,7 +277,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(591, 130);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(147, 40);
-            this.btnCancelar.TabIndex = 35;
+            this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -294,7 +294,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(744, 130);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(136, 40);
-            this.btnGuardar.TabIndex = 36;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -305,7 +305,7 @@
             this.lblTipoUsuario.Location = new System.Drawing.Point(3, 9);
             this.lblTipoUsuario.Name = "lblTipoUsuario";
             this.lblTipoUsuario.Size = new System.Drawing.Size(60, 13);
-            this.lblTipoUsuario.TabIndex = 37;
+            this.lblTipoUsuario.TabIndex = 13;
             this.lblTipoUsuario.Text = "tipoUsuario";
             this.lblTipoUsuario.Visible = false;
             // 

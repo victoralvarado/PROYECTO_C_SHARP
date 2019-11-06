@@ -90,7 +90,7 @@
             this.dgvPersonal.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPersonal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPersonal.Size = new System.Drawing.Size(854, 196);
-            this.dgvPersonal.TabIndex = 17;
+            this.dgvPersonal.TabIndex = 9;
             this.dgvPersonal.Click += new System.EventHandler(this.dgvPersonal_Click);
             // 
             // lblNombre
@@ -102,7 +102,7 @@
             this.lblNombre.Location = new System.Drawing.Point(262, 69);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(80, 21);
-            this.lblNombre.TabIndex = 18;
+            this.lblNombre.TabIndex = 11;
             this.lblNombre.Text = "Nombres";
             // 
             // lblApellidos
@@ -114,7 +114,7 @@
             this.lblApellidos.Location = new System.Drawing.Point(517, 68);
             this.lblApellidos.Name = "lblApellidos";
             this.lblApellidos.Size = new System.Drawing.Size(82, 21);
-            this.lblApellidos.TabIndex = 19;
+            this.lblApellidos.TabIndex = 12;
             this.lblApellidos.Text = "Apellidos";
             // 
             // lblEdad
@@ -126,7 +126,7 @@
             this.lblEdad.Location = new System.Drawing.Point(730, 69);
             this.lblEdad.Name = "lblEdad";
             this.lblEdad.Size = new System.Drawing.Size(48, 21);
-            this.lblEdad.TabIndex = 20;
+            this.lblEdad.TabIndex = 13;
             this.lblEdad.Text = "Edad";
             // 
             // lblTitulo
@@ -138,7 +138,7 @@
             this.lblTitulo.Location = new System.Drawing.Point(448, 9);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(112, 25);
-            this.lblTitulo.TabIndex = 21;
+            this.lblTitulo.TabIndex = 14;
             this.lblTitulo.Text = "PERSONAL";
             // 
             // txtNombres
@@ -148,7 +148,7 @@
             this.txtNombres.Location = new System.Drawing.Point(199, 93);
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(222, 29);
-            this.txtNombres.TabIndex = 22;
+            this.txtNombres.TabIndex = 0;
             // 
             // txtApellidos
             // 
@@ -157,7 +157,7 @@
             this.txtApellidos.Location = new System.Drawing.Point(451, 92);
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(228, 29);
-            this.txtApellidos.TabIndex = 23;
+            this.txtApellidos.TabIndex = 1;
             // 
             // nudEdad
             // 
@@ -166,7 +166,7 @@
             this.nudEdad.Location = new System.Drawing.Point(710, 93);
             this.nudEdad.Name = "nudEdad";
             this.nudEdad.Size = new System.Drawing.Size(95, 29);
-            this.nudEdad.TabIndex = 24;
+            this.nudEdad.TabIndex = 2;
             // 
             // label1
             // 
@@ -176,7 +176,7 @@
             this.label1.Location = new System.Drawing.Point(86, 253);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 21);
-            this.label1.TabIndex = 27;
+            this.label1.TabIndex = 10;
             this.label1.Text = "BUSCAR:";
             // 
             // txtBuscar
@@ -239,7 +239,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(147, 171);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(152, 40);
-            this.btnAgregar.TabIndex = 37;
+            this.btnAgregar.TabIndex = 7;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -256,7 +256,7 @@
             this.btnEditar.Location = new System.Drawing.Point(305, 171);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(133, 40);
-            this.btnEditar.TabIndex = 38;
+            this.btnEditar.TabIndex = 6;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -273,7 +273,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(444, 171);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(144, 40);
-            this.btnEliminar.TabIndex = 39;
+            this.btnEliminar.TabIndex = 5;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -290,7 +290,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(594, 171);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(147, 40);
-            this.btnCancelar.TabIndex = 40;
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -307,7 +307,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(747, 171);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(136, 40);
-            this.btnGuardar.TabIndex = 41;
+            this.btnGuardar.TabIndex = 3;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -318,7 +318,7 @@
             this.txtBuscarEmpleado.Location = new System.Drawing.Point(168, 250);
             this.txtBuscarEmpleado.Name = "txtBuscarEmpleado";
             this.txtBuscarEmpleado.Size = new System.Drawing.Size(293, 29);
-            this.txtBuscarEmpleado.TabIndex = 42;
+            this.txtBuscarEmpleado.TabIndex = 8;
             this.txtBuscarEmpleado.TextChanged += new System.EventHandler(this.txtBuscarEmpleado_TextChanged);
             // 
             // lblTipoUsuario

@@ -127,7 +127,7 @@
             this.pnlUsuario.Location = new System.Drawing.Point(1182, 3);
             this.pnlUsuario.Name = "pnlUsuario";
             this.pnlUsuario.Size = new System.Drawing.Size(139, 52);
-            this.pnlUsuario.TabIndex = 2;
+            this.pnlUsuario.TabIndex = 1;
             // 
             // btnLogout
             // 
@@ -149,7 +149,7 @@
             this.pnlMenu.Location = new System.Drawing.Point(10, 3);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(58, 52);
-            this.pnlMenu.TabIndex = 1;
+            this.pnlMenu.TabIndex = 0;
             // 
             // btnCerrarMenu
             // 
@@ -324,7 +324,7 @@
             this.btnUserName.Location = new System.Drawing.Point(14, 528);
             this.btnUserName.Name = "btnUserName";
             this.btnUserName.Size = new System.Drawing.Size(240, 32);
-            this.btnUserName.TabIndex = 11;
+            this.btnUserName.TabIndex = 8;
             this.btnUserName.Text = "      UserName";
             this.btnUserName.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUserName.UseVisualStyleBackColor = false;
@@ -343,7 +343,7 @@
             this.btnPrestamo.Location = new System.Drawing.Point(15, 359);
             this.btnPrestamo.Name = "btnPrestamo";
             this.btnPrestamo.Size = new System.Drawing.Size(240, 32);
-            this.btnPrestamo.TabIndex = 10;
+            this.btnPrestamo.TabIndex = 7;
             this.btnPrestamo.Text = "      Devolución";
             this.btnPrestamo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPrestamo.UseVisualStyleBackColor = true;
@@ -363,7 +363,7 @@
             this.btnCategoria.Location = new System.Drawing.Point(15, 321);
             this.btnCategoria.Name = "btnCategoria";
             this.btnCategoria.Size = new System.Drawing.Size(240, 32);
-            this.btnCategoria.TabIndex = 9;
+            this.btnCategoria.TabIndex = 6;
             this.btnCategoria.Text = "      Categorías";
             this.btnCategoria.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCategoria.UseVisualStyleBackColor = true;
@@ -383,7 +383,7 @@
             this.btnPersonal.Location = new System.Drawing.Point(15, 283);
             this.btnPersonal.Name = "btnPersonal";
             this.btnPersonal.Size = new System.Drawing.Size(240, 32);
-            this.btnPersonal.TabIndex = 8;
+            this.btnPersonal.TabIndex = 5;
             this.btnPersonal.Text = "      Personal";
             this.btnPersonal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPersonal.UseVisualStyleBackColor = true;
@@ -403,7 +403,7 @@
             this.btnHerramientas.Location = new System.Drawing.Point(15, 245);
             this.btnHerramientas.Name = "btnHerramientas";
             this.btnHerramientas.Size = new System.Drawing.Size(240, 32);
-            this.btnHerramientas.TabIndex = 7;
+            this.btnHerramientas.TabIndex = 4;
             this.btnHerramientas.Text = "      Herramientas";
             this.btnHerramientas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHerramientas.UseVisualStyleBackColor = true;
@@ -423,7 +423,7 @@
             this.btnGestionar.Location = new System.Drawing.Point(15, 199);
             this.btnGestionar.Name = "btnGestionar";
             this.btnGestionar.Size = new System.Drawing.Size(240, 40);
-            this.btnGestionar.TabIndex = 5;
+            this.btnGestionar.TabIndex = 3;
             this.btnGestionar.Text = "      GESTIONAR                     ◀";
             this.btnGestionar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGestionar.UseVisualStyleBackColor = true;

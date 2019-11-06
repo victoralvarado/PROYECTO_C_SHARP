@@ -88,7 +88,7 @@
             this.dgvDetalleprestamo.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDetalleprestamo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDetalleprestamo.Size = new System.Drawing.Size(923, 159);
-            this.dgvDetalleprestamo.TabIndex = 16;
+            this.dgvDetalleprestamo.TabIndex = 4;
             this.dgvDetalleprestamo.Click += new System.EventHandler(this.dgvDetalleprestamo_Click);
             // 
             // txtFecha
@@ -99,7 +99,7 @@
             this.txtFecha.Location = new System.Drawing.Point(414, 256);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(177, 29);
-            this.txtFecha.TabIndex = 21;
+            this.txtFecha.TabIndex = 11;
             this.txtFecha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtHerramienta
@@ -110,7 +110,7 @@
             this.txtHerramienta.Location = new System.Drawing.Point(193, 256);
             this.txtHerramienta.Name = "txtHerramienta";
             this.txtHerramienta.Size = new System.Drawing.Size(187, 29);
-            this.txtHerramienta.TabIndex = 20;
+            this.txtHerramienta.TabIndex = 9;
             // 
             // label5
             // 
@@ -121,7 +121,7 @@
             this.label5.Location = new System.Drawing.Point(448, 230);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(108, 21);
-            this.label5.TabIndex = 19;
+            this.label5.TabIndex = 10;
             this.label5.Text = "Fecha y Hora";
             // 
             // label4
@@ -133,7 +133,7 @@
             this.label4.Location = new System.Drawing.Point(241, 231);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 21);
-            this.label4.TabIndex = 18;
+            this.label4.TabIndex = 8;
             this.label4.Text = "Herramienta";
             // 
             // dgvHerramienta
@@ -172,7 +172,7 @@
             this.dgvHerramienta.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvHerramienta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHerramienta.Size = new System.Drawing.Size(721, 116);
-            this.dgvHerramienta.TabIndex = 34;
+            this.dgvHerramienta.TabIndex = 14;
             this.dgvHerramienta.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvHerramienta_CellFormatting);
             // 
             // label8
@@ -184,7 +184,7 @@
             this.label8.Location = new System.Drawing.Point(466, 362);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(113, 21);
-            this.label8.TabIndex = 36;
+            this.label8.TabIndex = 13;
             this.label8.Text = "Herramientas";
             // 
             // lblTitulo
@@ -196,7 +196,7 @@
             this.lblTitulo.Location = new System.Drawing.Point(412, 9);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(222, 25);
-            this.lblTitulo.TabIndex = 37;
+            this.lblTitulo.TabIndex = 6;
             this.lblTitulo.Text = "DETALLE DEVOLUCIÓN";
             // 
             // tmrFechaHora
@@ -213,7 +213,7 @@
             this.cmbEstado.Location = new System.Drawing.Point(627, 256);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(170, 29);
-            this.cmbEstado.TabIndex = 38;
+            this.cmbEstado.TabIndex = 1;
             // 
             // label1
             // 
@@ -224,7 +224,7 @@
             this.label1.Location = new System.Drawing.Point(682, 232);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 21);
-            this.label1.TabIndex = 39;
+            this.label1.TabIndex = 12;
             this.label1.Text = "Estado";
             // 
             // txtBuscar
@@ -235,7 +235,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(127, 37);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(316, 29);
-            this.txtBuscar.TabIndex = 41;
+            this.txtBuscar.TabIndex = 0;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // label2
@@ -246,7 +246,7 @@
             this.label2.Location = new System.Drawing.Point(51, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 21);
-            this.label2.TabIndex = 40;
+            this.label2.TabIndex = 5;
             this.label2.Text = "BUSCAR:";
             // 
             // btnCancelar
@@ -261,7 +261,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(552, 309);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(147, 40);
-            this.btnCancelar.TabIndex = 42;
+            this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -278,7 +278,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(292, 309);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(245, 40);
-            this.btnGuardar.TabIndex = 43;
+            this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "ENTREGAR HERRAMIENTA";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -289,7 +289,7 @@
             this.lblRecibidapor.Location = new System.Drawing.Point(664, 37);
             this.lblRecibidapor.Name = "lblRecibidapor";
             this.lblRecibidapor.Size = new System.Drawing.Size(59, 13);
-            this.lblRecibidapor.TabIndex = 44;
+            this.lblRecibidapor.TabIndex = 7;
             this.lblRecibidapor.Text = "recibidapor";
             this.lblRecibidapor.Visible = false;
             // 

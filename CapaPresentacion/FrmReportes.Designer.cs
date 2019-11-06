@@ -49,11 +49,18 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.lblReportesEmple = new System.Windows.Forms.Label();
+            this.gradientPanel2 = new CapaLogicaNegocio.GradientPanel();
+            this.btnHistorialD = new System.Windows.Forms.Button();
+            this.btnHistorialP = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.gradientPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlReportesPrestamos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportePersonal)).BeginInit();
             this.pnlTitulo.SuspendLayout();
+            this.gradientPanel2.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -120,7 +127,7 @@
             this.cmbReporteH.Location = new System.Drawing.Point(27, 136);
             this.cmbReporteH.Name = "cmbReporteH";
             this.cmbReporteH.Size = new System.Drawing.Size(374, 29);
-            this.cmbReporteH.TabIndex = 35;
+            this.cmbReporteH.TabIndex = 0;
             // 
             // btnReporteH
             // 
@@ -134,7 +141,7 @@
             this.btnReporteH.Location = new System.Drawing.Point(176, 239);
             this.btnReporteH.Name = "btnReporteH";
             this.btnReporteH.Size = new System.Drawing.Size(97, 29);
-            this.btnReporteH.TabIndex = 34;
+            this.btnReporteH.TabIndex = 1;
             this.btnReporteH.Text = "REPORTE";
             this.btnReporteH.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReporteH.UseVisualStyleBackColor = false;
@@ -213,7 +220,7 @@
             this.btnReportePP.Location = new System.Drawing.Point(432, 239);
             this.btnReportePP.Name = "btnReportePP";
             this.btnReportePP.Size = new System.Drawing.Size(97, 29);
-            this.btnReportePP.TabIndex = 34;
+            this.btnReportePP.TabIndex = 1;
             this.btnReportePP.Text = "REPORTE";
             this.btnReportePP.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReportePP.UseVisualStyleBackColor = false;
@@ -288,7 +295,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(88, 72);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(272, 29);
-            this.txtBuscar.TabIndex = 32;
+            this.txtBuscar.TabIndex = 0;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // pnlTitulo
@@ -311,12 +318,84 @@
             this.lblReportesEmple.TabIndex = 0;
             this.lblReportesEmple.Text = "Reporte de herramientas prestadas por empleado";
             // 
+            // gradientPanel2
+            // 
+            this.gradientPanel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.gradientPanel2.ColorBottom = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(90)))), ((int)(((byte)(50)))));
+            this.gradientPanel2.ColorTop = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(83)))), ((int)(((byte)(69)))));
+            this.gradientPanel2.Controls.Add(this.btnHistorialD);
+            this.gradientPanel2.Controls.Add(this.btnHistorialP);
+            this.gradientPanel2.Controls.Add(this.panel2);
+            this.gradientPanel2.Location = new System.Drawing.Point(351, 342);
+            this.gradientPanel2.Name = "gradientPanel2";
+            this.gradientPanel2.Size = new System.Drawing.Size(431, 170);
+            this.gradientPanel2.TabIndex = 36;
+            // 
+            // btnHistorialD
+            // 
+            this.btnHistorialD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnHistorialD.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHistorialD.FlatAppearance.BorderSize = 0;
+            this.btnHistorialD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnHistorialD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistorialD.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistorialD.Image = global::CapaPresentacion.Properties.Resources.printer;
+            this.btnHistorialD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistorialD.Location = new System.Drawing.Point(103, 123);
+            this.btnHistorialD.Name = "btnHistorialD";
+            this.btnHistorialD.Size = new System.Drawing.Size(217, 29);
+            this.btnHistorialD.TabIndex = 1;
+            this.btnHistorialD.Text = "HISTORIAL DE DEVOLUCIÓN";
+            this.btnHistorialD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHistorialD.UseVisualStyleBackColor = false;
+            this.btnHistorialD.Click += new System.EventHandler(this.btnHistorialD_Click);
+            // 
+            // btnHistorialP
+            // 
+            this.btnHistorialP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnHistorialP.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHistorialP.FlatAppearance.BorderSize = 0;
+            this.btnHistorialP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnHistorialP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistorialP.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistorialP.Image = global::CapaPresentacion.Properties.Resources.printer;
+            this.btnHistorialP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistorialP.Location = new System.Drawing.Point(103, 72);
+            this.btnHistorialP.Name = "btnHistorialP";
+            this.btnHistorialP.Size = new System.Drawing.Size(217, 29);
+            this.btnHistorialP.TabIndex = 0;
+            this.btnHistorialP.Text = "HISTORIAL DE PRESTAMOS";
+            this.btnHistorialP.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHistorialP.UseVisualStyleBackColor = false;
+            this.btnHistorialP.Click += new System.EventHandler(this.btnHistorialP_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(172)))), ((int)(((byte)(13)))));
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Location = new System.Drawing.Point(12, 7);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(404, 37);
+            this.panel2.TabIndex = 2;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(97, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(198, 21);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Reporte de herramientas";
+            // 
             // FrmReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(82)))), ((int)(((byte)(118)))));
             this.ClientSize = new System.Drawing.Size(1026, 524);
+            this.Controls.Add(this.gradientPanel2);
             this.Controls.Add(this.lblTotalDP);
             this.Controls.Add(this.gradientPanel1);
             this.Controls.Add(this.lblTipo);
@@ -335,6 +414,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportePersonal)).EndInit();
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
+            this.gradientPanel2.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,5 +443,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbReporteH;
         private System.Windows.Forms.Label lblTotalDP;
+        private CapaLogicaNegocio.GradientPanel gradientPanel2;
+        private System.Windows.Forms.Button btnHistorialD;
+        private System.Windows.Forms.Button btnHistorialP;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label5;
     }
 }

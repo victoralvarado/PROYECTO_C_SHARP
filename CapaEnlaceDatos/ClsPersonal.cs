@@ -84,7 +84,7 @@ namespace CapaEnlaceDatos
             try
             {
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "select id as 'CÓDIGO PERSONAL', nombre as 'NOMBRES', apellido as 'APELLIDOS', edad as 'EDAD'  " +
+                comando.CommandText = "select id as 'CÓDIGO EMPLEADO', nombre as 'NOMBRES', apellido as 'APELLIDOS', edad as 'EDAD'  " +
                     "from Bodega.personal where id like '%" + buscar + "%' or nombre like '%" + buscar + "%' or apellido like '%" + buscar + "%' or " +
                     "edad like '%" + buscar+"%' ;";
                 comando.CommandType = CommandType.Text;
