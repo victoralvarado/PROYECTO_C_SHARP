@@ -16,7 +16,6 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
-        
 
         public void ListarDevolucion()
         {

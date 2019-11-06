@@ -1,10 +1,6 @@
 ﻿using CapaEnlaceDatos;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 /*
 * @Nombre de Clase: DetallePrestamo.
@@ -44,10 +40,11 @@ namespace CapaLogicaNegocio
 
         public void ModificarUso(string uso, string estado, string idHerramienta)
         {
-            detalleprestamo.Modificar(uso,estado, Convert.ToInt32(idHerramienta));
+            detalleprestamo.Modificar(uso, estado, Convert.ToInt32(idHerramienta));
         }
 
-        public DataTable filtrarPrestamo(string buscar) {
+        public DataTable filtrarPrestamo(string buscar)
+        {
             DataTable tabla = new DataTable();
             tabla = detalleprestamo.filtrarPrestamo(buscar.Replace("'", ""));
             return tabla;

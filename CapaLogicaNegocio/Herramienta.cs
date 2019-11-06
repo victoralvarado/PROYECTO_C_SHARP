@@ -93,7 +93,7 @@ namespace CapaLogicaNegocio
 
         public void RegistrarHerramienta(string nombreHerramienta, string idCategoria, string uso, string estado)
         {
-            herramienta.Registrar(nombreHerramienta, Convert.ToInt32(idCategoria),uso,estado);
+            herramienta.Registrar(nombreHerramienta, Convert.ToInt32(idCategoria), uso, estado);
         }
 
         public void ModificarHerramienta(string nombreHerramienta, string idCategoria, string uso, string estado, string idHerramienta)

@@ -5,7 +5,7 @@ namespace CapaPresentacion.Reportes
 {
     public partial class VsrReportePrestamoP : Form
     {
-        public VsrReportePrestamoP(string prmCodigoEmp,string prmUsuario)
+        public VsrReportePrestamoP(string prmCodigoEmp, string prmUsuario)
         {
             InitializeComponent();
             RptPrestamoP1.SetParameterValue("prmCodigoEmp", Convert.ToInt32(prmCodigoEmp));

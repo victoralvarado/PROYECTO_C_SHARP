@@ -1,6 +1,6 @@
-﻿using System;
+﻿using CapaLogicaNegocio;
+using System;
 using System.Windows.Forms;
-using CapaLogicaNegocio;
 /*
 * @Nombre de Clase: FrmCategoria.
 * @Version: 1.0.

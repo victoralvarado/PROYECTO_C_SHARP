@@ -1,10 +1,8 @@
 ﻿using CapaLogicaNegocio;
 using System;
-using System.Data;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
 /*
  * @Nombre de Clase: FrmLogin.
  * @Version: 1.0.
@@ -43,7 +41,7 @@ namespace CapaPresentacion
             validarL = true;
             if (txtPassword.Text == "password" || txtPassword.Text.Trim().Length == 0 || txtUserName.Text == "username" || txtUserName.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Debe completar sus credenciales","Validar",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Debe completar sus credenciales", "Validar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 validarL = false;
             }
             if (validarL == true)

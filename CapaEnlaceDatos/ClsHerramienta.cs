@@ -102,7 +102,7 @@ namespace CapaEnlaceDatos
             comando.CommandText = "select h.idHerramienta AS 'CÓDIGO HERRAMIENTA', h.nombreHerramienta AS 'NOMBRE HERRAMIENTA', " +
                 " h.idCategoria AS 'CÓDIGO CATEGORÍA', h.uso AS 'USO', h.estado AS 'ESTADO', c.nombreCategoria AS 'CATEGORÍA' " +
                 " from Bodega.herramienta h inner join Bodega.categoria c on h.idCategoria = c.idCategoria " +
-                " where c.nombreCategoria = '"+categoria+"' and h.uso = 'SI' ";
+                " where c.nombreCategoria = '" + categoria + "' and h.uso = 'SI' ";
             comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
             tabla2.Load(leer);
@@ -129,7 +129,7 @@ namespace CapaEnlaceDatos
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "select h.idHerramienta AS 'CÓDIGO HERRAMIENTA', h.nombreHerramienta AS 'NOMBRE HERRAMIENTA', h.idCategoria AS 'CÓDIGO CATEGORÍA', " +
                 "h.uso AS 'USO', h.estado AS 'ESTADO', c.nombreCategoria AS 'CATEGORÍA' from Bodega.herramienta h inner join Bodega.categoria c on h.idCategoria = c.idCategoria " +
-                "WHERE "+campo+" LIKE '%"+buscar+"%' ";
+                "WHERE " + campo + " LIKE '%" + buscar + "%' ";
             comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
             tabla.Load(leer);
@@ -141,8 +141,8 @@ namespace CapaEnlaceDatos
         {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "select h.idHerramienta AS 'CÓDIGO HERRAMIENTA', h.nombreHerramienta AS 'NOMBRE HERRAMIENTA', h.estado AS 'ESTADO' " +
-                "from Bodega.herramienta h where h.uso = 'NO' and (h.estado = 'NUEVA' or h.estado = 'NORMAL') and (h.idHerramienta like '%"+buscar+"%' or h.nombreHerramienta " +
-                "like '%"+buscar+ "%' or h.estado like '%" + buscar + "%') order by h.nombreHerramienta; ";
+                "from Bodega.herramienta h where h.uso = 'NO' and (h.estado = 'NUEVA' or h.estado = 'NORMAL') and (h.idHerramienta like '%" + buscar + "%' or h.nombreHerramienta " +
+                "like '%" + buscar + "%' or h.estado like '%" + buscar + "%') order by h.nombreHerramienta; ";
             comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
             tabla.Load(leer);
@@ -150,7 +150,7 @@ namespace CapaEnlaceDatos
             return tabla;
         }
 
-         public DataTable FiltrarTC(string buscar)
+        public DataTable FiltrarTC(string buscar)
         {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "select h.idHerramienta AS 'CÓDIGO HERRAMIENTA', h.nombreHerramienta AS 'NOMBRE HERRAMIENTA', h.idCategoria " +
@@ -185,7 +185,7 @@ namespace CapaEnlaceDatos
 
         }
 
-        public void Modificar(string nombreHerramienta, int idCategoria, string uso, string estado , int idHerramienta)
+        public void Modificar(string nombreHerramienta, int idCategoria, string uso, string estado, int idHerramienta)
         {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "ModificarHerramienta";

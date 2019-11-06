@@ -20,9 +20,6 @@ namespace CapaPresentacion
         private Personal P = new Personal();
         private Categoria C = new Categoria();
 
-        private string Nueva;
-        private string Normal;
-        private string Defectuosa;
         public void ListarTotalH()
         {
             H.ListarTotalH(lblNUMH);
@@ -65,17 +62,6 @@ namespace CapaPresentacion
             chrGraficoEstado.Series["NUEVA"].Points[2].AxisLabel = "DEFECTUOSA";
             chrGraficoEstado.Series["NUEVA"].Points[2].LegendText = "DEFECTUOSA";
             chrGraficoEstado.Series["NUEVA"].Points[2].Label = lblDefectuosa.Text;
-
-
-
-
-
-            //for (int i = 0; i < estado.Length; i++)
-            //{
-            //    Series serie = chrGraficoEstado.Series.Add(estado[i]);
-            //    serie.Label = cantidad[i].ToString();
-            //    serie.Points.Add(cantidad[i]);
-            //}
         }
 
         private void frmInicio_Load(object sender, EventArgs e)

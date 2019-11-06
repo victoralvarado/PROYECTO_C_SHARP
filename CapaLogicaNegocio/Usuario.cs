@@ -23,7 +23,7 @@ namespace CapaLogicaNegocio
         public string Login(string userName, string password)
         {
             string tipo = "";
-            tipo = usuario.Login(userName,password);
+            tipo = usuario.Login(userName, password);
 
             return tipo;
         }

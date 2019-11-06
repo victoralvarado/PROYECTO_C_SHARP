@@ -48,7 +48,7 @@ namespace CapaEnlaceDatos
 
         }
 
-        public void Registrar(int idHerramienta, int idPersonal, string estadoEntre,string fechaHora,string prespor,string recibidaPor)
+        public void Registrar(int idHerramienta, int idPersonal, string estadoEntre, string fechaHora, string prespor, string recibidaPor)
         {
             try
             {

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using CapaEnlaceDatos;
+using System;
 using System.Data;
 using System.Windows.Forms;
-using CapaEnlaceDatos;
 /*
  * @Nombre de Clase: Categoria.
  * @Version: 1.0.
@@ -24,7 +24,7 @@ namespace CapaLogicaNegocio
         public DataTable FiltrarCat(string buscar)
         {
             DataTable tabla = new DataTable();
-            tabla =categoria.FiltrarCat(buscar);
+            tabla = categoria.FiltrarCat(buscar);
             return tabla;
         }
 

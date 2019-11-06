@@ -124,7 +124,7 @@ namespace CapaEnlaceDatos
             }
         }
 
-        public DataTable filtrarPrestamo(string buscar) 
+        public DataTable filtrarPrestamo(string buscar)
         {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "select p.id as 'CÓDIGO EMPLEADO',p.nombre as 'NOMBRES',p.apellido as 'APELLIDOS'," +
@@ -132,7 +132,7 @@ namespace CapaEnlaceDatos
                 " d.fechaHora as 'FECHA-HORA',d.prespor as 'ASIGNADA POR' from bodega.personal p inner join bodega.detallePrestamo d " +
                 "on p.id = d.idPersonal inner join bodega.herramienta h on d.idHerramienta=h.idHerramienta " +
                 "where h.idHerramienta like '%" + buscar + "%' or h.idCategoria like '%" + buscar + "%' " +
-                "or h.nombreHerramienta like '%" + buscar + "%' or  h.uso like '%" + buscar + "%' or h.estado like '%" + buscar+"%' " +
+                "or h.nombreHerramienta like '%" + buscar + "%' or  h.uso like '%" + buscar + "%' or h.estado like '%" + buscar + "%' " +
                 "order by p.id asc;";
             comando.CommandType = CommandType.Text;
             leer = comando.ExecuteReader();
