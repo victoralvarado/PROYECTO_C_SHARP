@@ -3,21 +3,21 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 /*
- * @Nombre de Clase: FrmDetallePrestamo.
+ * @Nombre de Clase: FrmDevolucion.
  * @Version: 1.0.
  * @Copyright: ToolSoft.
  * @Author Victor, Adrian, Andrea & Diego
  */
 namespace CapaPresentacion
 {
-    public partial class FrmDetallePrestamo : Form
+    public partial class FrmDevolucion : Form
     {
-        public FrmDetallePrestamo()
+        public FrmDevolucion()
         {
             InitializeComponent();
         }
 
-        public FrmDetallePrestamo(string userName)
+        public FrmDevolucion(string userName)
         {
             InitializeComponent();
             lblRecibidapor.Text = userName;

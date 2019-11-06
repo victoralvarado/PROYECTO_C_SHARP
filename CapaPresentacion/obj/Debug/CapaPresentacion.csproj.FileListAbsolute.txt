@@ -61,7 +61,6 @@ C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\bin\Debug\Capa
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\bin\Debug\CapaPresentacion.pdb
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\bin\Debug\CapaLogicaNegocio.dll
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\obj\Debug\CapaPresentacion.FrmCategoria.resources
-C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\obj\Debug\CapaPresentacion.FrmDetallePrestamo.resources
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\obj\Debug\CapaPresentacion.FrmHerramienta.resources
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\obj\Debug\CapaPresentacion.FrmInicio.resources
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\obj\Debug\CapaPresentacion.FrmLogin.resources
@@ -100,6 +99,7 @@ C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\bin\Debug\Shoc
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\bin\Debug\CapaEnlaceDatos.dll
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\bin\Debug\CapaLogicaNegocio.pdb
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\bin\Debug\CapaEnlaceDatos.pdb
-C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\obj\Debug\CapaPresentacion.csprojAssemblyReference.cache
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\obj\Debug\CapaPresentacion.Reportes.VsrReporteHerramientasC.resources
+C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\obj\Debug\CapaPresentacion.FrmDevolucion.resources
+C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\obj\Debug\CapaPresentacion.csprojAssemblyReference.cache
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete

@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class FrmDetallePrestamo
+    partial class FrmDevolucion
     {
         /// <summary>
         /// Required designer variable.
@@ -195,9 +195,9 @@
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(412, 9);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(203, 25);
+            this.lblTitulo.Size = new System.Drawing.Size(222, 25);
             this.lblTitulo.TabIndex = 37;
-            this.lblTitulo.Text = "DETALLE PRÉSTAMO";
+            this.lblTitulo.Text = "DETALLE DEVOLUCIÓN";
             // 
             // tmrFechaHora
             // 
@@ -293,7 +293,7 @@
             this.lblRecibidapor.Text = "recibidapor";
             this.lblRecibidapor.Visible = false;
             // 
-            // FrmDetallePrestamo
+            // FrmDevolucion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -314,7 +314,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dgvDetalleprestamo);
-            this.Name = "FrmDetallePrestamo";
+            this.Name = "FrmDevolucion";
             this.Text = "Detalle Prestamo";
             this.Load += new System.EventHandler(this.frmDetallePrestamo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleprestamo)).EndInit();

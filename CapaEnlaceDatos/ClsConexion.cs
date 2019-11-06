@@ -10,8 +10,11 @@ namespace CapaEnlaceDatos
 {
     public class ClsConexion
     {
+        #region CONEXION
+        //CADENA CONEXION
         public SqlConnection Conexion = new SqlConnection("Server=(local);DataBase=Bodega;Integrated Security=SSPI");
 
+        //METODO PARA ABRIR LA CONEXION
         public SqlConnection AbrirConexion()
         {
             if (Conexion.State == ConnectionState.Closed)
@@ -19,11 +22,13 @@ namespace CapaEnlaceDatos
             return Conexion;
         }
 
+        //METODO PARA CERRAR LA CONEXION
         public SqlConnection CerrarConexion()
         {
             if (Conexion.State == ConnectionState.Open)
                 Conexion.Close();
             return Conexion;
         }
+        #endregion
     }
 }

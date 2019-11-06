@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/*
+* @Nombre de Clase: ClsDevolucion.
+* @Version: 1.0.
+* @Copyright: ToolSoft.
+* @Author Victor, Adrian, Andrea & Diego
+*/
 namespace CapaEnlaceDatos
 {
     public class ClsDevolucion

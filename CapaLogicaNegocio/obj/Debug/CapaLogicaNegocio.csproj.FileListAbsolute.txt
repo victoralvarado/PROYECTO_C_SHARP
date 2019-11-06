@@ -30,5 +30,4 @@ C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaLogicaNegocio\bin\Debug\Cap
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaLogicaNegocio\bin\Debug\CapaEnlaceDatos.pdb
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaLogicaNegocio\obj\Debug\CapaLogicaNegocio.dll
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaLogicaNegocio\obj\Debug\CapaLogicaNegocio.pdb
-C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaLogicaNegocio\obj\Debug\CapaLogicaNegocio.csprojAssemblyReference.cache
-C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaLogicaNegocio\obj\Debug\CapaLogicaNegocio.csproj.CopyComplete
+C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaLogicaNegocio\obj\Debug\CapaLogicaNegocio.csprojResolveAssemblyReference.cache

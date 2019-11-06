@@ -63,7 +63,7 @@ namespace CapaPresentacion
             tt.SetToolTip(this.btnHerramientas, "Gestionar Herramientas");
             tt.SetToolTip(this.btnPersonal, "Gestionar Personal");
             tt.SetToolTip(this.btnCategoria, "Gestionar Categorías");
-            tt.SetToolTip(this.btnPrestamo, "Gestionar Detalle Préstamo");
+            tt.SetToolTip(this.btnPrestamo, "Gestionar Devolución");
             tt.SetToolTip(this.btnUserName, "Usuario: " + lblUserName.Text + "");
         }
 
@@ -287,7 +287,7 @@ namespace CapaPresentacion
 
         private void btnPrestamo_Click(object sender, EventArgs e)
         {
-            AbrirformInpanel(new FrmDetallePrestamo(lblUserName.Text));
+            AbrirformInpanel(new FrmDevolucion(lblUserName.Text));
             ActivBoton();
             btnPrestamo.BackColor = Color.FromArgb(49, 62, 74);
             btnGestionar.BackColor = Color.FromArgb(22, 36, 49);

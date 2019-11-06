@@ -1,23 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/*
+* @Nombre de Clase: ClsDetallePrestamo.
+* @Version: 1.0.
+* @Copyright: ToolSoft.
+* @Author Victor, Adrian, Andrea & Diego
+*/
 namespace CapaEnlaceDatos
 {
     public class ClsDetallePrestamo
     {
+        #region VARIABLES LOCALES
         private ClsConexion conexion = new ClsConexion();
-
         SqlDataReader leer;
         DataTable tabla = new DataTable();
         DataTable tabla1 = new DataTable();
         SqlCommand comando = new SqlCommand();
+        #endregion
 
+        //METODO PARA LISTAR DETALLE PRESTAMO
         public DataTable Listar()
         {
             try
@@ -31,23 +34,34 @@ namespace CapaEnlaceDatos
             }
             catch (Exception e)
             {
-                MessageBox.Show("Ocurrio un error :" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocurrio un error en:" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return tabla;
 
         }
 
+
+        //METODO PARA LISTAR TOTAL DE PRESTAMOS
         public void listarTotalDP(Label lbl)
         {
-            int dat;
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "select count(*) from bodega.detalleprestamo";
-            comando.CommandType = CommandType.Text;
-            dat = (int)comando.ExecuteScalar();
-            (lbl.Text) = dat.ToString();
-            conexion.CerrarConexion();
+            try
+            {
+                int dat;
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "select count(*) from bodega.detalleprestamo";
+                comando.CommandType = CommandType.Text;
+                dat = (int)comando.ExecuteScalar();
+                (lbl.Text) = dat.ToString();
+                conexion.CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ocurrio un error en:" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
+
+        //METODO PARA LISTAR PERSONAL QUE HA HECHO PRESTAMO
         public DataTable ListarPP()
         {
             try
@@ -61,12 +75,13 @@ namespace CapaEnlaceDatos
             }
             catch (Exception e)
             {
-                MessageBox.Show("Ocurrio un error :" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocurrio un error en:" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return tabla1;
-
         }
 
+
+        //METODO PARA REGISTRAR DETALLE PRESTAMO
         public void Registrar(int idPersonal, int idHerramienta, string fechaHora, string prespor)
         {
             try
@@ -84,7 +99,7 @@ namespace CapaEnlaceDatos
             }
             catch (Exception e)
             {
-                MessageBox.Show("Ocurrio un error :" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocurrio un error en:" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

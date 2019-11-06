@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 /*
@@ -11,84 +12,130 @@ namespace CapaEnlaceDatos
 {
     public class ClsCategoria
     {
+        #region VARIABLES LOCALES
         private ClsConexion conexion = new ClsConexion();
-
         SqlDataReader leer;
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
+        #endregion
 
+        #region METODOS CATEGORIA
+        //METODO PARA LISTAR CATEGORIA
         public DataTable Listar()
         {
-
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "ListarCategoria";
-            comando.CommandType = CommandType.StoredProcedure;
-            leer = comando.ExecuteReader();
-            tabla.Load(leer);
-            conexion.CerrarConexion();
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "ListarCategoria";
+                comando.CommandType = CommandType.StoredProcedure;
+                leer = comando.ExecuteReader();
+                tabla.Load(leer);
+                conexion.CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ocurrio un error en: " + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return tabla;
-
         }
 
-        public void listarTotalC(Label lbl)
-        {
-            int dat;
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "select count (idCategoria) from bodega.categoria";
-            comando.CommandType = CommandType.Text;
-            dat = (int)comando.ExecuteScalar();
-            (lbl.Text) = dat.ToString();
-            conexion.CerrarConexion();
-        }
-
+        //METODO PARA REGISTRAR CATEGORIA
         public void Registrar(string nombreCategoria)
         {
-
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "RegistrarCategoria";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@nombreCategoria", nombreCategoria);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
-            conexion.CerrarConexion();
-
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "RegistrarCategoria";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@nombreCategoria", nombreCategoria);
+                comando.ExecuteNonQuery();
+                comando.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ocurrio un error en: " + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
+        //METODO PARA MODIFICAR CATEGORIA
         public void Modificar(int idCategoria, string nombreCategoria)
         {
-
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "ModificarCategoria";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@nombreCategoria", nombreCategoria);
-            comando.Parameters.AddWithValue("@idCategoria", idCategoria);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
-            conexion.CerrarConexion();
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "ModificarCategoria";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@nombreCategoria", nombreCategoria);
+                comando.Parameters.AddWithValue("@idCategoria", idCategoria);
+                comando.ExecuteNonQuery();
+                comando.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ocurrio un error en: " + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        public DataTable FiltrarCat(string buscar)
-        {
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "Select idCategoria AS 'CÓDIGO CATEGORÍA', nombreCategoria " +
-                "AS 'CATEGORÍA' from bodega.categoria where idCategoria like '%" + buscar + "%' " +
-                "or nombreCategoria like '%" + buscar + "%'";
-            comando.CommandType = CommandType.Text;
-            leer = comando.ExecuteReader();
-            tabla.Load(leer);
-            conexion.CerrarConexion();
-            return tabla;
-        }
-
+        //METODO PARA ELIMINAR CATEGORIA
         public void Eliminar(int idCategoria)
         {
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "EliminarCategoria";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@idCategoria", idCategoria);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
-            conexion.CerrarConexion();
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "EliminarCategoria";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@idCategoria", idCategoria);
+                comando.ExecuteNonQuery();
+                comando.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ocurrio un error en: " + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        //METODO PARA LISTAR EL TOTAL DE CATEGORIAS
+        public void listarTotalC(Label lbl)
+        {
+            try
+            {
+                int dat;
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "select count (*) from bodega.categoria";
+                comando.CommandType = CommandType.Text;
+                dat = (int)comando.ExecuteScalar();
+                (lbl.Text) = dat.ToString();
+                conexion.CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ocurrio un error en: " + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //METODO PARA FILTRAR CATEGORIA
+        public DataTable FiltrarCat(string buscar)
+        {
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "Select idCategoria AS 'CÓDIGO CATEGORÍA', nombreCategoria " +
+                    "AS 'CATEGORÍA' from bodega.categoria where idCategoria like '%" + buscar + "%' " +
+                    "or nombreCategoria like '%" + buscar + "%'";
+                comando.CommandType = CommandType.Text;
+                leer = comando.ExecuteReader();
+                tabla.Load(leer);
+                conexion.CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ocurrio un error en: " + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return tabla;
+        }
+        #endregion
     }
 }
