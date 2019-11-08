@@ -20,6 +20,7 @@ namespace CapaEnlaceDatos
         #endregion
 
         #region METODOS CATEGORIA
+
         //METODO PARA LISTAR CATEGORIA
         public DataTable Listar()
         {

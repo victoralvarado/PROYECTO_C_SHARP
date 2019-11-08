@@ -11,23 +11,23 @@ namespace CapaEnlaceDatos
     public class ClsConexion
     {
         #region CONEXION
-        //CADENA CONEXION
-        public SqlConnection Conexion = new SqlConnection("Server=(local);DataBase=Bodega;Integrated Security=SSPI");
+        //CLASE SqlConnection PARA LA CADENA CONEXION
+        public SqlConnection Con = new SqlConnection(Properties.Settings.Default.conexion);
 
         //METODO PARA ABRIR LA CONEXION
         public SqlConnection AbrirConexion()
         {
-            if (Conexion.State == ConnectionState.Closed)
-                Conexion.Open();
-            return Conexion;
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+            return Con;
         }
 
         //METODO PARA CERRAR LA CONEXION
         public SqlConnection CerrarConexion()
         {
-            if (Conexion.State == ConnectionState.Open)
-                Conexion.Close();
-            return Conexion;
+            if (Con.State == ConnectionState.Open)
+                Con.Close();
+            return Con;
         }
         #endregion
     }
