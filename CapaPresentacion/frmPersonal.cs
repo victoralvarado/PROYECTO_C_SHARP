@@ -270,8 +270,9 @@ namespace CapaPresentacion
                     validarTipoUsuario();
                     dgvPersonal.Enabled = true;
                 }
-                else
+                if (Agregando == false && Editando == true)
                 {
+                    P.ModificarPersonal(txtNombres.Text, txtApellidos.Text, nudEdad.Value.ToString(), idPersonal);
                     MessageBox.Show("Datos modificados correctamente", "Modificando", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Botones();
                     ListarPersonal();

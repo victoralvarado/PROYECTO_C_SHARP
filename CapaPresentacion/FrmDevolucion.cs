@@ -56,7 +56,7 @@ namespace CapaPresentacion
         public void ListarHerramientas()
         {
             Herramienta LH = new Herramienta();
-            dgvHerramienta.DataSource = LH.ListarHerramientasPPrestamo();
+            dgvHerramienta.DataSource = LH.ListarHerramienta();
         }
 
         private void frmDetallePrestamo_Load(object sender, EventArgs e)
@@ -98,6 +98,24 @@ namespace CapaPresentacion
                 {
                     e.CellStyle.ForeColor = Color.Black;
                     e.CellStyle.BackColor = Color.White;
+                }
+                if (Convert.ToString(e.Value) == "DEFECTUOSA")
+                {
+                    e.CellStyle.ForeColor = Color.White;
+                    e.CellStyle.BackColor = Color.FromArgb(249, 53, 76);
+                }
+            }
+            if (this.dgvHerramienta.Columns[e.ColumnIndex].Name == "USO")
+            {
+                if (Convert.ToString(e.Value) == "NO")
+                {
+                    e.CellStyle.ForeColor = Color.White;
+                    e.CellStyle.BackColor = Color.FromArgb(65, 179, 20);
+                }
+                if (Convert.ToString(e.Value) == "SI")
+                {
+                    e.CellStyle.ForeColor = Color.White;
+                    e.CellStyle.BackColor = Color.FromArgb(228, 203, 16);
                 }
             }
         }
