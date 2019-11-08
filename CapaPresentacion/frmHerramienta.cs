@@ -159,13 +159,27 @@ namespace CapaPresentacion
 
         public void validarTipoUsuario()
         {
-            if (lblTipoUsuario.Text == "Bodeguero")
+            if (dgvHerramienta.RowCount > 0)
             {
-                btnEliminar.Enabled = false;
+                if (lblTipoUsuario.Text == "Bodeguero")
+                {
+                    btnEliminar.Enabled = false;
+                }
+                if (lblTipoUsuario.Text == "Administrador")
+                {
+                    btnEliminar.Enabled = true;
+                }
             }
-            if (lblTipoUsuario.Text == "Administrador")
+            else
             {
-                btnEliminar.Enabled = true;
+                if (lblTipoUsuario.Text == "Bodeguero")
+                {
+                    btnEliminar.Enabled = false;
+                }
+                if (lblTipoUsuario.Text == "Administrador")
+                {
+                    btnEliminar.Enabled = false;
+                }
             }
         }
 
@@ -245,8 +259,7 @@ namespace CapaPresentacion
             {
                 //buscar por todos los campos de la tabla
                 Herramienta LH = new Herramienta();
-                string buscar = txtBuscar.Text;
-                string value = Convert.ToString(cmbCampo.SelectedValue);
+                string buscar = '%' + txtBuscar.Text + '%';
                 dgvHerramienta.DataSource = LH.FiltrarHerramientaTC(buscar);
             }
             else
@@ -255,8 +268,8 @@ namespace CapaPresentacion
                 {
                     //buscar por un campo especifico de la tabla
                     Herramienta LH = new Herramienta();
-                    string buscar = txtBuscar.Text;
-                    string value = Convert.ToString(cmbCampo.SelectedValue);
+                    string buscar = '%' + txtBuscar.Text + '%';
+                    string value = cmbCampo.SelectedValue.ToString();
                     dgvHerramienta.DataSource = LH.FiltrarHerramienta(value, buscar);
                 }
                 catch (Exception ex)
@@ -301,6 +314,7 @@ namespace CapaPresentacion
                     Botones();
                     ListarHerramientas();
                     LimpiarControles();
+                    validarTipoUsuario();
                     dgvHerramienta.Enabled = true;
                 }
                 else
@@ -311,10 +325,10 @@ namespace CapaPresentacion
                     Botones();
                     ListarHerramientas();
                     LimpiarControles();
+                    validarTipoUsuario();
                     dgvHerramienta.Enabled = true;
                 }
             }
-            validarTipoUsuario();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -352,9 +366,9 @@ namespace CapaPresentacion
                 Agregando = false;
                 Editando = false;
                 Botones();
+                validarTipoUsuario();
                 dgvHerramienta.Enabled = true;
             }
-            validarTipoUsuario();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

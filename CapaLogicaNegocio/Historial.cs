@@ -28,14 +28,14 @@ namespace CapaLogicaNegocio
         public DataTable FiltrarHistorial(string campo, string buscar)
         {
             DataTable tabla = new DataTable();
-            tabla = historial.Filtrar(campo, buscar.Replace("'", ""));
+            tabla = historial.Filtrar(campo, buscar);
             return tabla;
         }
 
         public DataTable FiltrarHistorialTC(string buscar)
         {
             DataTable tabla = new DataTable();
-            tabla = historial.FiltrarTC(buscar.Replace("'", ""));
+            tabla = historial.FiltrarTC(buscar);
             return tabla;
         }
 

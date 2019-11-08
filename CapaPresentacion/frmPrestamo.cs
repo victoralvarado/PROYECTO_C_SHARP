@@ -123,7 +123,7 @@ namespace CapaPresentacion
         {
             //buscar por todos los campos de la tabla
             Herramienta LH = new Herramienta();
-            string buscar = txtBuscar.Text;
+            string buscar = '%' + txtBuscar.Text + '%';
             dgvHerramienta.DataSource = LH.FiltrarHerramientaTCPrestamo(buscar);
         }
 
@@ -139,7 +139,7 @@ namespace CapaPresentacion
         private void txtBuscarEmpleado_TextChanged(object sender, EventArgs e)
         {
             Personal LP = new Personal();
-            string buscar = txtBuscarEmpleado.Text;
+            string buscar = '%' + txtBuscarEmpleado.Text + '%';
             dgvEmpleado.DataSource = LP.FiltrarPersonal(buscar);
         }
 

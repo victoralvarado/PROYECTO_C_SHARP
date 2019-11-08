@@ -23,15 +23,15 @@ namespace CapaPresentacion
             lblRecibidapor.Text = userName;
         }
 
-        private DetallePrestamo DP = new DetallePrestamo();
-        private Devolucion D = new Devolucion();
+        private readonly DetallePrestamo DP = new DetallePrestamo();
+        private readonly Devolucion D = new Devolucion();
         private string idPrestamo = null;
         private string idHerramienta = null;
         private string idPersonal = null;
         private string prespor = null;
         private string uso = null;
         private bool ValidarF = false;
-        private ErrorProvider ep = new ErrorProvider();
+        private  ErrorProvider ep = new ErrorProvider();
 
         public void ListarDetallePrestamo()
         {
@@ -105,7 +105,7 @@ namespace CapaPresentacion
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             DetallePrestamo DPEP = new DetallePrestamo();
-            string buscar = txtBuscar.Text;
+            string buscar = '%' + txtBuscar.Text + '%';
             dgvDetalleprestamo.DataSource = DPEP.filtrarPrestamo(buscar);
         }
 

@@ -56,8 +56,7 @@ namespace CapaPresentacion
             {
                 //buscar por todos los campos de la tabla
                 Historial LH = new Historial();
-                string buscar = txtBuscar.Text;
-                string value = Convert.ToString(cmbCampo.SelectedValue);
+                string buscar = '%' + txtBuscar.Text + '%';
                 dgvHistorialPrestamo.DataSource = LH.FiltrarHistorialTC(buscar);
             }
             else
@@ -66,8 +65,8 @@ namespace CapaPresentacion
                 {
                     //buscar por un campo especifico de la tabla
                     Historial LH = new Historial();
-                    string buscar = txtBuscar.Text;
-                    string value = Convert.ToString(cmbCampo.SelectedValue);
+                    string buscar = '%' + txtBuscar.Text + '%';
+                    string value = cmbCampo.SelectedValue.ToString();
                     dgvHistorialPrestamo.DataSource = LH.FiltrarHistorial(value, buscar);
                 }
                 catch (Exception ex)

@@ -46,14 +46,14 @@ namespace CapaLogicaNegocio
         public DataTable filtrarPrestamo(string buscar)
         {
             DataTable tabla = new DataTable();
-            tabla = detalleprestamo.filtrarPrestamo(buscar.Replace("'", ""));
+            tabla = detalleprestamo.filtrarPrestamo(buscar);
             return tabla;
         }
 
         public DataTable filtrarPP(string buscar)
         {
             DataTable tabla = new DataTable();
-            tabla = detalleprestamo.filtrarPP(buscar.Replace("'", ""));
+            tabla = detalleprestamo.filtrarPP(buscar);
             return tabla;
         }
     }

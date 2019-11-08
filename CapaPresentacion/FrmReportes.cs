@@ -60,7 +60,7 @@ namespace CapaPresentacion
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             DetallePrestamo FDP = new DetallePrestamo();
-            string buscar = txtBuscar.Text;
+            string buscar = '%' + txtBuscar.Text + '%';
             dgvReportePersonal.DataSource = FDP.filtrarPP(buscar);
         }
 

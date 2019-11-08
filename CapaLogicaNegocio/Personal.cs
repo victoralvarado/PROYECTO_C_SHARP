@@ -50,7 +50,7 @@ namespace CapaLogicaNegocio
         public DataTable FiltrarPersonal(string buscar)
         {
             DataTable tabla = new DataTable();
-            tabla = personal.FiltrarPP(buscar.Replace("'", ""));
+            tabla = personal.FiltrarPP(buscar);
             return tabla;
         }
 

@@ -102,13 +102,27 @@ namespace CapaPresentacion
 
         public void validarTipoUsuario()
         {
-            if (lblTipoUsuario.Text == "Bodeguero")
+            if (dgvCategoria.RowCount > 0)
             {
-                btnEliminar.Enabled = false;
+                if (lblTipoUsuario.Text == "Bodeguero")
+                {
+                    btnEliminar.Enabled = false;
+                }
+                if (lblTipoUsuario.Text == "Administrador")
+                {
+                    btnEliminar.Enabled = true;
+                }
             }
-            if (lblTipoUsuario.Text == "Administrador")
+            else
             {
-                btnEliminar.Enabled = true;
+                if (lblTipoUsuario.Text == "Bodeguero")
+                {
+                    btnEliminar.Enabled = false;
+                }
+                if (lblTipoUsuario.Text == "Administrador")
+                {
+                    btnEliminar.Enabled = false;
+                }
             }
         }
 
@@ -134,7 +148,7 @@ namespace CapaPresentacion
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             Categoria FC = new Categoria();
-            string buscar = txtBuscar.Text;
+            string buscar = '%' + txtBuscar.Text + '%';
             dgvCategoria.DataSource = FC.FiltrarCat(buscar);
         }
 
@@ -251,9 +265,9 @@ namespace CapaPresentacion
                 Agregando = false;
                 Editando = false;
                 Botones();
+                validarTipoUsuario();
                 dgvCategoria.Enabled = true;
             }
-            validarTipoUsuario();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -274,6 +288,7 @@ namespace CapaPresentacion
                     Botones();
                     ListarCategorias();
                     LimpiarControles();
+                    validarTipoUsuario();
                     dgvCategoria.Enabled = true;
                 }
                 else
@@ -283,10 +298,10 @@ namespace CapaPresentacion
                     Botones();
                     ListarCategorias();
                     LimpiarControles();
+                    validarTipoUsuario();
                     dgvCategoria.Enabled = true;
                 }
             }
-            validarTipoUsuario();
         }
     }
 }

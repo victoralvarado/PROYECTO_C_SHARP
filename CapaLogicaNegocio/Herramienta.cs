@@ -73,21 +73,21 @@ namespace CapaLogicaNegocio
         public DataTable FiltrarHerramienta(string campo, string buscar)
         {
             DataTable tabla = new DataTable();
-            tabla = herramienta.Filtrar(campo, buscar.Replace("'", ""));
+            tabla = herramienta.Filtrar(campo, buscar);
             return tabla;
         }
 
         public DataTable FiltrarHerramientaTC(string buscar)
         {
             DataTable tabla = new DataTable();
-            tabla = herramienta.FiltrarTC(buscar.Replace("'", ""));
+            tabla = herramienta.FiltrarTC(buscar);
             return tabla;
         }
 
         public DataTable FiltrarHerramientaTCPrestamo(string buscar)
         {
             DataTable tabla = new DataTable();
-            tabla = herramienta.FiltrarTCPrestamo(buscar.Replace("'", ""));
+            tabla = herramienta.FiltrarTCPrestamo(buscar);
             return tabla;
         }
 

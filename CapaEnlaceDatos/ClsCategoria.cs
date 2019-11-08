@@ -123,11 +123,13 @@ namespace CapaEnlaceDatos
             {
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandText = "Select idCategoria AS 'CÓDIGO CATEGORÍA', nombreCategoria " +
-                    "AS 'CATEGORÍA' from bodega.categoria where idCategoria like '%" + buscar + "%' " +
-                    "or nombreCategoria like '%" + buscar + "%'";
+                    "AS 'CATEGORÍA' from bodega.categoria where idCategoria like @buscar " +
+                    "or nombreCategoria like @buscar";
                 comando.CommandType = CommandType.Text;
+                comando.Parameters.AddWithValue("@buscar", buscar);
                 leer = comando.ExecuteReader();
                 tabla.Load(leer);
+                comando.Parameters.Clear();
                 conexion.CerrarConexion();
             }
             catch (Exception e)

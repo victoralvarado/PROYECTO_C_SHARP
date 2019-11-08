@@ -58,8 +58,7 @@ namespace CapaPresentacion
             {
                 //buscar por todos los campos de la tabla
                 Devolucion D = new Devolucion();
-                string buscar = txtBuscar.Text;
-                string value = Convert.ToString(cmbCampo.SelectedValue);
+                string buscar = '%' + txtBuscar.Text + '%';
                 dgvHistorialDevolucion.DataSource = D.FiltrarDevolucionTC(buscar);
             }
             else
@@ -68,8 +67,8 @@ namespace CapaPresentacion
                 {
                     //buscar por un campo especifico de la tabla
                     Devolucion D = new Devolucion();
-                    string buscar = txtBuscar.Text;
-                    string value = Convert.ToString(cmbCampo.SelectedValue);
+                    string buscar = '%' + txtBuscar.Text + '%';
+                    string value = cmbCampo.SelectedValue.ToString();
                     dgvHistorialDevolucion.DataSource = D.FiltrarDevolucion(value, buscar);
                 }
                 catch (Exception ex)

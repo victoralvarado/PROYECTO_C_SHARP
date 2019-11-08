@@ -32,14 +32,14 @@ namespace CapaLogicaNegocio
         public DataTable FiltrarDevolucion(string campo, string buscar)
         {
             DataTable tabla = new DataTable();
-            tabla = devolucion.Filtrar(campo, buscar.Replace("'", ""));
+            tabla = devolucion.Filtrar(campo, buscar);
             return tabla;
         }
 
         public DataTable FiltrarDevolucionTC(string buscar)
         {
             DataTable tabla = new DataTable();
-            tabla = devolucion.FiltrarTC(buscar.Replace("'", ""));
+            tabla = devolucion.FiltrarTC(buscar);
             return tabla;
         }
     }

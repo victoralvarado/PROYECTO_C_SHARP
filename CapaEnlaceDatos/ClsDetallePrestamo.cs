@@ -120,36 +120,54 @@ namespace CapaEnlaceDatos
             }
             catch (Exception e)
             {
-                MessageBox.Show("Ocurrio un error :" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocurrio un error en:" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         public DataTable filtrarPrestamo(string buscar)
         {
+            try
+            {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "select p.id as 'CÓDIGO EMPLEADO',p.nombre as 'NOMBRES',p.apellido as 'APELLIDOS'," +
                 "d.idPrestamo as 'CÓDIGO PRÉSTAMO',d.idherramienta as 'CÓDIGO HERRAMIENTA',h.nombreHerramienta as 'HERRAMIENTA'," +
                 " d.fechaHora as 'FECHA-HORA',d.prespor as 'ASIGNADA POR' from bodega.personal p inner join bodega.detallePrestamo d " +
                 "on p.id = d.idPersonal inner join bodega.herramienta h on d.idHerramienta=h.idHerramienta " +
-                "where h.idHerramienta like '%" + buscar + "%' or h.idCategoria like '%" + buscar + "%' " +
-                "or h.nombreHerramienta like '%" + buscar + "%' or  h.uso like '%" + buscar + "%' or h.estado like '%" + buscar + "%' " +
-                "order by p.id asc;";
+                "where p.id like @buscar or p.nombre like @buscar or p.apellido like @buscar or d.idPrestamo like @buscar or d.idHerramienta " +
+                "like @buscar or h.idHerramienta like @buscar or h.idCategoria like @buscar or d.fechaHora like @buscar or d.prespor like @buscar " +
+                "or h.nombreHerramienta like @buscar ";
             comando.CommandType = CommandType.Text;
+            comando.Parameters.AddWithValue("@buscar", buscar);
             leer = comando.ExecuteReader();
             tabla.Load(leer);
+            comando.Parameters.Clear();
             conexion.CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ocurrio un error en:" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return tabla;
         }
 
         public DataTable filtrarPP(string buscar)
         {
+            try
+            {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "SELECT distinct p.id AS 'CÓDIGO EMPLEADO', p.nombre+ ' ' +p.apellido AS 'NOMBRE COMPLETO' FROM Bodega.personal p inner join" +
-                " bodega.detallePrestamo d on p.id = d.idPersonal where p.id like '%" + buscar + "%' or p.nombre+ ' ' +p.apellido like '%" + buscar + "%'";
+                " bodega.detallePrestamo d on p.id = d.idPersonal where p.id like @buscar or p.nombre+ ' ' +p.apellido like @buscar";
             comando.CommandType = CommandType.Text;
+            comando.Parameters.AddWithValue("@buscar", buscar);
             leer = comando.ExecuteReader();
             tabla.Load(leer);
+            comando.Parameters.Clear();
             conexion.CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ocurrio un error en:" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return tabla;
         }
 

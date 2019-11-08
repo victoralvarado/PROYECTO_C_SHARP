@@ -157,8 +157,8 @@ namespace CapaPresentacion
             try
             {
                 Usuario LU = new Usuario();
-                string buscar = txtBuscar.Text;
-                dgvUsuario.DataSource = LU.FiltrarUsuario(buscar.Replace("'", ""));
+                string buscar = '%' + txtBuscar.Text + '%';
+                dgvUsuario.DataSource = LU.FiltrarUsuario(buscar);
                 dgvUsuario.Columns["password"].Visible = false;
             }
             catch (Exception)

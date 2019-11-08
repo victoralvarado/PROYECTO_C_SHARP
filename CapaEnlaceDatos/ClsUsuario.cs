@@ -27,10 +27,13 @@ namespace CapaEnlaceDatos
             try
             {
                 comando.Connection = conexion.AbrirConexion();
-                comando.CommandText = "select tipoUsuario from bodega.usuario where userName='" + userName.Replace("'", "") + "' COLLATE  SQL_Latin1_General_CP1_CS_AS and password='" + password.Replace("'", "") + "' COLLATE  SQL_Latin1_General_CP1_CS_AS";
+                comando.CommandText = "select tipoUsuario from bodega.usuario where userName=@userName COLLATE  SQL_Latin1_General_CP1_CS_AS and password=@password COLLATE  SQL_Latin1_General_CP1_CS_AS";
                 comando.CommandType = CommandType.Text;
+                comando.Parameters.AddWithValue("@userName", userName);
+                comando.Parameters.AddWithValue("@password", password);
                 leer = comando.ExecuteReader();
                 tabla.Load(leer);
+                comando.Parameters.Clear();
                 conexion.CerrarConexion();
                 if (tabla.Rows.Count == 1)
                 {
@@ -96,11 +99,13 @@ namespace CapaEnlaceDatos
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandText = "SELECT idUsuario AS 'CÓDIGO USUARIO', UserName AS " +
                     "'NOMBRE DE USUARIO',password, tipoUsuario AS 'TIPO DE USUARIO' " +
-                    "FROM Bodega.usuario WHERE userName LIKE '%" + buscar + "%' OR  tipoUsuario " +
-                    "LIKE '%" + buscar + "%' OR idUsuario LIKE '%" + buscar + "%'";
+                    "FROM Bodega.usuario WHERE userName LIKE @buscar OR  tipoUsuario " +
+                    "LIKE @buscar OR idUsuario LIKE @buscar ";
                 comando.CommandType = CommandType.Text;
+                comando.Parameters.AddWithValue("@buscar", buscar);
                 leer = comando.ExecuteReader();
                 tabla.Load(leer);
+                comando.Parameters.Clear();
                 conexion.CerrarConexion();
             }
             catch (Exception e)

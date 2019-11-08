@@ -2,7 +2,12 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-
+/*
+* @Nombre de Clase: ClsPersonal.
+* @Version: 1.0.
+* @Copyright: ToolSoft.
+* @Author Victor, Adrian, Andrea & Diego
+*/
 namespace CapaEnlaceDatos
 {
     public class ClsPersonal
@@ -27,7 +32,7 @@ namespace CapaEnlaceDatos
             }
             catch (Exception e)
             {
-                MessageBox.Show("Ocurrio un error :" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocurrio un error en:" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return tabla;
 
@@ -46,36 +51,52 @@ namespace CapaEnlaceDatos
             }
             catch (Exception e)
             {
-                MessageBox.Show("Ocurrio un error :" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocurrio un error en:" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return tabla;
         }
 
         public void listarTotalP(Label lbl)
         {
-            int dat;
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "select count (*) from bodega.personal";
-            comando.CommandType = CommandType.Text;
-            dat = (int)comando.ExecuteScalar();
-            (lbl.Text) = dat.ToString();
-            conexion.CerrarConexion();
+            try
+            {
+                int dat;
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "select count (*) from bodega.personal";
+                comando.CommandType = CommandType.Text;
+                dat = (int)comando.ExecuteScalar();
+                (lbl.Text) = dat.ToString();
+                conexion.CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ocurrio un error en:" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //Buscar el COdigo del empleado que ha realizado prestamo
         public DataTable BuscarIDEMP(string cod)
         {
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "select p.id AS 'CÓDIGO EMPLEADO',p.nombre AS 'NOMBRES',p.apellido " +
-                "AS 'APELLIDOS',d.idPrestamo AS 'CÓDIGO PRESTAMO',d.idherramienta " +
-                "AS 'CÓDIGO HERRAMIENTA',h.nombreHerramienta AS 'HERRAMIENTA',d.fechaHora " +
-                "AS 'FECHA-HORA',d.prespor AS 'ASIGNADA POR' from Bodega.personal p inner join " +
-                "Bodega.detallePrestamo d on p.id = d.idPersonal inner join Bodega.herramienta h " +
-                "on d.idHerramienta = h.idHerramienta where p.id = '" + cod + "'";
-            comando.CommandType = CommandType.Text;
-            leer = comando.ExecuteReader();
-            tabla1.Load(leer);
-            conexion.CerrarConexion();
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandText = "select p.id AS 'CÓDIGO EMPLEADO',p.nombre AS 'NOMBRES',p.apellido " +
+                    "AS 'APELLIDOS',d.idPrestamo AS 'CÓDIGO PRESTAMO',d.idherramienta " +
+                    "AS 'CÓDIGO HERRAMIENTA',h.nombreHerramienta AS 'HERRAMIENTA',d.fechaHora " +
+                    "AS 'FECHA-HORA',d.prespor AS 'ASIGNADA POR' from Bodega.personal p inner join " +
+                    "Bodega.detallePrestamo d on p.id = d.idPersonal inner join Bodega.herramienta h " +
+                    "on d.idHerramienta = h.idHerramienta where p.id = @cod ";
+                comando.CommandType = CommandType.Text;
+                comando.Parameters.AddWithValue("@cod", cod);
+                leer = comando.ExecuteReader();
+                tabla1.Load(leer);
+                comando.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Ocurrio un error en:" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return tabla1;
         }
 
@@ -85,16 +106,18 @@ namespace CapaEnlaceDatos
             {
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandText = "select id as 'CÓDIGO EMPLEADO', nombre as 'NOMBRES', apellido as 'APELLIDOS', edad as 'EDAD'  " +
-                    "from Bodega.personal where id like '%" + buscar + "%' or nombre like '%" + buscar + "%' or apellido like '%" + buscar + "%' or " +
-                    "edad like '%" + buscar + "%' ;";
+                    "from Bodega.personal where id like @buscar or nombre like @buscar or apellido like @buscar or " +
+                    "edad like @buscar ";
                 comando.CommandType = CommandType.Text;
+                comando.Parameters.AddWithValue("@buscar", buscar);
                 leer = comando.ExecuteReader();
                 tabla.Load(leer);
+                comando.Parameters.Clear();
                 conexion.CerrarConexion();
             }
             catch (Exception e)
             {
-                MessageBox.Show("Ocurrio un error :" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocurrio un error en:" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return tabla;
         }
@@ -106,16 +129,18 @@ namespace CapaEnlaceDatos
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandText = "SELECT id AS 'CÓDIGO EMPLEADO', nombre AS " +
                     "'NOMBRES', apellido AS 'APELLIDOS' " +
-                    "FROM bodega.personal WHERE id LIKE '%" + buscar + "%' OR  nombre " +
-                    "LIKE '%" + buscar + "%' OR apellido LIKE '%" + buscar + "%'";
+                    "FROM bodega.personal WHERE id LIKE @buscar OR  nombre " +
+                    "LIKE @buscar OR apellido LIKE @buscar ";
                 comando.CommandType = CommandType.Text;
+                comando.Parameters.AddWithValue("@buscar", buscar);
                 leer = comando.ExecuteReader();
                 tabla.Load(leer);
+                comando.Parameters.Clear();
                 conexion.CerrarConexion();
             }
             catch (Exception e)
             {
-                MessageBox.Show("Ocurrio un error :" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocurrio un error en:" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return tabla;
         }
@@ -136,7 +161,7 @@ namespace CapaEnlaceDatos
             }
             catch (Exception e)
             {
-                MessageBox.Show("Ocurrio un error :" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocurrio un error en:" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -158,7 +183,7 @@ namespace CapaEnlaceDatos
             }
             catch (Exception e)
             {
-                MessageBox.Show("Ocurrio un error :" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocurrio un error en:" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -176,7 +201,7 @@ namespace CapaEnlaceDatos
             }
             catch (Exception e)
             {
-                MessageBox.Show("Ocurrio un error :" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocurrio un error en:" + e + "", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -106,13 +106,27 @@ namespace CapaPresentacion
 
         public void validarTipoUsuario()
         {
-            if (lblTipoUsuario.Text == "Bodeguero")
+            if (dgvPersonal.RowCount > 0)
             {
-                btnEliminar.Enabled = false;
+                if (lblTipoUsuario.Text == "Bodeguero")
+                {
+                    btnEliminar.Enabled = false;
+                }
+                if (lblTipoUsuario.Text == "Administrador")
+                {
+                    btnEliminar.Enabled = true;
+                }
             }
-            if (lblTipoUsuario.Text == "Administrador")
+            else
             {
-                btnEliminar.Enabled = true;
+                if (lblTipoUsuario.Text == "Bodeguero")
+                {
+                    btnEliminar.Enabled = false;
+                }
+                if (lblTipoUsuario.Text == "Administrador")
+                {
+                    btnEliminar.Enabled = false;
+                }
             }
         }
 
@@ -217,9 +231,9 @@ namespace CapaPresentacion
                 Agregando = false;
                 Editando = false;
                 Botones();
+                validarTipoUsuario();
                 dgvPersonal.Enabled = true;
             }
-            validarTipoUsuario();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -253,6 +267,7 @@ namespace CapaPresentacion
                     Botones();
                     ListarPersonal();
                     LimpiarControles();
+                    validarTipoUsuario();
                     dgvPersonal.Enabled = true;
                 }
                 else
@@ -261,16 +276,16 @@ namespace CapaPresentacion
                     Botones();
                     ListarPersonal();
                     LimpiarControles();
+                    validarTipoUsuario();
                     dgvPersonal.Enabled = true;
                 }
             }
-            validarTipoUsuario();
         }
 
         private void txtBuscarEmpleado_TextChanged(object sender, EventArgs e)
         {
             Personal DPEP = new Personal();
-            string buscar = txtBuscarEmpleado.Text;
+            string buscar = '%' +  txtBuscarEmpleado.Text + '%';
             dgvPersonal.DataSource = DPEP.FiltrarPersonal2(buscar);
         }
     }
