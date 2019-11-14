@@ -80,34 +80,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmCategoria.cs">
+    <Compile Include="ToolSoft\FrmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCategoria.Designer.cs">
+    <Compile Include="ToolSoft\FrmCategoria.Designer.cs">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDevolucion.cs">
+    <Compile Include="ToolSoft\FrmDevolucion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDevolucion.Designer.cs">
+    <Compile Include="ToolSoft\FrmDevolucion.Designer.cs">
       <DependentUpon>FrmDevolucion.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmHerramienta.cs">
+    <Compile Include="ToolSoft\FrmHerramienta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmHerramienta.Designer.cs">
+    <Compile Include="ToolSoft\FrmHerramienta.Designer.cs">
       <DependentUpon>FrmHerramienta.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmHistorialDevolucion.cs">
+    <Compile Include="ToolSoft\FrmHistorialDevolucion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmHistorialDevolucion.Designer.cs">
+    <Compile Include="ToolSoft\FrmHistorialDevolucion.Designer.cs">
       <DependentUpon>FrmHistorialDevolucion.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmInicio.cs">
+    <Compile Include="ToolSoft\FrmInicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmInicio.Designer.cs">
+    <Compile Include="ToolSoft\FrmInicio.Designer.cs">
       <DependentUpon>FrmInicio.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
@@ -117,46 +117,46 @@
     <Compile Include="Login\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPersonal.cs">
+    <Compile Include="ToolSoft\FrmPersonal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPersonal.Designer.cs">
+    <Compile Include="ToolSoft\FrmPersonal.Designer.cs">
       <DependentUpon>FrmPersonal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPrestamo.cs">
+    <Compile Include="ToolSoft\FrmPrestamo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPrestamo.Designer.cs">
+    <Compile Include="ToolSoft\FrmPrestamo.Designer.cs">
       <DependentUpon>FrmPrestamo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPrincipalBodeguero.cs">
+    <Compile Include="ToolSoft\FrmPrincipalBodeguero.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPrincipalBodeguero.Designer.cs">
+    <Compile Include="ToolSoft\FrmPrincipalBodeguero.Designer.cs">
       <DependentUpon>FrmPrincipalBodeguero.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPrincipal.cs">
+    <Compile Include="ToolSoft\FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPrincipal.Designer.cs">
+    <Compile Include="ToolSoft\FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReportes.cs">
+    <Compile Include="ToolSoft\FrmReportes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmReportes.Designer.cs">
+    <Compile Include="ToolSoft\FrmReportes.Designer.cs">
       <DependentUpon>FrmReportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmUsuario.cs">
+    <Compile Include="ToolSoft\FrmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmUsuario.Designer.cs">
+    <Compile Include="ToolSoft\FrmUsuario.Designer.cs">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmHistorialPrestamo.cs">
+    <Compile Include="ToolSoft\FrmHistorialPrestamo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmHistorialPrestamo.Designer.cs">
+    <Compile Include="ToolSoft\FrmHistorialPrestamo.Designer.cs">
       <DependentUpon>FrmHistorialPrestamo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -269,43 +269,43 @@
     <Compile Include="Reportes\VsrReportePrestamoP.Designer.cs">
       <DependentUpon>VsrReportePrestamoP.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmCategoria.resx">
+    <EmbeddedResource Include="ToolSoft\FrmCategoria.resx">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDevolucion.resx">
+    <EmbeddedResource Include="ToolSoft\FrmDevolucion.resx">
       <DependentUpon>FrmDevolucion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmHerramienta.resx">
+    <EmbeddedResource Include="ToolSoft\FrmHerramienta.resx">
       <DependentUpon>FrmHerramienta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHistorialDevolucion.resx">
+    <EmbeddedResource Include="ToolSoft\frmHistorialDevolucion.resx">
       <DependentUpon>FrmHistorialDevolucion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmHistorialPrestamo.resx">
+    <EmbeddedResource Include="ToolSoft\FrmHistorialPrestamo.resx">
       <DependentUpon>FrmHistorialPrestamo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmInicio.resx">
+    <EmbeddedResource Include="ToolSoft\FrmInicio.resx">
       <DependentUpon>FrmInicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPersonal.resx">
+    <EmbeddedResource Include="ToolSoft\FrmPersonal.resx">
       <DependentUpon>FrmPersonal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPrestamo.resx">
+    <EmbeddedResource Include="ToolSoft\FrmPrestamo.resx">
       <DependentUpon>FrmPrestamo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPrincipalBodeguero.resx">
+    <EmbeddedResource Include="ToolSoft\FrmPrincipalBodeguero.resx">
       <DependentUpon>FrmPrincipalBodeguero.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPrincipal.resx">
+    <EmbeddedResource Include="ToolSoft\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmReportes.resx">
+    <EmbeddedResource Include="ToolSoft\FrmReportes.resx">
       <DependentUpon>FrmReportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmUsuario.resx">
+    <EmbeddedResource Include="ToolSoft\FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -516,9 +516,7 @@
   <ItemGroup>
     <None Include="Resources\EMPRESA.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ToolSoft\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
