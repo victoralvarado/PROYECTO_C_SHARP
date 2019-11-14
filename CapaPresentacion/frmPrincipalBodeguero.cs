@@ -60,7 +60,7 @@ namespace CapaPresentacion
             tt.SetToolTip(this.btnHerramientas, "Gestionar Herramientas");
             tt.SetToolTip(this.btnPersonal, "Gestionar Personal");
             tt.SetToolTip(this.btnCategoria, "Gestionar Categorías");
-            tt.SetToolTip(this.btnPrestamo, "Gestionar Devolución");
+            tt.SetToolTip(this.btnPrestamo, "Devolución");
             tt.SetToolTip(this.btnUserName, "Usuario: " + lblUserName.Text + "");
         }
 
@@ -113,7 +113,6 @@ namespace CapaPresentacion
             btnHerramientas.Visible = true;
             btnPersonal.Visible = true;
             btnCategoria.Visible = true;
-            btnPrestamo.Visible = true;
         }
 
         public void OcultarBotones()
@@ -121,7 +120,6 @@ namespace CapaPresentacion
             btnHerramientas.Visible = false;
             btnPersonal.Visible = false;
             btnCategoria.Visible = false;
-            btnPrestamo.Visible = false;
         }
 
         public void ActivBoton()
@@ -258,8 +256,7 @@ namespace CapaPresentacion
         {
             AbrirformInpanel(new FrmDevolucion(lblBodeguero.Text));
             ActivBoton();
-            btnPrestamo.BackColor = Color.FromArgb(49, 62, 74);
-            btnGestionar.BackColor = Color.FromArgb(22, 36, 49);
+            btnPrestamo.BackColor = Color.FromArgb(22, 36, 49);
         }
     }
 }

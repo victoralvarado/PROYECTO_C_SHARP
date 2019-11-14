@@ -346,11 +346,11 @@
             this.btnPrestamo.ForeColor = System.Drawing.Color.White;
             this.btnPrestamo.Image = global::CapaPresentacion.Properties.Resources.Detalle;
             this.btnPrestamo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrestamo.Location = new System.Drawing.Point(15, 489);
+            this.btnPrestamo.Location = new System.Drawing.Point(15, 146);
             this.btnPrestamo.Name = "btnPrestamo";
-            this.btnPrestamo.Size = new System.Drawing.Size(240, 32);
+            this.btnPrestamo.Size = new System.Drawing.Size(240, 40);
             this.btnPrestamo.TabIndex = 10;
-            this.btnPrestamo.Text = "      Devolución";
+            this.btnPrestamo.Text = "      DEVOLUCIÓN";
             this.btnPrestamo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPrestamo.UseVisualStyleBackColor = true;
             this.btnPrestamo.Click += new System.EventHandler(this.btnPrestamo_Click);
@@ -366,7 +366,7 @@
             this.btnCategoria.ForeColor = System.Drawing.Color.White;
             this.btnCategoria.Image = global::CapaPresentacion.Properties.Resources.Categoria;
             this.btnCategoria.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCategoria.Location = new System.Drawing.Point(15, 451);
+            this.btnCategoria.Location = new System.Drawing.Point(15, 478);
             this.btnCategoria.Name = "btnCategoria";
             this.btnCategoria.Size = new System.Drawing.Size(240, 32);
             this.btnCategoria.TabIndex = 9;
@@ -386,7 +386,7 @@
             this.btnPersonal.ForeColor = System.Drawing.Color.White;
             this.btnPersonal.Image = global::CapaPresentacion.Properties.Resources.Personal;
             this.btnPersonal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPersonal.Location = new System.Drawing.Point(15, 413);
+            this.btnPersonal.Location = new System.Drawing.Point(15, 440);
             this.btnPersonal.Name = "btnPersonal";
             this.btnPersonal.Size = new System.Drawing.Size(240, 32);
             this.btnPersonal.TabIndex = 8;
@@ -406,7 +406,7 @@
             this.btnHerramientas.ForeColor = System.Drawing.Color.White;
             this.btnHerramientas.Image = global::CapaPresentacion.Properties.Resources.Herramienta;
             this.btnHerramientas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHerramientas.Location = new System.Drawing.Point(15, 375);
+            this.btnHerramientas.Location = new System.Drawing.Point(15, 402);
             this.btnHerramientas.Name = "btnHerramientas";
             this.btnHerramientas.Size = new System.Drawing.Size(240, 32);
             this.btnHerramientas.TabIndex = 7;
@@ -426,7 +426,7 @@
             this.btnUsuarios.ForeColor = System.Drawing.Color.White;
             this.btnUsuarios.Image = global::CapaPresentacion.Properties.Resources.Usuario;
             this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarios.Location = new System.Drawing.Point(14, 337);
+            this.btnUsuarios.Location = new System.Drawing.Point(14, 364);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(241, 32);
             this.btnUsuarios.TabIndex = 6;
@@ -446,7 +446,7 @@
             this.btnGestionar.ForeColor = System.Drawing.Color.White;
             this.btnGestionar.Image = global::CapaPresentacion.Properties.Resources.Gestionar;
             this.btnGestionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGestionar.Location = new System.Drawing.Point(14, 291);
+            this.btnGestionar.Location = new System.Drawing.Point(14, 319);
             this.btnGestionar.Name = "btnGestionar";
             this.btnGestionar.Size = new System.Drawing.Size(241, 40);
             this.btnGestionar.TabIndex = 5;
@@ -466,7 +466,7 @@
             this.btnHPrestamo.ForeColor = System.Drawing.Color.White;
             this.btnHPrestamo.Image = global::CapaPresentacion.Properties.Resources.HPrestamo;
             this.btnHPrestamo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHPrestamo.Location = new System.Drawing.Point(14, 245);
+            this.btnHPrestamo.Location = new System.Drawing.Point(14, 275);
             this.btnHPrestamo.Name = "btnHPrestamo";
             this.btnHPrestamo.Size = new System.Drawing.Size(241, 40);
             this.btnHPrestamo.TabIndex = 4;
@@ -486,7 +486,7 @@
             this.btnHistorialDe.ForeColor = System.Drawing.Color.White;
             this.btnHistorialDe.Image = global::CapaPresentacion.Properties.Resources.HDevolucion;
             this.btnHistorialDe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistorialDe.Location = new System.Drawing.Point(14, 199);
+            this.btnHistorialDe.Location = new System.Drawing.Point(14, 232);
             this.btnHistorialDe.Name = "btnHistorialDe";
             this.btnHistorialDe.Size = new System.Drawing.Size(241, 40);
             this.btnHistorialDe.TabIndex = 3;
@@ -506,7 +506,7 @@
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.Image = global::CapaPresentacion.Properties.Resources.Reporte;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(14, 153);
+            this.btnReportes.Location = new System.Drawing.Point(14, 189);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(241, 40);
             this.btnReportes.TabIndex = 2;
@@ -526,7 +526,7 @@
             this.btnNuevoPre.ForeColor = System.Drawing.Color.White;
             this.btnNuevoPre.Image = global::CapaPresentacion.Properties.Resources.Nuevo;
             this.btnNuevoPre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevoPre.Location = new System.Drawing.Point(14, 107);
+            this.btnNuevoPre.Location = new System.Drawing.Point(14, 103);
             this.btnNuevoPre.Name = "btnNuevoPre";
             this.btnNuevoPre.Size = new System.Drawing.Size(240, 40);
             this.btnNuevoPre.TabIndex = 1;
@@ -576,7 +576,7 @@
             this.btnInicio.ForeColor = System.Drawing.Color.White;
             this.btnInicio.Image = global::CapaPresentacion.Properties.Resources.Inicio;
             this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInicio.Location = new System.Drawing.Point(15, 61);
+            this.btnInicio.Location = new System.Drawing.Point(15, 60);
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.Size = new System.Drawing.Size(240, 40);
             this.btnInicio.TabIndex = 0;

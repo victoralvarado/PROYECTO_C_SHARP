@@ -109,3 +109,4 @@ C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\obj\Debug\Capa
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaPresentacion\bin\Debug\CapaEnlaceDatos.dll.config

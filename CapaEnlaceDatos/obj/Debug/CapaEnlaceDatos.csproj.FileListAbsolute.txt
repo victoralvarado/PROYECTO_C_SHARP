@@ -35,3 +35,5 @@ C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaEnlaceDatos\bin\Debug\Renci
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaEnlaceDatos\obj\Debug\CapaEnlaceDatos.csproj.CopyComplete
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaEnlaceDatos\obj\Debug\CapaEnlaceDatos.dll
 C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaEnlaceDatos\obj\Debug\CapaEnlaceDatos.pdb
+C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaEnlaceDatos\bin\Debug\CapaEnlaceDatos.dll.config
+C:\Users\victor alvarado\Desktop\SISTEMA-C-SHARP\CapaEnlaceDatos\obj\Debug\CapaEnlaceDatos.csprojAssemblyReference.cache
