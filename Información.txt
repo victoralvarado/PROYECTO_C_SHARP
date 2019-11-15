@@ -1,12 +1,12 @@
 ---------------------------------------------------------------------------------------------
-Sistema de registro y control de herramientas para bodega de la empresa "VAAD Construcción".
+Tema del proyecto: Sistema de registro y control de herramientas para bodega de la empresa "VAAD Construcción".
 ---------------------------------------------------------------------------------------------
 Sistema: ToolSoft.
 ----------------------------------------------------------
 Integrantes:
 Victor Eliezar Alvarado Guzmán.
 Adrián Alexander Luna López.
-Joseline Andrea Rosales Rodríguez Rosales.
+Joseline Andrea Rosales Rodríguez.
 Diego Alejandro Rosa Iraheta.
 ----------------------------------------------------------
 Credenciales de acceso:
@@ -24,18 +24,18 @@ Contraseña: 123456
 ----------------------------------------------------------
 INDICACIONES
 Primero acceder con un nombre de usuario y una contraseña.
-Para hacer un nuevo prestamo dar clic en NUEVO PRÉSTAMO. En la tabla empleado seleccionar al empleado que se le prestara 
+Para hacer un nuevo préstamo dar clic en NUEVO PRÉSTAMO. En la tabla empleado seleccionar al empleado que se le prestara 
 la herramienta, luego seleccionar la herramienta que se prestara y dar clic en PRESTAR. En la tabla que esta a la derecha
-se mostraran los prestamos realizados de cada empleado.
+se mostraran los préstamos realizados de cada empleado.
 
-Para cuando el empleado devuelve la herramienta, Deve de dar clic en DEVOLUCIÓN, se debe seleccionar en la tabla el empleado 
+Para cuando el empleado devuelve la herramienta, Debe de dar clic en DEVOLUCIÓN, se debe seleccionar en la tabla el empleado 
 que entregará la herramienta y en el ComboBox se debe seleccionar el estado en que se devolvió la herramienta. En la tabla de abajo
-se mostraran las herramientas que estan y no estan en uso.
+se mostraran las herramientas que están y no están en uso.
 
 MANTENIMIENTOS(clic en GESTIONAR para desplegar el submenú)
-Ingreso de categorias a la base de datos(crud).
+Ingreso de categorías a la base de datos(crud).
 Ingreso de nuevas herramientas a la base de datos (crud).
-Registro de usuarios que tendran acceso al sistema(crud).
+Registro de usuarios que tendrán acceso al sistema(crud).
 Registro del personal que usa las herramientas (crud).
 
 REPORTES(clic en REPORTES)
@@ -46,7 +46,7 @@ Reporte de herramientas nuevas.
 Reporte de herramientas en uso (prestadas).
 Reporte de herramientas disponibles a la hora y fecha.
 Reporte de herramientas prestadas (ordenadas por personal).
-Reporte de historial de prestamos.
+Reporte de historial de préstamos.
 Reporte de historial de devolución.
 
 
